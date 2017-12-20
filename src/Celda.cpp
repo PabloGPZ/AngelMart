@@ -6,10 +6,6 @@
 
 #include "Celda.h"
 
-
-const int VALOR_PREDEFINIDO = -1;
-
-
 void iniciar(Celda &c){
 	c.valor = VALOR_PREDEFINIDO;
 	c.estaVacia = true;

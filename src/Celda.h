@@ -9,6 +9,8 @@
 #ifndef CELDA_H_
 #define CELDA_H_
 
+const int VALOR_PREDEFINIDO = -1;
+
 struct Celda{
 	int valor;
 	bool estaVacia;
