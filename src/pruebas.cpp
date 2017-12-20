@@ -7,6 +7,7 @@
 //============================================================================
 
 #include "entorno.h"
+#include "Celda.h"
 #include <iostream>
 
 using namespace std;
@@ -115,5 +116,6 @@ void pruebasEntorno() {
 
 int main(){
 	pruebasEntorno();
+	pruebasTADCelda();
 	return 0;
 }
