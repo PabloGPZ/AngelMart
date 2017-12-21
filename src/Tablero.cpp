@@ -5,3 +5,6 @@
  */
 
 #include "Tablero.h"
+#include "Celda.h"
+#include "entorno.h"
+
