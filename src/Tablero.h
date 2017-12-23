@@ -11,7 +11,7 @@
 
 const int MAX_TAMANO = 10;
 
-typedef Celda vCeldas[MAX_TAMANO];
+typedef Celda vCeldas[MAX_TAMANO][MAX_TAMANO];
 
 struct Tablero{
 	vCeldas v;
@@ -25,12 +25,14 @@ struct Tablero{
  */
 int obtenerConfTamanoTablero();
 
+
 /*
  * PRE: 4 <= 'tamano' <= 10
  * POST: Modifica el Tablero 't' para iniciarlo con el tamño indicado por 'tamano'
  * COMPLEJIDAD: 0(1)
  */
 void iniciarTablero(Tablero &t, int tamano);
+
 
 /*
  * PRE: 'pos_x' y 'pos_y' dentro de los límites del Tablero 't' y la celda objetivo está vacia
@@ -39,12 +41,14 @@ void iniciarTablero(Tablero &t, int tamano);
  */
 void insertarFicha(Tablero &t, int pos_x, int pos_y);
 
+
 /*
  * PRE: 'pos_x' y 'pos_y' dentro de los límites del Tablero 't' y la celda objetivo contiene una ficha
  * POST: Modifica el Tablero 't' para eliminar la ficha en la posición ('pos_x', 'pos_y')
  * COMPLEJIDAD: O(1)
  */
 void eliminarFicha(Tablero &t, int pos_x, int pos_y);
+
 
 /*
  * PRE: 'pos_x' y 'pos_y' dentro de los límites del Tablero 't' y la celda objetivo contiene una ficha
@@ -53,12 +57,14 @@ void eliminarFicha(Tablero &t, int pos_x, int pos_y);
  */
 void fichaVoltear(Tablero &t, int pos_x, int pos_y);
 
+
 /*
  * PRE:
  * POST: Devuelve si cabe una nueva Fila en el Tablero 't'
  * COMPLEJIDAD: O(1)
  */
 bool cabeFila(Tablero t);
+
 
 /*
  * PRE: cabe una nueva fila en el Tablero 't'
@@ -68,12 +74,14 @@ bool cabeFila(Tablero t);
  */
 void insertarFila(Tablero &t);
 
+
 /*
  * PRE:
  * POST: Devuelve si el Tablero 't' está vacio
  * COMPLEJIDAD: 0(1)
  */
 bool estaVacio(Tablero t);
+
 
 /*
  * PRE:
@@ -82,6 +90,7 @@ bool estaVacio(Tablero t);
  */
 int obtenerTamanoTablero(Tablero t);
 
+
 /*
  * PRE: 'pos_x' y 'pos_y' dentro de los límites del Tablero 't'
  * POST: Devuelve si la celda de la posicion ('pos_x','pos_y') contiene o no una ficha
@@ -89,12 +98,14 @@ int obtenerTamanoTablero(Tablero t);
  */
 bool celdaEstaVacia(Tablero t, int pos_x, int pos_y);
 
+
 /*
  * PRE: 'pos_x' y 'pos_y' dentro de los límites del Tablero 't' y existe una ficha en la posicion ('pos_x','pos_y')
  * POST: Devuelve el valor de la celda de la posicion ('pos_x','pos_y') contiene o no una ficha
  * COMPLEJIDAD: 0(1)
  */
 int celdaObtenerValor(Tablero t, int pos_x, int pos_y);
+
 
 /*
  * PRE: 'pos_x' y 'pos_y' dentro de los límites del Tablero 't' y existe una ficha en en la posicion ('pos_x','pos_y')
