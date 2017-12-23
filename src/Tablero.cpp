@@ -9,6 +9,7 @@
 #include "entorno.h"
 
 int obtenerConfTamanoTablero() {
+	//placeholder_x son variables basura necesarias para rellenar la llamada al módulo entornoCargarConfiguracion()
 	int tamano, placehorlder_1, placeholder_2;
 	if(!entornoCargarConfiguracion(tamano, placehorlder_1, placeholder_2))
 		tamano = -1;
@@ -30,9 +31,21 @@ void eliminarFicha(Tablero& t, int pos_x, int pos_y) {
 }
 
 void fichaVoltear(Tablero& t, int pos_x, int pos_y) {
+	if(!obtenerMostrandoAnverso(t.v[pos_y][pos_x]))
+		ponerMostrandoAnverso(t.v[pos_y][pos_x], true);
+	else
+		ponerMostrandoAnverso(t.v[pos_y][pos_x], false);
 }
 
 bool cabeFila(Tablero t) {
+	bool cabeFila = true; //bandera
+	if(!estaVacio(t)){
+		for(int i=0; i<MAX_TAMANO && cabeFila; i++){ //comprueba solo la fila superior
+			if(!celdaEstaVacia(t, 0, i))
+				cabeFila = false;
+		}
+	}
+	return cabeFila;
 }
 
 void insertarFila(Tablero& t) {
