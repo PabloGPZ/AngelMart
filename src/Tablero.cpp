@@ -8,14 +8,6 @@
 #include "Celda.h"
 #include "entorno.h"
 
-int obtenerConfTamanoTablero() {
-	//placeholder_x son variables basura necesarias para rellenar la llamada al módulo entornoCargarConfiguracion()
-	int tamano, placehorlder_1, placeholder_2;
-	if(!entornoCargarConfiguracion(tamano, placehorlder_1, placeholder_2))
-		tamano = -1;
-	return tamano;
-}
-
 void iniciarTablero(Tablero& t, int tamano) {
 	t.tamanoTablero = tamano;
 }

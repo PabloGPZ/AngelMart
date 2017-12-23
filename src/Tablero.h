@@ -19,14 +19,6 @@ struct Tablero{
 };
 
 /*
- * PRE: Existe el fichero de configuración AngelMart.cnf en la raiz y es correcto
- * POST: Devuelve un entero indicando el tamaño del tablero indicado por la configuración
- * COMPLEJIDAD: O(1)
- */
-int obtenerConfTamanoTablero();
-
-
-/*
  * PRE: 4 <= 'tamano' <= 10
  * POST: Modifica el Tablero 't' para iniciarlo con el tamño indicado por 'tamano'
  * COMPLEJIDAD: 0(1)
