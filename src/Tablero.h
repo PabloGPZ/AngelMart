@@ -1,8 +1,8 @@
 /*
- * Celda.h
+ * Tablero.h
  * Autor: jgarciapft
  *
- * Descripción: TAD que maneja las el tablero de juego en memoria
+ * Descripción: TAD que maneja el tablero de juego en memoria
  *
  */
 
@@ -21,7 +21,7 @@ struct Tablero{
 /*
  * PRE: 4 <= 'tamano' <= 10
  * POST: Modifica el Tablero 't' para iniciarlo con el tamño indicado por 'tamano'
- * COMPLEJIDAD: 0(1)
+ * COMPLEJIDAD: 0(n²)
  */
 void iniciarTablero(Tablero &t, int tamano);
 
