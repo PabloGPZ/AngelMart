@@ -7,7 +7,7 @@
 //============================================================================
 
 #include "entorno.h"
-#include "Celda.h"
+#include "pruebaCelda.h"
 #include <iostream>
 
 using namespace std;

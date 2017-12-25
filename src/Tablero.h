@@ -9,6 +9,8 @@
 #ifndef TABLERO_H_
 #define TABLERO_H_
 
+#include "Celda.h"
+
 const int MAX_TAMANO = 10;
 
 typedef Celda vCeldas[MAX_TAMANO][MAX_TAMANO];

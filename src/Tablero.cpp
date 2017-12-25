@@ -3,11 +3,9 @@
  * Autor: jgarciapft
  *
  *TODO Replantearse los módulos definidos
- *TODO ERROR FATAL. ALGO OCURRE CON LA LIBRERÍA ALLEGRO
  */
 
 #include "Tablero.h"
-#include "Celda.h"
 #include "entorno.h"
 
 void iniciarTablero(Tablero& t, int tamano) {
