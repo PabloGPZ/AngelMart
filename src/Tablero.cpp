@@ -39,7 +39,7 @@ void fichaVoltear(Tablero& t, int pos_x, int pos_y) {
 bool cabeFila(Tablero t) {
 	bool cabeFila = true; //bandera
 	if(!estaVacio(t)){
-		for(int i=0; i<MAX_TAMANO && cabeFila; i++){ //comprueba solo la fila superior
+		for(int i=0; i<obtenerTamanoTablero(t) && cabeFila; i++){ //comprueba solo la fila superior
 			if(!celdaEstaVacia(t, 0, i))
 				cabeFila = false;
 		}

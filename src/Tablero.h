@@ -31,7 +31,7 @@ void iniciarTablero(Tablero &t, int tamano);
 /*
  * PRE: 'pos_x' y 'pos_y' dentro de los límites del Tablero 't' y la celda objetivo está vacia
  * POST: Modifica el Tablero 't' para insertar una ficha en la posición ('pos_x', 'pos_y')
- * COMPLEJIDAD: O(1)
+ * COMPLEJIDAD: O(n)
  */
 void insertarFicha(Tablero &t, int pos_x, int pos_y);
 
@@ -39,7 +39,7 @@ void insertarFicha(Tablero &t, int pos_x, int pos_y);
 /*
  * PRE: 'pos_x' y 'pos_y' dentro de los límites del Tablero 't' y la celda objetivo contiene una ficha
  * POST: Modifica el Tablero 't' para eliminar la ficha en la posición ('pos_x', 'pos_y')
- * COMPLEJIDAD: O(1)
+ * COMPLEJIDAD: O(n)
  */
 void eliminarFicha(Tablero &t, int pos_x, int pos_y);
 
@@ -55,7 +55,7 @@ void fichaVoltear(Tablero &t, int pos_x, int pos_y);
 /*
  * PRE:
  * POST: Devuelve si cabe una nueva Fila en el Tablero 't'
- * COMPLEJIDAD: O(1)
+ * COMPLEJIDAD: O(n)
  */
 bool cabeFila(Tablero t);
 
