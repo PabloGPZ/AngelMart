@@ -72,7 +72,7 @@ void insertarFila(Tablero &t);
 /*
  * PRE:
  * POST: Devuelve si el Tablero 't' está vacio
- * COMPLEJIDAD: 0(1)
+ * COMPLEJIDAD: 0(n)
  */
 bool estaVacio(Tablero t);
 
