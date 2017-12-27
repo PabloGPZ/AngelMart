@@ -6,6 +6,10 @@
 
 #include "Tablero.h"
 #include "entorno.h"
+#include <stdlib.h>
+#include <time.h>
+
+using namespace std;
 
 void iniciarTablero(Tablero& t, int tamano) {
 	t.tamanoTablero = tamano;
@@ -67,7 +71,18 @@ bool cabeFila(Tablero t) {
 	return cabeFila;
 }
 
+//TODO terminar insertarFila()
 void insertarFila(Tablero& t) {
+	//Algoritmo de generación de parejas
+	srand(time(NULL)); //semilla que se actualiza con el tiempo del sistema
+	int valores[obtenerTamanoTablero(t)/2]; //hay que generar tamanoTablero/2 parejas de valores
+	for(int i=0; i<obtenerTamanoTablero(t)/2; i++){ //popula valores[] para obtener posteriormente los pares de valores
+		valores[i] = rand()%10;
+	}
+
+	for(int i=0; i<obtenerTamanoTablero(t); i++){
+		insertarFicha(t, i, 0, NULL); //TODO
+	}
 }
 
 bool estaVacio(Tablero t) {

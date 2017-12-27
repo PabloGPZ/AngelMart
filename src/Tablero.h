@@ -21,7 +21,7 @@ struct Tablero{
 };
 
 /*
- * PRE: 4 <= 'tamano' <= 10
+ * PRE: 4 <= 'tamano' <= 10 y es un valor par
  * POST: Modifica el Tablero 't' para iniciarlo con el tamño indicado por 'tamano'
  * COMPLEJIDAD: 0(n²)
  */
