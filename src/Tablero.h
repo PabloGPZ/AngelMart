@@ -33,7 +33,7 @@ void iniciarTablero(Tablero &t, int tamano);
  * POST: Modifica el Tablero 't' para insertar una ficha en la posición ('pos_x', 'pos_y')
  * COMPLEJIDAD: O(n)
  */
-void insertarFicha(Tablero &t, int pos_x, int pos_y);
+void insertarFicha(Tablero &t, int pos_x, int pos_y, int valor);
 
 
 /*

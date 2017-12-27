@@ -2,7 +2,6 @@
  * Tablero.cpp
  * Autor: jgarciapft
  *
- *TODO Replantearse los módulos definidos
  */
 
 #include "Tablero.h"
@@ -18,10 +17,8 @@ void iniciarTablero(Tablero& t, int tamano) {
 }
 
 //TODO Corregir insertarFicha()
-void insertarFicha(Tablero& t, int pos_x, int pos_y) {
-	Celda c;
-	iniciar(c);
-	t.v[pos_y][pos_x] = c;
+void insertarFicha(Tablero& t, int pos_x, int pos_y, int valor) {
+
 }
 
 //TODO Corregir eliminarFicha()
