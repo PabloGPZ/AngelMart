@@ -14,6 +14,7 @@
 const int MAX_TAMANO = 10;
 
 typedef Celda vCeldas[MAX_TAMANO][MAX_TAMANO];
+typedef int vValores[MAX_TAMANO];
 
 struct Tablero{
 	vCeldas v;
@@ -108,5 +109,13 @@ int celdaObtenerValor(Tablero t, int pos_x, int pos_y);
  * COMPLEJIDAD: 0(1)
  */
 bool celdaObtenerMostrandoAnverso(Tablero t, int pos_x, int pos_y);
+
+/*
+ * PRE: 4 <= 'tamano' <= 10 y es un valor par
+ * POST: Modifica un vector 'vector' del tipo vValores de valores aleatorios únicos del tamaño 'tamano'
+ * 			y de valores dentro del rango [0, 'rang']
+ * COMPLEJIDAD: 0(n)
+ */
+void generarVectorUnico(vValores &vector, int tamano, int rang);
 
 #endif /* TABLERO_H_ */

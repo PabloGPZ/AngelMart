@@ -71,38 +71,20 @@ bool cabeFila(Tablero t) {
 	return cabeFila;
 }
 
-//TODO terminar insertarFila()
+//v1.0
 void insertarFila(Tablero& t) {
-	//Algoritmo de generación de parejas
-	srand(time(NULL)); //semilla que se actualiza con el tiempo del sistema
-	bool enc = false; //bandera
-	int valor; //valor generado
-	int j; //indice
-	int coincidencias[obtenerTamanoTablero(t)/2]; //vector de valores generados anteriormente para evitar valores repetidos
-	int valores[obtenerTamanoTablero(t)]; //hay que generar tamanoTablero/2 parejas de valores
+	vValores valores;
+	vValores posiciones;
 
-	for(int i=0; i<obtenerTamanoTablero(t)/2; i++){ //Inicializa coincidencias[] con valores negativos para garantizar que no puedan coincidir con los generados
-		coincidencias[i] = -1;
+	generarVectorUnico(valores, obtenerTamanoTablero(t)/2, 9); //vector de valores únicos que representan una fila nueva. Solo se rellena hasta la mitad
+	generarVectorUnico(posiciones, obtenerTamanoTablero(t)/2, 5); //vector de posiciones que deben ocupar cada pareja de valores generados
+
+	for(int i=obtenerTamanoTablero(t)/2; i<obtenerTamanoTablero(t); i++){ //relleno la otra mitad del vector con las parejas de los valores presentes en base al vector de posiciones
+		valores[i] = valores[posiciones[i-obtenerTamanoTablero(t)/2]];
 	}
 
-	for(int i=0; i<obtenerTamanoTablero(t)/2; i++){ //popula la mitad de valores[] para obtener posteriormente los pares de valores
-		valor = rand()%10;
-		for(j=0; j<i && !enc; j++){
-			if(coincidencias[j] == valor)
-				enc = true;
-		}
-		if(!enc){
-			coincidencias[j];
-			valores[i] = valor;
-		}else{
-			i--; //Si el valor esta repetido no cuenta la iteración
-		}
-		enc = false;
-	}
-
-	//TODO Mover el algoritmo a un método
-	for(int i=0; i<obtenerTamanoTablero(t); i++){
-		insertarFicha(t, i, 0, NULL);
+	for(int i=0; i<obtenerTamanoTablero(t); i++){ //inserción de fichas
+		insertarFicha(t, i, 0, valores[i]);
 	}
 }
 
@@ -129,4 +111,28 @@ int celdaObtenerValor(Tablero t, int pos_x, int pos_y) {
 
 bool celdaObtenerMostrandoAnverso(Tablero t, int pos_x, int pos_y) {
 	return obtenerMostrandoAnverso(t.v[pos_y][pos_x]);
+}
+
+//v1.0
+void generarVectorUnico(vValores &vector, int tamano, int rang){
+	/*
+	 *Algoritmo de generación de vectores de valores únicos para la generación de filas de valores emparejados
+	 */
+	srand(time(NULL)); //semilla que se actualiza con el tiempo del sistema
+	bool enc = false; //bandera
+	int valor; //valor generado
+	int j; //indice
+
+	for(int i=0; i<tamano; i++){ //popula vector[]
+		valor = rand()%rang;
+		for(j=0; j<i && !enc; j++){ //comprobamos que el valor no esté repetido
+			if(vector[j] == valor)
+				enc = true;
+		}
+		if(!enc)
+			vector[i] = valor;
+		else
+			i--; //Si el valor esta repetido no cuenta la iteración
+		enc = false;
+	}
 }
