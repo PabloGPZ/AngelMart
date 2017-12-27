@@ -16,9 +16,19 @@ void iniciarTablero(Tablero& t, int tamano) {
 	}
 }
 
-//TODO Corregir insertarFicha()
+//v1.0
 void insertarFicha(Tablero& t, int pos_x, int pos_y, int valor) {
+	bool obs = false;
 
+	ponerValor(t.v[pos_y][pos_x], valor);
+	for(int i=0; i<obtenerTamanoTablero(t) && !obs; i++){
+		if(celdaEstaVacia(t, pos_y+1, pos_x)){
+			t.v[pos_y+1][pos_x] = t.v[pos_y][pos_x];
+			vaciarCelda(t.v[pos_y][pos_x]);
+		}else{
+			obs = true;
+		}
+	}
 }
 
 //TODO Corregir eliminarFicha()
