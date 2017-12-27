@@ -18,10 +18,10 @@ void iniciarTablero(Tablero& t, int tamano) {
 
 //v1.0
 void insertarFicha(Tablero& t, int pos_x, int pos_y, int valor) {
-	bool obs = false;
+	bool obs = false; //bandera
 
 	ponerValor(t.v[pos_y][pos_x], valor);
-	for(int i=0; i<obtenerTamanoTablero(t) && !obs; i++){
+	for(int i=0; i<obtenerTamanoTablero(t)-1 && !obs; i++){ //deja caer la ficha
 		if(celdaEstaVacia(t, pos_y+1, pos_x)){
 			t.v[pos_y+1][pos_x] = t.v[pos_y][pos_x];
 			vaciarCelda(t.v[pos_y][pos_x]);
@@ -31,9 +31,22 @@ void insertarFicha(Tablero& t, int pos_x, int pos_y, int valor) {
 	}
 }
 
-//TODO Corregir eliminarFicha()
+//v1.0
 void eliminarFicha(Tablero& t, int pos_x, int pos_y) {
+	bool vacio = false; //bandera
+	int movidas = 0; //contador
+
 	vaciarCelda(t.v[pos_y][pos_x]);
+	for(int i=0; i<obtenerTamanoTablero(t)-1 && !vacio; i++){ //deja caer las fichas superiores
+		if(!celdaEstaVacia(t, pos_y-1-movidas, pos_x)){
+			t.v[pos_y][pos_x] = t.v[pos_y-1-movidas][pos_x];
+			vaciarCelda(t.v[pos_y-1-movidas][pos_x]);
+			movidas++;
+		}
+		else{
+			vacio = true;
+		}
+	}
 }
 
 void fichaVoltear(Tablero& t, int pos_x, int pos_y) {
