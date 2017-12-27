@@ -75,13 +75,34 @@ bool cabeFila(Tablero t) {
 void insertarFila(Tablero& t) {
 	//Algoritmo de generación de parejas
 	srand(time(NULL)); //semilla que se actualiza con el tiempo del sistema
-	int valores[obtenerTamanoTablero(t)/2]; //hay que generar tamanoTablero/2 parejas de valores
-	for(int i=0; i<obtenerTamanoTablero(t)/2; i++){ //popula valores[] para obtener posteriormente los pares de valores
-		valores[i] = rand()%10;
+	bool enc = false; //bandera
+	int valor; //valor generado
+	int j; //indice
+	int coincidencias[obtenerTamanoTablero(t)/2]; //vector de valores generados anteriormente para evitar valores repetidos
+	int valores[obtenerTamanoTablero(t)]; //hay que generar tamanoTablero/2 parejas de valores
+
+	for(int i=0; i<obtenerTamanoTablero(t)/2; i++){ //Inicializa coincidencias[] con valores negativos para garantizar que no puedan coincidir con los generados
+		coincidencias[i] = -1;
 	}
 
+	for(int i=0; i<obtenerTamanoTablero(t)/2; i++){ //popula la mitad de valores[] para obtener posteriormente los pares de valores
+		valor = rand()%10;
+		for(j=0; j<i && !enc; j++){
+			if(coincidencias[j] == valor)
+				enc = true;
+		}
+		if(!enc){
+			coincidencias[j];
+			valores[i] = valor;
+		}else{
+			i--; //Si el valor esta repetido no cuenta la iteración
+		}
+		enc = false;
+	}
+
+	//TODO Mover el algoritmo a un método
 	for(int i=0; i<obtenerTamanoTablero(t); i++){
-		insertarFicha(t, i, 0, NULL); //TODO
+		insertarFicha(t, i, 0, NULL);
 	}
 }
 
