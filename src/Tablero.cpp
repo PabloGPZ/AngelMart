@@ -35,17 +35,15 @@ void insertarFicha(Tablero& t, int pos_x, int pos_y, int valor) {
 	}
 }
 
-//v1.0
+//v1.1
 void eliminarFicha(Tablero& t, int pos_x, int pos_y) {
 	bool vacio = false; //bandera
-	int movidas = 0; //contador
 
 	vaciarCelda(t.v[pos_y][pos_x]);
 	for(int i=0; i<obtenerTamanoTablero(t)-1 && !vacio; i++){ //deja caer las fichas superiores
-		if(!celdaEstaVacia(t, pos_y-1-movidas, pos_x)){
-			t.v[pos_y][pos_x] = t.v[pos_y-1-movidas][pos_x];
-			vaciarCelda(t.v[pos_y-1-movidas][pos_x]);
-			movidas++;
+		if(!celdaEstaVacia(t, pos_y-1-i, pos_x)){
+			t.v[pos_y-i][pos_x] = t.v[pos_y-1-i][pos_x];
+			vaciarCelda(t.v[pos_y-1-i][pos_x]);
 		}
 		else{
 			vacio = true;
@@ -73,8 +71,8 @@ bool cabeFila(Tablero t) {
 
 //v1.0
 void insertarFila(Tablero& t) {
-	vValores valores;
-	vValores posiciones;
+	vValores valores; //vector de valores
+	vValores posiciones; //vector de posiciones
 
 	generarVectorUnico(valores, obtenerTamanoTablero(t)/2, 9); //vector de valores únicos que representan una fila nueva. Solo se rellena hasta la mitad
 	generarVectorUnico(posiciones, obtenerTamanoTablero(t)/2, 5); //vector de posiciones que deben ocupar cada pareja de valores generados
@@ -123,7 +121,7 @@ void generarVectorUnico(vValores &vector, int tamano, int rang){
 	int valor; //valor generado
 	int j; //indice
 
-	for(int i=0; i<tamano; i++){ //popula vector[]
+	for(int i=0; i<tamano; i++){ //popula vector[] hasta 'tamano'
 		valor = rand()%rang;
 		for(j=0; j<i && !enc; j++){ //comprobamos que el valor no esté repetido
 			if(vector[j] == valor)
