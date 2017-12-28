@@ -35,3 +35,6 @@ void pruebaEstaVacio() {
 
 void pruebaGenerarVectorUnico() {
 }
+
+void pruebasTADTablero(){
+}

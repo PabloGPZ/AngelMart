@@ -83,4 +83,9 @@ void pruebaEstaVacio();
  */
 void pruebaGenerarVectorUnico();
 
+
+/*
+ * Módulo para llamar a todas las pruebas del TAD Tablero
+ */
+void pruebasTADTablero();
 #endif /* PRUEBATABLERO_H_ */
