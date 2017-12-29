@@ -35,15 +35,15 @@ void insertarFicha(Tablero &t, int pos_x, int pos_y, int valor) {
 	}
 }
 
-//v1.1
+//v1.2
 void eliminarFicha(Tablero &t, int pos_x, int pos_y) {
 	bool vacio = false; //bandera
 
 	vaciarCelda(t.v[pos_y][pos_x]);
 	for(int i=0; i<obtenerTamanoTablero(t)-1 && !vacio; i++){ //deja caer las fichas superiores
-		if(!celdaEstaVacia(t, pos_y-1-i, pos_x)){
-			t.v[pos_y-i][pos_x] = t.v[pos_y-1-i][pos_x];
-			vaciarCelda(t.v[pos_y-1-i][pos_x]);
+		if(!celdaEstaVacia(t, pos_x, pos_y-i-1)){
+			ponerValor(t.v[pos_y-i][pos_x],  celdaObtenerValor(t, pos_x, pos_y-i-1));
+			vaciarCelda(t.v[pos_y-i-1][pos_x]);
 		}
 		else{
 			vacio = true;

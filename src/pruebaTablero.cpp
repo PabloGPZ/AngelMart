@@ -51,7 +51,6 @@ void pruebaEliminarFicha() {
 		cout << "ERROR: La primera ficha no se ha eliminado correctamente" << endl;
 
 	//2. Se elimina una ficha que tenga más fichas encima
-
 	eliminarFicha(t1, 1, obtenerTamanoTablero(t1)-1);
 	if(celdaEstaVacia(t1, 1, obtenerTamanoTablero(t1)-2) != true
 			&& celdaObtenerValor(t1, 1, obtenerTamanoTablero(t1)-1) != 1) //1 es el valor de la ficha superior
@@ -162,10 +161,9 @@ void pruebasTADTablero(){
 
 	pruebaIniciarTablero();
 	pruebaInsertarFicha();
-	mostrarTablero(t1);
-	/*pruebaEliminarFicha();
+	pruebaEliminarFicha();
 	pruebaFichaVoltear();
-	pruebaCabeFila();
+	/*pruebaCabeFila();
 	pruebaInsertarFila();
 	pruebaEstaVacio();
 	pruebaGenerarVectorUnico();*/
