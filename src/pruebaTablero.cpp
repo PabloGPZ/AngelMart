@@ -19,7 +19,7 @@ void pruebaIniciarTablero() {
 	iniciarTablero(t1, 6);
 	for(int i=0; i<obtenerTamanoTablero(t1) && correcto; i++){
 		for(int j=0; j<obtenerTamanoTablero(t1) && correcto; j++){
-			if(celdaEstaVacia(t1, j, i) != false)
+			if(celdaEstaVacia(t1, j, i) != true)
 				correcto = false;
 		}
 	}
@@ -152,6 +152,7 @@ void pruebasTADTablero(){
 	cout << "INICIO: pruebas del TAD Tablero" << endl;
 
 	pruebaIniciarTablero();
+	mostrarTablero(t1);
 	pruebaInsertarFicha();
 	pruebaEliminarFicha();
 	pruebaFichaVoltear();
