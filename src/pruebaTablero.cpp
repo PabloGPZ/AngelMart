@@ -15,13 +15,16 @@ using namespace std;
 Tablero t1, t2, t3;
 
 void pruebaIniciarTablero() {
+	bool correcto = true; //bandera
 	iniciarTablero(t1, 6);
-	for(int i=0; i<obtenerTamanoTablero(t1); i++){
-		for(int j=0; j<obtenerTamanoTablero(t1); j++){
+	for(int i=0; i<obtenerTamanoTablero(t1) && correcto; i++){
+		for(int j=0; j<obtenerTamanoTablero(t1) && correcto; j++){
 			if(celdaEstaVacia(t1, j, i) != false)
-				cout << "ERROR: La porción del tablero designada por el tamaño no está inicializada" << endl;
+				correcto = false;
 		}
 	}
+	if(!correcto)
+		cout << "ERROR: La porción del tablero designada por el tamaño no está inicializada" << endl;
 	if(celdaEstaVacia(t1, 0, obtenerTamanoTablero(t1)+1) != false)
 		cout << "ERROR: Se inician más filas inferiores de las que indica el tamaño" << endl;
 	if(celdaEstaVacia(t1, obtenerTamanoTablero(t1)+1, 0) != false)
@@ -118,7 +121,7 @@ void pruebaEstaVacio() {
 
 void pruebaGenerarVectorUnico() {
 	//La comprobación es visual para evitar repetir el mismo algoritmo de busqueda de repeticiones dentro del vector
-	vValores v1;
+	vValores v1, v2, v3;
 	generarVectorUnico(v1, 5, 6);
 
 	//1. Primer vector único
@@ -129,18 +132,18 @@ void pruebaGenerarVectorUnico() {
 	cout << endl;
 
 	//2. Segundo vector único
-	generarVectorUnico(v1, 5, 6);
+	generarVectorUnico(v2, 5, 6);
 	cout << "v2 -> ";
 	for(int i=0; i<6; i++){
-		cout << "[" << v1[i] << "]";
+		cout << "[" << v2[i] << "]";
 	}
 	cout << endl;
 
 	//3. Tercer vector único
-	generarVectorUnico(v1, 5, 6);
+	generarVectorUnico(v3, 5, 6);
 	cout << "v3 -> ";
 	for(int i=0; i<6; i++){
-		cout << "[" << v1[i] << "]";
+		cout << "[" << v3[i] << "]";
 	}
 	cout << endl;
 }
