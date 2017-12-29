@@ -11,7 +11,7 @@
 
 using namespace std;
 
-void iniciarTablero(Tablero& t, int tamano) {
+void iniciarTablero(Tablero &t, int tamano) {
 	t.tamanoTablero = tamano;
 	for(int i=0; i<tamano; i++){ //bucles para iniciar cada celda del tablero
 		for(int j=0; j<tamano; j++){
@@ -20,15 +20,15 @@ void iniciarTablero(Tablero& t, int tamano) {
 	}
 }
 
-//v1.0
-void insertarFicha(Tablero& t, int pos_x, int pos_y, int valor) {
+//v1.1
+void insertarFicha(Tablero &t, int pos_x, int pos_y, int valor) {
 	bool obs = false; //bandera
 
 	ponerValor(t.v[pos_y][pos_x], valor);
 	for(int i=0; i<obtenerTamanoTablero(t)-1 && !obs; i++){ //deja caer la ficha
-		if(celdaEstaVacia(t, pos_y+1, pos_x)){
-			t.v[pos_y+1][pos_x] = t.v[pos_y][pos_x];
-			vaciarCelda(t.v[pos_y][pos_x]);
+		if(celdaEstaVacia(t, pos_x, pos_y+i+1)){
+			ponerValor(t.v[pos_y+i+1][pos_x],  celdaObtenerValor(t, pos_x, pos_y+i));
+			vaciarCelda(t.v[pos_y+i][pos_x]);
 		}else{
 			obs = true;
 		}
@@ -36,7 +36,7 @@ void insertarFicha(Tablero& t, int pos_x, int pos_y, int valor) {
 }
 
 //v1.1
-void eliminarFicha(Tablero& t, int pos_x, int pos_y) {
+void eliminarFicha(Tablero &t, int pos_x, int pos_y) {
 	bool vacio = false; //bandera
 
 	vaciarCelda(t.v[pos_y][pos_x]);
@@ -51,7 +51,7 @@ void eliminarFicha(Tablero& t, int pos_x, int pos_y) {
 	}
 }
 
-void fichaVoltear(Tablero& t, int pos_x, int pos_y) {
+void fichaVoltear(Tablero &t, int pos_x, int pos_y) {
 	if(!obtenerMostrandoAnverso(t.v[pos_y][pos_x]))
 		ponerMostrandoAnverso(t.v[pos_y][pos_x], true);
 	else
@@ -70,7 +70,7 @@ bool cabeFila(Tablero t) {
 }
 
 //v1.0
-void insertarFila(Tablero& t) {
+void insertarFila(Tablero &t) {
 	vValores valores; //vector de valores
 	vValores posiciones; //vector de posiciones
 

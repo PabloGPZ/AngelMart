@@ -38,8 +38,8 @@ void pruebaInsertarFicha() {
 		cout << "ERROR: La ficha no cae correctamente cuando no hay obstáculo" << endl;
 
 	//2. Se coloca un obstáculo para comprobar que pare
-	insertarFicha(t1, 0, 1, 0); //colocamos una ficha en la segunda columna
-	insertarFicha(t1, 0, 1, 1); //dejamos caer una encima
+	insertarFicha(t1, 1, 0, 0); //colocamos una ficha en la segunda columna
+	insertarFicha(t1, 1, 0, 1); //dejamos caer una encima
 	if(celdaEstaVacia(t1, 1, obtenerTamanoTablero(t1)-2) != false)
 		cout << "ERROR: La segunda ficha no se para en el obstáculo" << endl;
 }
@@ -161,14 +161,14 @@ void pruebasTADTablero(){
 	cout << "INICIO: pruebas del TAD Tablero" << endl;
 
 	pruebaIniciarTablero();
-	mostrarTablero(t1);
 	pruebaInsertarFicha();
-	pruebaEliminarFicha();
+	mostrarTablero(t1);
+	/*pruebaEliminarFicha();
 	pruebaFichaVoltear();
 	pruebaCabeFila();
 	pruebaInsertarFila();
 	pruebaEstaVacio();
-	pruebaGenerarVectorUnico();
+	pruebaGenerarVectorUnico();*/
 
 	cout << "FIN: pruebas del TAD Tablero" << endl << endl;
 }
