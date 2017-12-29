@@ -67,14 +67,12 @@ void pruebaFichaVoltear() {
 				fichaVoltear(t1, 1, obtenerTamanoTablero(t1)-1); //pasa de ANVERSO a REVERSO
 				if(celdaObtenerMostrandoAnverso(t1, 1, obtenerTamanoTablero(t1)-1) != false)
 					cout << "ERROR: La ficha no ha cambiado de ANVERSO a REVERSO" << endl;
-			}else{
-				cout << "PELIGRO: NO SE PUEDEN REALIZAR LAS PRUEBAS DE fichaVoltear()" << endl;
 			}
 		}else{
-			cout << "PELIGRO: NO SE PUEDEN REALIZAR LAS PRUEBAS DE fichaVoltear()" << endl;
+			cout << "PELIGRO: NO SE PUEDEN REALIZAR LAS PRUEBAS DE fichaVoltear() #2" << endl;
 		}
 	}else{
-		cout << "PELIGRO: NO SE PUEDEN REALIZAR LAS PRUEBAS DE fichaVoltear()" << endl;
+		cout << "PELIGRO: NO SE PUEDEN REALIZAR LAS PRUEBAS DE fichaVoltear() #1" << endl;
 	}
 }
 
@@ -150,7 +148,7 @@ void pruebaGenerarVectorUnico() {
 void mostrarTablero(Tablero t){
 	for(int i=0; i<obtenerTamanoTablero(t); i++){
 		for(int j=0; j<obtenerTamanoTablero(t); j++){
-			cout << "[" << celdaObtenerValor(t, j, i) << "/" << celdaEstaVacia(t, j, i) << "]";
+			cout << "[" << celdaObtenerValor(t, j, i) << "/" << celdaEstaVacia(t, j, i)<< "]";
 		}
 		cout << endl;
 	}
@@ -163,6 +161,7 @@ void pruebasTADTablero(){
 	pruebaInsertarFicha();
 	pruebaEliminarFicha();
 	pruebaFichaVoltear();
+	mostrarTablero(t1);
 	/*pruebaCabeFila();
 	pruebaInsertarFila();
 	pruebaEstaVacio();
