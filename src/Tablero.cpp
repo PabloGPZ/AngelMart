@@ -72,7 +72,7 @@ bool cabeFila(Tablero t) {
 //v1.0
 void insertarFila(Tablero &t) {
 	vValores valores; //vector de valores
-	vValores posiciones; //vector de posiciones
+	vValores posiciones; //vector de posiciones de parejas
 
 	generarVectorUnico(valores, obtenerTamanoTablero(t)/2, 9); //vector de valores únicos que representan una fila nueva. Solo se rellena hasta la mitad
 	generarVectorUnico(posiciones, obtenerTamanoTablero(t)/2, 5); //vector de posiciones que deben ocupar cada pareja de valores generados
@@ -111,7 +111,7 @@ bool celdaObtenerMostrandoAnverso(Tablero t, int pos_x, int pos_y) {
 	return obtenerMostrandoAnverso(t.v[pos_y][pos_x]);
 }
 
-//v1.0
+//v1.1
 void generarVectorUnico(vValores &vector, int tamano, int rang){
 	/*
 	 *Algoritmo de generación de vectores de valores únicos para la generación de filas de valores emparejados

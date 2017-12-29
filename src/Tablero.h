@@ -111,9 +111,9 @@ int celdaObtenerValor(Tablero t, int pos_x, int pos_y);
 bool celdaObtenerMostrandoAnverso(Tablero t, int pos_x, int pos_y);
 
 /*
- * PRE: 4 <= 'tamano' <= 10
+ * PRE: 4 <= 'tamano' <= 'rang' <= 10
  * POST: Modifica un vector 'vector' del tipo vValores de valores aleatorios únicos del tamaño 'tamano'
- * 			y de valores dentro del rango de 0 hasta 'rang'
+ * 			y de valores dentro del rango de 0 hasta 'rang'. Si 'tamano' > 'rang' se repetirán valores
  * COMPLEJIDAD: 0(n)
  */
 void generarVectorUnico(vValores &vector, int tamano, int rang);

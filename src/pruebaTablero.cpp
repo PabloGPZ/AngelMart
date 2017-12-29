@@ -118,29 +118,12 @@ void pruebaEstaVacio() {
 
 void pruebaGenerarVectorUnico() {
 	//La comprobación es visual para evitar repetir el mismo algoritmo de busqueda de repeticiones dentro del vector
-	vValores v1, v2, v3;
-	generarVectorUnico(v1, 5, 6);
+	vValores v;
 
-	//1. Primer vector único
-	cout << "v1 -> ";
-	for(int i=0; i<6; i++){
-		cout << "[" << v1[i] << "]";
-	}
-	cout << endl;
-
-	//2. Segundo vector único
-	generarVectorUnico(v2, 5, 6);
-	cout << "v2 -> ";
-	for(int i=0; i<6; i++){
-		cout << "[" << v2[i] << "]";
-	}
-	cout << endl;
-
-	//3. Tercer vector único
-	generarVectorUnico(v3, 5, 6);
-	cout << "v3 -> ";
-	for(int i=0; i<6; i++){
-		cout << "[" << v3[i] << "]";
+	generarVectorUnico(v, 5, 5);
+	cout << "v -> ";
+	for(int i=0; i<5; i++){
+		cout << "[" << v[i] << "]";
 	}
 	cout << endl;
 }
@@ -161,11 +144,10 @@ void pruebasTADTablero(){
 	pruebaInsertarFicha();
 	pruebaEliminarFicha();
 	pruebaFichaVoltear();
-	mostrarTablero(t1);
-	/*pruebaCabeFila();
+	pruebaCabeFila();
 	pruebaInsertarFila();
 	pruebaEstaVacio();
-	pruebaGenerarVectorUnico();*/
+	pruebaGenerarVectorUnico();
 
 	cout << "FIN: pruebas del TAD Tablero" << endl << endl;
 }
