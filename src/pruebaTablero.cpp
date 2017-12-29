@@ -148,6 +148,15 @@ void pruebaGenerarVectorUnico() {
 	cout << endl;
 }
 
+void mostrarTablero(Tablero t){
+	for(int i=0; i<obtenerTamanoTablero(t); i++){
+		for(int j=0; j<obtenerTamanoTablero(t); j++){
+			cout << "[" << celdaObtenerValor(t, j, i) << "/" << celdaEstaVacia(t, j, i) << "]";
+		}
+		cout << endl;
+	}
+}
+
 void pruebasTADTablero(){
 	cout << "INICIO: pruebas del TAD Tablero" << endl;
 
