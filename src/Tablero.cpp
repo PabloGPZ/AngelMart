@@ -74,8 +74,8 @@ void insertarFila(Tablero &t) {
 	vValores valores; //vector de valores
 	vValores posiciones; //vector de posiciones de parejas
 
-	generarVectorUnico(valores, obtenerTamanoTablero(t)/2, 9); //vector de valores únicos que representan una fila nueva. Solo se rellena hasta la mitad
-	generarVectorUnico(posiciones, obtenerTamanoTablero(t)/2, 5); //vector de posiciones que deben ocupar cada pareja de valores generados
+	generarVectorUnico(valores, obtenerTamanoTablero(t)/2, MAX_VALOR_FICHA+1); //vector de valores únicos que representan una fila nueva. Solo se rellena hasta la mitad
+	generarVectorUnico(posiciones, obtenerTamanoTablero(t)/2, obtenerTamanoTablero(t)/2); //vector de posiciones que deben ocupar cada pareja de valores generados
 
 	for(int i=obtenerTamanoTablero(t)/2; i<obtenerTamanoTablero(t); i++){ //relleno la otra mitad del vector con las parejas de los valores presentes en base al vector de posiciones
 		valores[i] = valores[posiciones[i-obtenerTamanoTablero(t)/2]];

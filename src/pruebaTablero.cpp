@@ -12,7 +12,7 @@
 
 using namespace std;
 
-Tablero t1, t2, t3;
+Tablero t1, t2, t3, t4;
 
 void pruebaIniciarTablero() {
 	bool correcto = true; //bandera
@@ -82,7 +82,7 @@ void pruebaCabeFila() {
 		cout << "ERROR: Se pueden insertar más filas en el tablero" << endl;
 
 	//2. Hay alguna ficha en la fila superior y por tanto no se puede introducir ninguna fila más
-	iniciarTablero(t2, 4); //Inicio un segundoo tablero
+	iniciarTablero(t2, 4); //Inicio un segundo tablero
 	for(int i=0; i<obtenerTamanoTablero(t2); i++){ //Relleno el tablero completamente
 		for(int j=0; j<obtenerTamanoTablero(t2); j++){
 			ponerValor(t2.v[i][j], 0);
@@ -146,6 +146,7 @@ void pruebasTADTablero(){
 	pruebaFichaVoltear();
 	pruebaCabeFila();
 	pruebaInsertarFila();
+	mostrarTablero(t4);
 	pruebaEstaVacio();
 	pruebaGenerarVectorUnico();
 

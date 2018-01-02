@@ -12,6 +12,7 @@
 #include "Celda.h"
 
 const int MAX_TAMANO = 10;
+const int MAX_VALOR_FICHA = 9;
 
 typedef Celda vCeldas[MAX_TAMANO][MAX_TAMANO];
 typedef int vValores[MAX_TAMANO];
