@@ -8,3 +8,12 @@
 #include "Tablero.h"
 #include "entorno.h"
 #include "pruebas.h"
+
+int main() {
+}
+
+void manejadorJuego() {
+}
+
+void terminarJuego() {
+}
