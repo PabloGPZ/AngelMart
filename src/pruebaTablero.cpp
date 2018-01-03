@@ -12,7 +12,7 @@
 
 using namespace std;
 
-Tablero t1, t2, t3, t4;
+Tablero t1, t2, t3;
 
 void pruebaIniciarTablero() {
 	bool correcto = true; //bandera

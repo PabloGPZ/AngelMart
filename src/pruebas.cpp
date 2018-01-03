@@ -115,9 +115,9 @@ void pruebasEntorno() {
 		}
 }
 
-int main(){
+int prubebas(){
 	//pruebasEntorno();
 	//pruebasTADCelda();
-	pruebasTADTablero();
+	//pruebasTADTablero();
 	return 0;
 }
