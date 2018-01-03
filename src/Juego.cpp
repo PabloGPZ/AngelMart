@@ -9,7 +9,9 @@
 #include "entorno.h"
 #include "pruebas.h"
 
-int main() {
+int main() { //cargarJuego()
+	//Llamada a todas las pruebas
+	pruebas();
 }
 
 void manejadorJuego() {

@@ -115,7 +115,7 @@ void pruebasEntorno() {
 		}
 }
 
-void prubebas(){
+void pruebas(){
 	//pruebasEntorno();
 	//pruebasTADCelda();
 	//pruebasTADTablero();

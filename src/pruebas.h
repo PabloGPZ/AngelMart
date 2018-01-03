@@ -16,6 +16,6 @@ void pruebasEntorno();
  * Módulo responsable de llamar a todas las pruebas de todos los TAD que requieren
  * de pruebas
  */
-void prubebas();
+void pruebas();
 
 #endif /* PRUEBAS_H_ */
