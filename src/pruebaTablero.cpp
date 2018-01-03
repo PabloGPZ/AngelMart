@@ -146,7 +146,6 @@ void pruebasTADTablero(){
 	pruebaFichaVoltear();
 	pruebaCabeFila();
 	pruebaInsertarFila();
-	mostrarTablero(t4);
 	pruebaEstaVacio();
 	pruebaGenerarVectorUnico();
 
