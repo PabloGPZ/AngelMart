@@ -11,8 +11,9 @@
 
 int tamanoTablero;  //guardará el número de filas y columnas del tablero, rol: valor fijo
 int tiempoJugada;   //guardará el tiempo de una jugada, rol: valor fijo
-int seg;	  		//almacena los segundos del cronometro, rol: más reciente
 int puntosPista; 	//guardara el número de puntos que se restan en algunas ampliaciones, rol: valor fijo
+int seg;	  		//almacena los segundos del cronometro, rol: más reciente
+int puntuacion;		//almacena la puntuación
 string mensaje;  	//almacena los diferentes mensajes que aparecen durante la ejecucion, rol: valor fijo
 bool salir;			//controla la salida del bucle, rol: bandera
 TipoTecla tecla;	//almacena las teclas pulsadas, rol: mas reciente
@@ -94,4 +95,8 @@ void manejadorJuego() {
 }
 
 void terminarJuego() {
+	mensaje = "Puntuación final : " + toString(puntuacion) + " ptos";
+	entornoMostrarMensajeFin(mensaje);
+	entornoPausa(1);
+	entornoTerminar();
 }
