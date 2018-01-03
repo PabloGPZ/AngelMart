@@ -36,15 +36,20 @@ int main() { //cargarJuego()
 	}
 }
 
-//v1.0
+//v1.1
 void manejadorJuego() {
-	//las siguentes instrucciones simulan el desplazamiento por el tablero
-	//utilizando las teclas de movimiento: arriba, abajo, derecha e izquierda
+	/*
+	 * Las siguentes instrucciones simulan el desplazamiento por el tablero
+	 * utilizando las teclas de movimiento: arriba, abajo, derecha e izquierda
+	 */
 	salir = false;
+	puntuacion = 0;
 	pos_x = 0;
 	pos_y = tamanoTablero-1;
+	entornoPonerPuntuacion(puntuacion);
 	entornoActivarCelda(pos_y, pos_x);
 	seg = 0; //se inician los segundos del cronómetro
+
 	while(!salir){
 		entornoTiempo(seg,tiempoJugada); //se actualizan y muestran los segundos del cronómetro
 		if(seg == tiempoJugada){ //al llegar a 'tiempoJugada' segundos, el cronómetro se vuelve a iniciar
@@ -92,10 +97,12 @@ void manejadorJuego() {
 				break;
 		}
 	}
+	if(salir)
+		terminarJuego();
 }
 
 void terminarJuego() {
-	mensaje = "Puntuación final : " + toString(puntuacion) + " ptos";
+	mensaje = "             Puntuación final : " + toString(puntuacion) + " ptos";
 	entornoMostrarMensajeFin(mensaje);
 	entornoPausa(1);
 	entornoTerminar();
