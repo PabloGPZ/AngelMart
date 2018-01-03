@@ -22,7 +22,7 @@ Tablero t;			//almacena el tablero en memoria
 
 int main() { //cargarJuego()
 	//Llamada a todas las pruebas
-	pruebas();
+	//pruebas();
 
 	//Carga la configuración e inicia el Tablero
 	if(entornoCargarConfiguracion(tamanoTablero,tiempoJugada,puntosPista)){
