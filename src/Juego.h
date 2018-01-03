@@ -10,6 +10,8 @@
 #ifndef JUEGO_H_
 #define JUEGO_H_
 
+const int FILAS_INICIALES = 2;
+
 /*
  * Punto de entrada del programa. Llama a todas las pruebas y carga la configuración
  * 	inicial para iniciar el entorno gráfico. Si se realiza correctamente llama al
