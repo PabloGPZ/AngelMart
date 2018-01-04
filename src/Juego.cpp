@@ -112,6 +112,8 @@ void manejadorJuego() {
 }
 
 void terminarJuego() {
+	if(estaVacio(t))
+		puntuacion = puntuacion + PTOS_FINAL_TABLERO_VACIO;
 	mensaje = "             Puntuación final : " + toString(puntuacion) + " ptos";
 	entornoMostrarMensajeFin(mensaje);
 	entornoPausa(1);

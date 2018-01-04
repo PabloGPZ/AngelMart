@@ -12,6 +12,7 @@
 
 const int FILAS_INICIALES = 2;
 const int PTOS_PAREJA = 10;
+const int PTOS_FINAL_TABLERO_VACIO = 50;
 
 /*
  * Punto de entrada del programa. Llama a todas las pruebas y carga la configuración
