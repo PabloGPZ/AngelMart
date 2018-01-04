@@ -11,6 +11,7 @@
 #define JUEGO_H_
 
 const int FILAS_INICIALES = 2;
+const int PTOS_PAREJA = 10;
 
 /*
  * Punto de entrada del programa. Llama a todas las pruebas y carga la configuración

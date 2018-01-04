@@ -51,11 +51,17 @@ void manejadorJuego() {
 	seg = 0; //se inician los segundos del cronómetro
 
 	while(!salir){
+		/*
+		 * Manejador de tiempo
+		 */
 		entornoTiempo(seg,tiempoJugada); //se actualizan y muestran los segundos del cronómetro
 		if(seg == tiempoJugada){ //al llegar a 'tiempoJugada' segundos, el cronómetro se vuelve a iniciar
 			seg = 0;
 		}
 
+		/*
+		 * Manejador de entrada de usuario
+		 */
 		tecla = entornoLeerTecla();
 		switch(tecla) {
 			case TEnter:
@@ -97,6 +103,10 @@ void manejadorJuego() {
 				break;
 		}
 	}
+
+	/*
+	 * Manejador de final de juego
+	 */
 	if(salir)
 		terminarJuego();
 }
