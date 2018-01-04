@@ -28,9 +28,7 @@ int main() { //cargarJuego()
 	if(entornoCargarConfiguracion(tamanoTablero,tiempoJugada,puntosPista)){
 		if(entornoIniciar(tamanoTablero)){
 			iniciarTablero(t, tamanoTablero);
-			for(int i=0; i<FILAS_INICIALES; i++){ //inserta un número de filas iniciales en tablero
-				insertarFila(t);
-			}
+
 			manejadorJuego();
 		}
 	}
@@ -39,11 +37,13 @@ int main() { //cargarJuego()
 //v1.1
 void manejadorJuego() {
 	/*
-	 * Las siguentes instrucciones simulan el desplazamiento por el tablero
-	 * utilizando las teclas de movimiento: arriba, abajo, derecha e izquierda
+	 * INICIALIZACIÓN
 	 */
 	salir = false;
 	puntuacion = 0;
+	for(int i=0; i<FILAS_INICIALES; i++){ //inserta un número de filas iniciales en tablero
+		insertarFila(t);
+	}
 	pos_x = 0;
 	pos_y = tamanoTablero-1;
 	entornoPonerPuntuacion(puntuacion);
@@ -119,4 +119,8 @@ void terminarJuego() {
 	entornoMostrarMensajeFin(mensaje);
 	entornoPausa(1);
 	entornoTerminar();
+}
+
+//v1.0
+void actualizarEntorno(Tablero &t){
 }

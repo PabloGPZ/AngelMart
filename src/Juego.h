@@ -11,8 +11,8 @@
 #define JUEGO_H_
 
 const int FILAS_INICIALES = 2;
-const int PTOS_PAREJA = 10;
-const int PTOS_FINAL_TABLERO_VACIO = 50;
+const int PTOS_PAREJA = 10; //ptos obtenidos al hacer pareja
+const int PTOS_FINAL_TABLERO_VACIO = 50; //ptos de bonificación por vaciar el tablero
 
 /*
  * Punto de entrada del programa. Llama a todas las pruebas y carga la configuración
@@ -23,9 +23,9 @@ int main();
 
 
 /*
- * Módulo que maneja toda la lógica del juego: entorno gráfico, entrada del usuario,
- * 	manejo del tablero, del cronómetro, de la puntuación y de la finalización de la
- * 	partida. Una vez la partida acabe se llama al módulo 'terminarJuego()' para terminar
+ * Módulo que maneja toda la lógica del juego: entrada del usuario, manejo del tablero,
+ *  manejo del cronómetro, de la puntuación y de la finalización de la partida.
+ * 	Una vez la partida acabe se llama al módulo 'terminarJuego()' para terminar
  * 	el entorno gráfico y liberar los recursos asociados.
  */
 void manejadorJuego();
@@ -36,5 +36,11 @@ void manejadorJuego();
  * 	un mensaje de despedida con la puntuación obtenida.
  */
 void terminarJuego();
+
+
+/*
+ * Modulo para actualizar el entorno gráfico del tablero
+ */
+void actualizarEntorno(Tablero &t);
 
 #endif /* JUEGO_H_ */
