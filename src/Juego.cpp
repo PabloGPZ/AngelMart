@@ -112,6 +112,7 @@ void manejadorJuego() {
 }
 
 void terminarJuego() {
+	//Si la partida termina por vaciar el tablero se dan ptos extra
 	if(estaVacio(t))
 		puntuacion = puntuacion + PTOS_FINAL_TABLERO_VACIO;
 	mensaje = "             Puntuación final : " + toString(puntuacion) + " ptos";
