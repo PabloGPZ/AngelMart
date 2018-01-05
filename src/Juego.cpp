@@ -12,20 +12,20 @@ int tamanoTablero;  				//guardará el número de filas y columnas del tablero, 
 int tiempoJugada;   				//guardará el tiempo de una jugada, rol: valor fijo
 int puntosPista; 					//guardara el número de puntos que se restan en algunas ampliaciones, rol: valor fijo
 int seg;	  						//almacena los segundos del cronometro, rol: más reciente
-int puntuacion;						//almacena la puntuación
+int puntuacion;						//almacena la puntuación, rol: transformación
 string mensaje;  					//almacena los diferentes mensajes que aparecen durante la ejecucion, rol: valor fijo
 bool salir;							//controla la salida del bucle, rol: bandera
 TipoTecla tecla;					//almacena las teclas pulsadas, rol: mas reciente
 int pos_x, pos_y;					//almacena la posición de la celda seleccionada, rol: transformación
-int sel_x1, sel_y1, sel_x2, sel_y2; //almacenan las posiciones de las dos fichas seleccionadas
-int seleccionadas;					//almacena el numero de fichas seleccionadas
-Tablero t;							//almacena el tablero en memoria
+int sel_x1, sel_y1, sel_x2, sel_y2; //almacenan las posiciones de las dos fichas seleccionadas, rol: transformación
+int seleccionadas;					//almacena el numero de fichas seleccionadas, rol: contador
+Tablero t;							//almacena el tablero en memoria, rol: transformación
 
 int main() { //cargarJuego()
 	//Llamada a todas las pruebas
 	//pruebas();
 
-	//Carga la configuración e inicia el Tablero
+	//Carga la configuración e inicia el tablero
 	if(entornoCargarConfiguracion(tamanoTablero,tiempoJugada,puntosPista)){
 		if(entornoIniciar(tamanoTablero)){
 			iniciarTablero(t, tamanoTablero);
@@ -34,7 +34,7 @@ int main() { //cargarJuego()
 	}
 }
 
-//v1.2
+//v1.4
 void manejadorJuego() {
 	/*
 	 * INICIALIZACIÓN
@@ -73,7 +73,22 @@ void manejadorJuego() {
 		tecla = entornoLeerTecla();
 		switch(tecla) {
 			case TEnter:
-				juegoFichaVoltear(t, pos_x, pos_y);
+				switch(seleccionadas){
+				case 0:
+					juegoFichaVoltear(t, pos_x, pos_y);
+					sel_x1 = pos_x;
+					sel_y1 = pos_y;
+					seleccionadas++;
+					break;
+				case 1:
+					juegoFichaVoltear(t, pos_x, pos_y);
+					sel_x2 = pos_x;
+					sel_y2 = pos_y;
+					seleccionadas++;
+					break;
+				default:
+					break;
+				}
 				break;
 			case TDerecha:
 				entornoDesactivarCelda(pos_y, pos_x);
@@ -100,7 +115,6 @@ void manejadorJuego() {
 				entornoActivarCelda(pos_y, pos_x);
 				break;
 			case TX:
-				juegoEliminarFicha(t, pos_x, pos_y);
 				break;
 			case TY:
 				break;
@@ -117,6 +131,7 @@ void manejadorJuego() {
 		 * Manejador de comparación de fichas
 		 */
 		if(seleccionadas == 2){
+			entornoPausa(TIEMPO_RETRASO_SELECCION);
 			if(juegoCompararFichas(t, sel_x1, sel_y1, sel_x2, sel_y2)){ //Son iguales
 				juegoEliminarFicha(t, sel_x1, sel_y1); //Se eliminan las fichas iguales
 				juegoEliminarFicha(t, sel_x2, sel_y2);
