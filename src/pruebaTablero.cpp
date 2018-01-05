@@ -61,9 +61,9 @@ void pruebaFichaVoltear() {
 	//Comprobamos que exista la ficha y que muestre el reverso
 	if(!celdaEstaVacia(t1, 1, obtenerTamanoTablero(t1)-1)){
 		if(!celdaObtenerMostrandoAnverso(t1, 1, obtenerTamanoTablero(t1)-1)){
-			if(!fichaVoltear(t1, 1, obtenerTamanoTablero(t1)-1)){ //pasa de REVERSO a ANVERSO
+			if(fichaVoltear(t1, 1, obtenerTamanoTablero(t1)-1) != true){ //pasa de REVERSO a ANVERSO
 				cout << "ERROR: La ficha no ha cambiado de REVERSO a ANVERSO" << endl;
-				if(fichaVoltear(t1, 1, obtenerTamanoTablero(t1)-1)) //pasa de ANVERSO a REVERSO
+				if(fichaVoltear(t1, 1, obtenerTamanoTablero(t1)-1) != false) //pasa de ANVERSO a REVERSO
 					cout << "ERROR: La ficha no ha cambiado de ANVERSO a REVERSO" << endl;
 			}
 		}else{

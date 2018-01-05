@@ -62,7 +62,7 @@ void juegoBorrarFicha(Tablero &t, int pos_x, int pos_y);
  * Módulo que voltea una ficha y actualiza el entorno gráfico
  */
 
-void juegoVoltearFicha(Tablero &t, int pos_x, int pos_y);
+void juegoFichaVoltear(Tablero &t, int pos_x, int pos_y);
 
 
 /*

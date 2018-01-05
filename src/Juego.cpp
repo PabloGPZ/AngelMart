@@ -21,7 +21,7 @@ Tablero t;			//almacena el tablero en memoria
 
 int main() { //cargarJuego()
 	//Llamada a todas las pruebas
-	pruebas();
+	//pruebas();
 
 	//Carga la configuración e inicia el Tablero
 	if(entornoCargarConfiguracion(tamanoTablero,tiempoJugada,puntosPista)){
@@ -132,17 +132,20 @@ void actualizarEntorno(Tablero &t){
 	}
 }
 
+//v1.0
 void juegoInsertarFila(Tablero &t){
 	insertarFila(t);
 	actualizarEntorno(t);
 }
 
+//v1.0
 void juegoBorrarFicha(Tablero &t, int pos_x, int pos_y){
 	eliminarFicha(t, pos_x, pos_y);
 	actualizarEntorno(t);
 }
 
-void juegoVoltearFicha(Tablero &t, int pos_x, int pos_y){
+//v1.0
+void juegoFichaVoltear(Tablero &t, int pos_x, int pos_y){
 	if(fichaVoltear(t, pos_x, pos_y)){
 		entornoFichaCanto(pos_y, pos_x);
 		entornoPausa(1);
@@ -154,6 +157,7 @@ void juegoVoltearFicha(Tablero &t, int pos_x, int pos_y){
 	}
 }
 
+//v1.0
 bool juegoCompararFichas(Tablero t, int pos_x1, int pos_x2, int pos_y1, int pos_y2){
-	return true;
+	return sonIguales(t.v[pos_y1][pos_x1], t.v[pos_y2][pos_x2]);
 }

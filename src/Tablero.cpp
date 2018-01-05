@@ -53,7 +53,7 @@ void eliminarFicha(Tablero &t, int pos_x, int pos_y) {
 
 bool fichaVoltear(Tablero &t, int pos_x, int pos_y) {
 	bool mostrandoAnverso;
-	if(!obtenerMostrandoAnverso(t.v[pos_y][pos_x])){
+	if(!celdaObtenerMostrandoAnverso(t, pos_x, pos_y)){
 		ponerMostrandoAnverso(t.v[pos_y][pos_x], true);
 		mostrandoAnverso = true;
 	}else{
