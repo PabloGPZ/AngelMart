@@ -21,7 +21,7 @@ Tablero t;			//almacena el tablero en memoria
 
 int main() { //cargarJuego()
 	//Llamada a todas las pruebas
-	//pruebas();
+	pruebas();
 
 	//Carga la configuración e inicia el Tablero
 	if(entornoCargarConfiguracion(tamanoTablero,tiempoJugada,puntosPista)){
@@ -42,7 +42,7 @@ void manejadorJuego() {
 	puntuacion = 0;
 	seg = 0; //se inician los segundos del cronómetro
 	for(int i=0; i<FILAS_INICIALES; i++){ //inserta un número de filas iniciales en tablero
-		insertarFila(t);
+		juegoInsertarFila(t);
 	}
 	pos_x = 0;
 	pos_y = tamanoTablero-1;
@@ -133,12 +133,25 @@ void actualizarEntorno(Tablero &t){
 }
 
 void juegoInsertarFila(Tablero &t){
+	insertarFila(t);
+	actualizarEntorno(t);
 }
 
 void juegoBorrarFicha(Tablero &t, int pos_x, int pos_y){
+	eliminarFicha(t, pos_x, pos_y);
+	actualizarEntorno(t);
 }
 
 void juegoVoltearFicha(Tablero &t, int pos_x, int pos_y){
+	if(fichaVoltear(t, pos_x, pos_y)){
+		entornoFichaCanto(pos_y, pos_x);
+		entornoPausa(1);
+		entornoFichaAnverso(pos_y, pos_x, celdaObtenerValor(t, pos_x, pos_y));
+	}else{
+		entornoFichaCanto(pos_y, pos_x);
+		entornoPausa(1);
+		entornoFichaReves(pos_y, pos_x);
+	}
 }
 
 bool juegoCompararFichas(Tablero t, int pos_x1, int pos_x2, int pos_y1, int pos_y2){

@@ -38,9 +38,9 @@ void pruebaEliminarFicha();
 
 /*
  * Verifica que cambia el estado de la ficha de la posición [pos_y][pos_x]
- * celdaObtenerMostrandoAnverso()	->	fichaVoltear()
- * 				TRUE				->		FALSE
- * 				FALSE				->		TRUE
+ * fichaVoltear()	->	fichaVoltear()
+ * 		Reverso		->		TRUE
+ * 		Anverso		->		FALSE
  */
 void pruebaFichaVoltear();
 

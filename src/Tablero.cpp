@@ -51,11 +51,16 @@ void eliminarFicha(Tablero &t, int pos_x, int pos_y) {
 	}
 }
 
-void fichaVoltear(Tablero &t, int pos_x, int pos_y) {
-	if(!obtenerMostrandoAnverso(t.v[pos_y][pos_x]))
+bool fichaVoltear(Tablero &t, int pos_x, int pos_y) {
+	bool mostrandoAnverso;
+	if(!obtenerMostrandoAnverso(t.v[pos_y][pos_x])){
 		ponerMostrandoAnverso(t.v[pos_y][pos_x], true);
-	else
+		mostrandoAnverso = true;
+	}else{
 		ponerMostrandoAnverso(t.v[pos_y][pos_x], false);
+		mostrandoAnverso = false;
+	}
+	return mostrandoAnverso;
 }
 
 bool cabeFila(Tablero t) {

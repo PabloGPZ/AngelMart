@@ -51,7 +51,7 @@ void eliminarFicha(Tablero &t, int pos_x, int pos_y);
  * POST: Modifica el Tablero 't' para voltear (mostrar el anverso si muestra el reverso y viceversa) una ficha
  * COMPLEJIDAD: O(1)
  */
-void fichaVoltear(Tablero &t, int pos_x, int pos_y);
+bool fichaVoltear(Tablero &t, int pos_x, int pos_y);
 
 
 /*
