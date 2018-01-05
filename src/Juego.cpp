@@ -45,7 +45,7 @@ void manejadorJuego() {
 	seg = 0;
 	for(int i=0; i<FILAS_INICIALES; i++){ //inserta un número de filas iniciales en tablero
 		juegoInsertarFila(t);
-		entornoPausa(1); //Se necesita una pequeña pausa para que se generen dos filas distintas
+		//entornoPausa(1); //Se necesita una pequeña pausa para que se generen dos filas distintas
 	}
 	pos_x = 0;
 	pos_y = tamanoTablero-1;
@@ -140,9 +140,16 @@ void manejadorJuego() {
 		if(seleccionadas == 2){
 			entornoPausa(TIEMPO_RETRASO_SELECCION); //Pausa para que el jugador vea la comparación
 			if(juegoCompararFichas(t, sel_x1, sel_y1, sel_x2, sel_y2)){ //Son iguales
-				juegoEliminarFicha(t, sel_x1, sel_y1); //Se eliminan las fichas iguales
-				juegoEliminarFicha(t, sel_x2, sel_y2);
+				if(sel_y1 > sel_y2){ //Si se elimina primero la ficha inferior la superior cae y se desplaza, por lo que su posicion varia
+					juegoEliminarFicha(t, sel_x1, sel_y1);
+					juegoEliminarFicha(t, sel_x2, sel_y2);
+				}else{
+					juegoEliminarFicha(t, sel_x2, sel_y2);
+					juegoEliminarFicha(t, sel_x1, sel_y1);
+
+				}
 				puntuacion = puntuacion + PTOS_PAREJA; //Se suman los puntos
+				entornoPonerPuntuacion(puntuacion);
 			}else{ //Son distintas
 				juegoFichaVoltear(t, sel_x1, sel_y1); //Se vuelven a voltear las fichas
 				juegoFichaVoltear(t, sel_x2, sel_y2);
