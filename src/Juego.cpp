@@ -41,7 +41,8 @@ void manejadorJuego() {
 	 */
 	salir = false;
 	puntuacion = 0;
-	seg = 0; //se inician los segundos del cronómetro
+	seleccionadas = 0;
+	seg = 0;
 	for(int i=0; i<FILAS_INICIALES; i++){ //inserta un número de filas iniciales en tablero
 		juegoInsertarFila(t);
 	}
@@ -99,7 +100,7 @@ void manejadorJuego() {
 				entornoActivarCelda(pos_y, pos_x);
 				break;
 			case TX:
-				juegoBorrarFicha(t, pos_x, pos_y);
+				juegoEliminarFicha(t, pos_x, pos_y);
 				break;
 			case TY:
 				break;
@@ -110,6 +111,21 @@ void manejadorJuego() {
 				break;
 			case TNada:
 				break;
+		}
+
+		/*
+		 * Manejador de comparación de fichas
+		 */
+		if(seleccionadas == 2){
+			if(juegoCompararFichas(t, sel_x1, sel_y1, sel_x2, sel_y2)){ //Son iguales
+				juegoEliminarFicha(t, sel_x1, sel_y1); //Se eliminan las fichas iguales
+				juegoEliminarFicha(t, sel_x2, sel_y2);
+				puntuacion = puntuacion + PTOS_PAREJA; //Se suman los puntos
+			}else{ //Son distintas
+				juegoFichaVoltear(t, sel_x1, sel_y1); //Se vuelven a voltear las fichas
+				juegoFichaVoltear(t, sel_x2, sel_y2);
+			}
+			seleccionadas = 0; //Se reinicia el contador
 		}
 
 		/*
@@ -155,7 +171,7 @@ void juegoInsertarFila(Tablero &t){
 }
 
 //v1.1
-void juegoBorrarFicha(Tablero &t, int pos_x, int pos_y){
+void juegoEliminarFicha(Tablero &t, int pos_x, int pos_y){
 	if(!celdaEstaVacia(t, pos_x, pos_y)){ //si la celda esta vacia no hace nada
 		eliminarFicha(t, pos_x, pos_y);
 		actualizarEntorno(t);
@@ -178,7 +194,7 @@ void juegoFichaVoltear(Tablero &t, int pos_x, int pos_y){
 }
 
 //v1.1
-bool juegoCompararFichas(Tablero t, int pos_x1, int pos_x2, int pos_y1, int pos_y2){
+bool juegoCompararFichas(Tablero t, int pos_x1, int pos_y1, int pos_x2, int pos_y2){
 	bool iguales = false;
 	if(!celdaEstaVacia(t, pos_x, pos_y)) //si la celda esta vacia devuelve false
 		iguales = sonIguales(t.v[pos_y1][pos_x1], t.v[pos_y2][pos_x2]);

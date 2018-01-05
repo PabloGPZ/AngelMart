@@ -56,7 +56,7 @@ void juegoInsertarFila(Tablero &t);
 /*
  * Módulo que borra una ficha y actualiza el entorno gráfico
  */
-void juegoBorrarFicha(Tablero &t, int pos_x, int pos_y);
+void juegoEliminarFicha(Tablero &t, int pos_x, int pos_y);
 
 
 /*
@@ -69,6 +69,6 @@ void juegoFichaVoltear(Tablero &t, int pos_x, int pos_y);
 /*
  * Módulo que compara dos fichas del tablero y devuelve si son iguales o no
  */
-bool juegoCompararFichas(Tablero t, int pos_x1, int pos_x2, int pos_y1, int pos_y2);
+bool juegoCompararFichas(Tablero t, int pos_x1, int pos_y1, int pos_x2, int pos_y2);
 
 #endif /* JUEGO_H_ */
