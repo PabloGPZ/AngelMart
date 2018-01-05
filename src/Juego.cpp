@@ -111,9 +111,8 @@ void manejadorJuego() {
 }
 
 void terminarJuego() {
-	//Si la partida termina por vaciar el tablero se dan ptos extra
 	if(estaVacio(t))
-		puntuacion = puntuacion + PTOS_FINAL_TABLERO_VACIO;
+		puntuacion = puntuacion + PTOS_FINAL_TABLERO_VACIO;//Si la partida termina por vaciar el tablero se dan ptos extra
 	mensaje = "             Puntuación final : " + toString(puntuacion) + " ptos";
 	entornoMostrarMensajeFin(mensaje);
 	entornoPausa(1);
@@ -131,4 +130,17 @@ void actualizarEntorno(Tablero &t){
 			}
 		}
 	}
+}
+
+void juegoInsertarFila(Tablero &t){
+}
+
+void juegoBorrarFicha(Tablero &t, int pos_x, int pos_y){
+}
+
+void juegoVoltearFicha(Tablero &t, int pos_x, int pos_y){
+}
+
+bool juegoCompararFichas(Tablero t, int pos_x1, int pos_x2, int pos_y1, int pos_y2){
+	return true;
 }
