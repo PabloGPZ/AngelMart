@@ -26,7 +26,7 @@ int main() { //cargarJuego()
 	//pruebas();
 
 	//Carga la configuración e inicia el tablero
-	if(entornoCargarConfiguracion(tamanoTablero,tiempoJugada,puntosPista)){
+	if(entornoCargarConfiguracion(tamanoTablero, tiempoJugada, puntosPista)){
 		if(entornoIniciar(tamanoTablero)){
 			iniciarTablero(t, tamanoTablero);
 			manejadorJuego();
@@ -45,6 +45,7 @@ void manejadorJuego() {
 	seg = 0;
 	for(int i=0; i<FILAS_INICIALES; i++){ //inserta un número de filas iniciales en tablero
 		juegoInsertarFila(t);
+		entornoPausa(1); //Se necesita una pequeña pausa para que se generen dos filas distintas
 	}
 	pos_x = 0;
 	pos_y = tamanoTablero-1;
@@ -75,16 +76,22 @@ void manejadorJuego() {
 			case TEnter:
 				switch(seleccionadas){
 				case 0:
-					juegoFichaVoltear(t, pos_x, pos_y);
-					sel_x1 = pos_x;
-					sel_y1 = pos_y;
-					seleccionadas++;
+					if(!celdaEstaVacia(t, pos_x, pos_y)){
+						juegoFichaVoltear(t, pos_x, pos_y);
+						sel_x1 = pos_x;
+						sel_y1 = pos_y;
+						seleccionadas++;
+					}
 					break;
 				case 1:
-					juegoFichaVoltear(t, pos_x, pos_y);
-					sel_x2 = pos_x;
-					sel_y2 = pos_y;
-					seleccionadas++;
+					if(!celdaEstaVacia(t, pos_x, pos_y)){
+						if(sel_x1 != pos_x || sel_y1 != pos_y){
+							juegoFichaVoltear(t, pos_x, pos_y);
+							sel_x2 = pos_x;
+							sel_y2 = pos_y;
+							seleccionadas++;
+						}
+					}
 					break;
 				default:
 					break;
@@ -131,7 +138,7 @@ void manejadorJuego() {
 		 * Manejador de comparación de fichas
 		 */
 		if(seleccionadas == 2){
-			entornoPausa(TIEMPO_RETRASO_SELECCION);
+			entornoPausa(TIEMPO_RETRASO_SELECCION); //Pausa para que el jugador vea la comparación
 			if(juegoCompararFichas(t, sel_x1, sel_y1, sel_x2, sel_y2)){ //Son iguales
 				juegoEliminarFicha(t, sel_x1, sel_y1); //Se eliminan las fichas iguales
 				juegoEliminarFicha(t, sel_x2, sel_y2);

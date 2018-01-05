@@ -15,7 +15,7 @@
 const int FILAS_INICIALES = 2;
 const int PTOS_PAREJA = 10; //ptos obtenidos al hacer pareja
 const int PTOS_FINAL_TABLERO_VACIO = 50; //ptos de bonificación por vaciar el tablero
-const float TIEMPO_TRANSICION_ESTADOS = 0.5;
+const float TIEMPO_TRANSICION_ESTADOS = 0.25;
 const float TIEMPO_RETRASO_SELECCION = 0.5;
 
 /*
