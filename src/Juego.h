@@ -10,6 +10,8 @@
 #ifndef JUEGO_H_
 #define JUEGO_H_
 
+#include "Tablero.h"
+
 const int FILAS_INICIALES = 2;
 const int PTOS_PAREJA = 10; //ptos obtenidos al hacer pareja
 const int PTOS_FINAL_TABLERO_VACIO = 50; //ptos de bonificación por vaciar el tablero

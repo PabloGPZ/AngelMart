@@ -5,7 +5,6 @@
  */
 
 #include "Juego.h"
-#include "Tablero.h"
 #include "entorno.h"
 #include "pruebas.h"
 
@@ -41,14 +40,14 @@ void manejadorJuego() {
 	 */
 	salir = false;
 	puntuacion = 0;
+	seg = 0; //se inician los segundos del cronómetro
 	for(int i=0; i<FILAS_INICIALES; i++){ //inserta un número de filas iniciales en tablero
 		insertarFila(t);
 	}
 	pos_x = 0;
 	pos_y = tamanoTablero-1;
-	entornoPonerPuntuacion(puntuacion);
 	entornoActivarCelda(pos_y, pos_x);
-	seg = 0; //se inician los segundos del cronómetro
+	entornoPonerPuntuacion(puntuacion);
 
 	while(!salir){
 		/*
@@ -123,4 +122,13 @@ void terminarJuego() {
 
 //v1.0
 void actualizarEntorno(Tablero &t){
+	for(int i=0; i<obtenerTamanoTablero(t); i++){
+		for(int j=0; j<obtenerTamanoTablero(t); j++){
+			if(!celdaEstaVacia(t, j, i)){
+				entornoFichaReves(i, j);
+			}else if(celdaEstaVacia(t, j, i) && celdaObtenerValor(t, j, i) != VALOR_PREDEFINIDO){
+				entornoBorrarCelda(i, j);
+			}
+		}
+	}
 }
