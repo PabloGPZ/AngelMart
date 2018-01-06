@@ -5,6 +5,7 @@
  */
 
 #include "Juego.h"
+#include "Tablero.h"
 #include "entorno.h"
 #include "pruebas.h"
 
@@ -210,7 +211,7 @@ void juegoInsertarFila(Tablero &t){
 void juegoEliminarFicha(Tablero &t, int pos_x, int pos_y){
 	if(!celdaEstaVacia(t, pos_x, pos_y)){ //Si la celda esta vacia no hace nada
 		eliminarFicha(t, pos_x, pos_y);
-		haySeleccion = false; //No puede haber seleccion, por lo que se reinicia la bandera antes de actualizar el entorno
+		haySeleccion = false; //No puede haber selección, por lo que se reinicia la bandera antes de actualizar el entorno
 		actualizarEntorno(t);
 	}
 }

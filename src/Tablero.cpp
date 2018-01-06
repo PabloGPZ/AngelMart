@@ -5,7 +5,7 @@
  */
 
 #include "Tablero.h"
-#include "entorno.h"
+#include "Celda.h"
 #include <stdlib.h>
 #include <time.h>
 
