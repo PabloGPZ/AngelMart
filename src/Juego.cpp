@@ -145,7 +145,7 @@ void manejadorJuego() {
 		if(seleccionadas == 2){
 			entornoPausa(TIEMPO_RETRASO_SELECCION); //Pausa para que el jugador vea la comparación
 			if(juegoCompararFichas(t, sel_x1, sel_y1, sel_x2, sel_y2)){ //Son iguales
-				if(sel_y1 > sel_y2){ //Si se elimina primero la ficha inferior la superior cae y se desplaza, por lo que su posicion varia
+				if(sel_y1 < sel_y2){ //Si se elimina primero la ficha inferior la superior cae y se desplaza, por lo que su posicion varia
 					juegoEliminarFicha(t, sel_x1, sel_y1);
 					juegoEliminarFicha(t, sel_x2, sel_y2);
 				}else{
