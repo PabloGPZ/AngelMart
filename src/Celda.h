@@ -22,7 +22,7 @@ struct Celda{
  * POST: Inicia la celda al valor por defecto, la designa vacia y mostrando el reverso
  * COMPLEJIDAD: O(1)
  */
-void iniciar(Celda &c);
+void iniciarCelda(Celda &c);
 
 
 /*

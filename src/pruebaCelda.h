@@ -16,7 +16,7 @@
  * 	, que esté vacia (obtenerEstaVacia() = true) y que esté mostrando el reverso
  * 	(obtenerMostrandoAnverso() = false)
  */
-void pruebaIniciar();
+void pruebaIniciarCelda();
 
 /*
  * Verifica que funcionen correctamente los metodos ponerValor(), obtenerValor(), vaciarCelda() y obtenerEstaVacia()

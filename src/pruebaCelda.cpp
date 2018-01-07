@@ -14,8 +14,8 @@ using namespace std;
 
 Celda celda, c1, c2;
 
-void pruebaIniciar(){
-	iniciar(celda);
+void pruebaIniciarCelda(){
+	iniciarCelda(celda);
 	if(obtenerValor(celda) != VALOR_PREDEFINIDO ||
 			obtenerEstaVacia(celda) != true ||
 			obtenerMostrandoAnverso(celda) != false)
@@ -33,8 +33,8 @@ void pruebaValorCelda(){
 
 void pruebaSonIguales(){
 	//Inicialización y asignación de valores a las celdas de prueba "c1" y "c2"
-	iniciar(c1);
-	iniciar(c2);
+	iniciarCelda(c1);
+	iniciarCelda(c2);
 	ponerValor(c1, 5);
 	ponerValor(c2, 5);
 
@@ -50,7 +50,7 @@ void pruebaSonIguales(){
 void pruebasTADCelda(){
 	cout << "INICIO: pruebas del TAD Celda" << endl;
 
-	pruebaIniciar();
+	pruebaIniciarCelda();
 	pruebaValorCelda();
 	pruebaSonIguales();
 

@@ -6,7 +6,7 @@
 
 #include "Celda.h"
 
-void iniciar(Celda &c){
+void iniciarCelda(Celda &c){
 	c.valor = VALOR_PREDEFINIDO;
 	c.estaVacia = true;
 	c.mostrandoAnverso = false;

@@ -15,7 +15,7 @@ void iniciarTablero(Tablero &t, int tamano) {
 	t.tamanoTablero = tamano;
 	for(int i=0; i<tamano; i++){ //bucles para iniciar cada celda del tablero
 		for(int j=0; j<tamano; j++){
-			iniciar(t.v[i][j]);
+			iniciarCelda(t.v[i][j]);
 		}
 	}
 }
