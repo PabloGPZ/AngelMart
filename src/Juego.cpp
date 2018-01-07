@@ -165,7 +165,7 @@ void manejadorJuego() {
 		/*
 		 * Manejador de final por vaciar tablero
 		 */
-		if(estaVacio(t))
+		if(tableroEstaVacio(t))
 			salir = true;
 	}
 
@@ -177,7 +177,7 @@ void manejadorJuego() {
 }
 
 void terminarJuego() {
-	if(estaVacio(t))
+	if(tableroEstaVacio(t))
 		puntuacion = puntuacion + PTOS_FINAL_TABLERO_VACIO;//Si la partida termina por vaciar el tablero se dan ptos extra
 	mensaje = "             Puntuación final : " + toString(puntuacion) + " ptos";
 	entornoMostrarMensajeFin(mensaje);

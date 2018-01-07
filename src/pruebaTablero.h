@@ -69,7 +69,7 @@ void pruebaInsertarFila();
  * 1. El tablero está contiene alguna ficha	->	estaVacio() = FALSE
  * 2. El tablero está vacío					->	estaVacio() = TRUE
  */
-void pruebaEstaVacio();
+void pruebaTableroEstaVacio();
 
 
 /*

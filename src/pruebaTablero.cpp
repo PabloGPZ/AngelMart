@@ -103,14 +103,14 @@ void pruebaInsertarFila() {
 	}
 }
 
-void pruebaEstaVacio() {
-	//1. El tablero está contiene alguna ficha	->	estaVacio() = FALSE
-	if(estaVacio(t1) != false)
+void pruebaTableroEstaVacio() {
+	//1. El tablero está contiene alguna ficha	->	tableroEstaVacio() = FALSE
+	if(tableroEstaVacio(t1) != false)
 		cout << "ERROR: El tablero no está vacio" << endl;
 
-	//2. El tablero está vacío					->	estaVacio() = TRUE
+	//2. El tablero está vacío					->	rtableroEstaVacio() = TRUE
 	iniciarTablero(t3, 4);
-	if(estaVacio(t3) != true)
+	if(tableroEstaVacio(t3) != true)
 		cout << "ERROR: El tablero está vacio" << endl;
 }
 
@@ -144,7 +144,7 @@ void pruebasTADTablero(){
 	pruebaFichaVoltear();
 	pruebaCabeFila();
 	pruebaInsertarFila();
-	pruebaEstaVacio();
+	pruebaTableroEstaVacio();
 	pruebaGenerarVectorUnico();
 
 	cout << "FIN: pruebas del TAD Tablero" << endl << endl;
