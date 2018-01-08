@@ -128,6 +128,22 @@ void pruebaTableroEstaVacio() {
 		cout << "ERROR: El tablero está vacio" << endl;
 }
 
+void pruebaCompararFichas(){
+	//1. Las dos fichas tienen el mismo valor (0,0)	->	compararFichas() = TRUE
+	insertarFicha(t3, 0, 0, 0); //Ficha 1 con valor 0
+	insertarFicha(t3, 1, 0, 0); //Ficha 2 con valor 0
+
+	if(compararFichas(t3, 0, obtenerTamanoTablero(t3)-1, 1, obtenerTamanoTablero(t3)-1) != true)
+		cout << "ERROR: Las fichas tienen el mismo valor" << endl;
+
+	//2. Las dos fichas tienen distinto valor (0,1)	->	compararFichas() = FALSE
+	insertarFicha(t3, 2, 0, 0); //Ficha 1 con valor 0
+	insertarFicha(t3, 3, 0, 1); //Ficha 2 con valor 1
+
+	if(compararFichas(t3, 2, obtenerTamanoTablero(t3)-1, 3, obtenerTamanoTablero(t3)-1) != false)
+		cout << "ERROR: Las fichas no tienen el mismo valor" << endl;
+}
+
 void pruebaGenerarVectorUnico() {
 	/*
 	 * Se comprueba visualmente para evitar repetir el mismo algoritmo de busqueda de repeticiones dentro del vector
@@ -162,6 +178,7 @@ void pruebasTADTablero(){
 	pruebaCabeFila();
 	pruebaInsertarFila();
 	pruebaTableroEstaVacio();
+	pruebaCompararFichas();
 	pruebaGenerarVectorUnico();
 
 	cout << "FIN: pruebas del TAD Tablero" << endl << endl;

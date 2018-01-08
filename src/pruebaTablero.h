@@ -74,6 +74,15 @@ void pruebaTableroEstaVacio();
 
 
 /*
+ * Verifica que se determine correctamente cuando dos fichas son iguales y cuando no
+ *
+ * 1. Las dos fichas tienen el mismo valor (0,0)	->	compararFichas() = TRUE
+ * 2. Las dos fichas tienen distinto valor (0,1)	->	compararFichas() = FALSE
+ */
+void pruebaCompararFichas();
+
+
+/*
  * Verifica que el algoritmo de generación de números aleatorios únicos dentro de un rango
  * 		funcione correctamente.
  *
