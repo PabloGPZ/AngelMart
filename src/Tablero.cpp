@@ -13,6 +13,7 @@ using namespace std;
 
 void iniciarTablero(Tablero &t, int tamano) {
 	t.tamanoTablero = tamano;
+
 	for(int i=0; i<tamano; i++){ //Bucles for anidados para iniciar cada celda del tablero
 		for(int j=0; j<tamano; j++){
 			iniciarCelda(t.v[i][j]);
@@ -122,6 +123,7 @@ void generarVectorUnico(vValores &vector, int tamano, int rang){
 	 *Algoritmo de generación de vectores de valores únicos para la generación de filas de valores emparejados
 	 */
 	srand(time(NULL)); //Semilla que se actualiza con el tiempo del sistema
+
 	bool enc = false; //bandera
 	int valor; //valor generado
 	int j; //indice

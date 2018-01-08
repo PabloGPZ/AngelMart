@@ -25,7 +25,7 @@ Tablero t;							//almacena el tablero en memoria, rol: transformación
 
 int main() { //cargarJuego()
 	//Llamada a todas las pruebas
-	//pruebas();
+	pruebas();
 
 	//Carga la configuración e inicia el tablero
 	if(entornoCargarConfiguracion(tamanoTablero, tiempoJugada, puntosPista)){

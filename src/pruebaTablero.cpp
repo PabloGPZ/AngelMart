@@ -14,30 +14,40 @@ Tablero t1, t2, t3;
 
 void pruebaIniciarTablero() {
 	bool correcto = true; //bandera
+
 	iniciarTablero(t1, 6);
+
 	for(int i=0; i<obtenerTamanoTablero(t1) && correcto; i++){
 		for(int j=0; j<obtenerTamanoTablero(t1) && correcto; j++){
-			if(celdaEstaVacia(t1, j, i) != true)
+			if(celdaEstaVacia(t1, j, i) != true
+					&& celdaObtenerValor(t1, j, i) != VALOR_PREDEFINIDO
+					&& celdaObtenerMostrandoAnverso(t1, j, i) != false)
 				correcto = false;
 		}
 	}
 	if(!correcto)
 		cout << "ERROR: La porción del tablero designada por el tamaño no está inicializada" << endl;
-	if(celdaEstaVacia(t1, 0, obtenerTamanoTablero(t1)+1) != false)
+
+	if(celdaEstaVacia(t1, 0, obtenerTamanoTablero(t1)+1) != false
+			|| celdaObtenerValor(t1, 0, obtenerTamanoTablero(t1)+1) == VALOR_PREDEFINIDO)
 		cout << "ERROR: Se inician más filas inferiores de las que indica el tamaño" << endl;
-	if(celdaEstaVacia(t1, obtenerTamanoTablero(t1)+1, 0) != false)
+
+	if(celdaEstaVacia(t1, obtenerTamanoTablero(t1)+1, 0) != false
+			|| celdaObtenerValor(t1, obtenerTamanoTablero(t1)+1, 0) == VALOR_PREDEFINIDO)
 		cout << "ERROR: Se inician más columnas de las que indica el tamaño" << endl;
 }
 
 void pruebaInsertarFicha() {
 	//1. Se inserta una ficha sin obstáculos para comprobar que se coloqué en el fondo
 	insertarFicha(t1, 0, 0, 0);
+
 	if(celdaEstaVacia(t1, 0, obtenerTamanoTablero(t1)-1) != false)
 		cout << "ERROR: La ficha no cae correctamente cuando no hay obstáculo" << endl;
 
 	//2. Se coloca un obstáculo para comprobar que pare
 	insertarFicha(t1, 1, 0, 0); //colocamos una ficha en la segunda columna
 	insertarFicha(t1, 1, 0, 1); //dejamos caer una encima
+
 	if(celdaEstaVacia(t1, 1, obtenerTamanoTablero(t1)-2) != false)
 		cout << "ERROR: La segunda ficha no se para en el obstáculo" << endl;
 }
@@ -45,11 +55,13 @@ void pruebaInsertarFicha() {
 void pruebaEliminarFicha() {
 	//1. Se elimina una ficha que no tiene ninguna ficha encima
 	eliminarFicha(t1, 0, obtenerTamanoTablero(t1)-1);
+
 	if(celdaEstaVacia(t1, 0, obtenerTamanoTablero(t1)-1) != true)
 		cout << "ERROR: La primera ficha no se ha eliminado correctamente" << endl;
 
 	//2. Se elimina una ficha que tenga más fichas encima
 	eliminarFicha(t1, 1, obtenerTamanoTablero(t1)-1);
+
 	if(celdaEstaVacia(t1, 1, obtenerTamanoTablero(t1)-2) != true
 			&& celdaObtenerValor(t1, 1, obtenerTamanoTablero(t1)-1) != 1) //1 es el valor de la ficha superior
 		cout << "ERROR: No ha caido la ficha superior" << endl;
@@ -79,17 +91,20 @@ void pruebaCabeFila() {
 
 	//2. Hay alguna ficha en la fila superior y por tanto no se puede introducir ninguna fila más
 	iniciarTablero(t2, 4); //Inicio un segundo tablero
+
 	for(int i=0; i<obtenerTamanoTablero(t2); i++){ //Relleno el tablero completamente
 		for(int j=0; j<obtenerTamanoTablero(t2); j++){
 			ponerValor(t2.v[i][j], 0);
 		}
 	}
+
 	if(cabeFila(t2) != false)
 		cout << "ERROR: No se pueden insertar más filas en el tablero" << endl;
 }
 
 void pruebaInsertarFila() {
 	insertarFila(t1);
+
 	for(int i=0; i<obtenerTamanoTablero(t1); i++){
 		if(i == 1){ //En la segunda columna hay ya una ficha sobre la que debe caer la nueva
 			if(celdaEstaVacia(t1, i, obtenerTamanoTablero(t1)-2) != false)
@@ -108,6 +123,7 @@ void pruebaTableroEstaVacio() {
 
 	//2. El tablero está vacío					->	rtableroEstaVacio() = TRUE
 	iniciarTablero(t3, 4);
+
 	if(tableroEstaVacio(t3) != true)
 		cout << "ERROR: El tablero está vacio" << endl;
 }
@@ -117,6 +133,7 @@ void pruebaGenerarVectorUnico() {
 	vValores v;
 
 	generarVectorUnico(v, 5, 5);
+
 	cout << "v -> ";
 	for(int i=0; i<5; i++){
 		cout << "[" << v[i] << "]";

@@ -14,6 +14,7 @@ Celda c1, c2;
 
 void pruebaIniciarCelda(){
 	iniciarCelda(c1);
+
 	if(obtenerValor(c1) != VALOR_PREDEFINIDO ||
 			obtenerEstaVacia(c1) != true ||
 			obtenerMostrandoAnverso(c1) != false)
@@ -22,9 +23,12 @@ void pruebaIniciarCelda(){
 
 void pruebaValorCelda(){
 	ponerValor(c1, 7);
+
 	if(obtenerValor(c1) != 7)
 		cout << "ERROR: La celda no tiene el valor deseado" << endl;
+
 	vaciarCelda(c1);
+
 	if(obtenerEstaVacia(c1) != true)
 		cout << "ERROR: La celda no está vacía despues de haberla vaciado" << endl;
 }
@@ -33,6 +37,7 @@ void pruebaSonIguales(){
 	//Inicialización y asignación de valores a las celdas de prueba "c1" y "c2"
 	iniciarCelda(c1);
 	iniciarCelda(c2);
+
 	ponerValor(c1, 5);
 	ponerValor(c2, 5);
 
