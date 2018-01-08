@@ -13,16 +13,16 @@
 #include "Tablero.h"
 
 const int FILAS_INICIALES = 2;
-const int PTOS_PAREJA = 10; //ptos obtenidos al hacer pareja
-const int PTOS_FINAL_TABLERO_VACIO = 50; //ptos de bonificación por vaciar el tablero
-const float TIEMPO_TRANSICION_ESTADOS = 0.25; //retraso entre estados de la animación de voltear fichas
-const float TIEMPO_RETRASO_SELECCION = 0.5; //tiempo que se le deja al usuario ver el anverso de ambas fichas
+const int PTOS_PAREJA = 10; //Ptos obtenidos al hacer pareja
+const int PTOS_FINAL_TABLERO_VACIO = 50; //Ptos de bonificación por vaciar el tablero
+const float TIEMPO_TRANSICION_ESTADOS = 0.25; //Retraso entre estados de la animación de voltear fichas
+const float TIEMPO_RETRASO_SELECCION = 0.5; //Tiempo que se le deja al usuario ver el anverso de ambas fichas
 
 /*
  * PRE:
  * POST: Punto de entrada del programa. Llama a todas las pruebas y carga la configuración
- * 	inicial para iniciar el entorno gráfico. Si se realiza correctamente llama al
- * 	siguiente módulo 'manejadorJuego()'.
+ * 			inicial para iniciar el entorno gráfico. Si se realiza correctamente llama al
+ * 			siguiente módulo 'manejadorJuego()'.
  * 	COMPLEJIDAD: O(1) //Sin contar las pruebas.
  */
 int main();
@@ -31,9 +31,9 @@ int main();
 /*
  * PRE:
  * POST: Módulo que maneja toda la lógica del juego: entrada del usuario, manejo del tablero,
- *  manejo del cronómetro, de la puntuación y de la finalización de la partida.
- * 	Una vez la partida acabe se llama al módulo 'terminarJuego()' para terminar
- * 	el entorno gráfico y liberar los recursos asociados.
+ *  		manejo del cronómetro, de la puntuación y de la finalización de la partida.
+ * 			Una vez la partida acabe se llama al módulo 'terminarJuego()' para terminar
+ * 			el entorno gráfico y liberar los recursos asociados.
  * 	COMPLEJIDAD:
  */
 void manejadorJuego();
@@ -42,7 +42,7 @@ void manejadorJuego();
 /*
  * PRE:
  * POST: Módulo que termina el entorno gráfico y libera los recursos asociados. También da
- * 	un mensaje de despedida con la puntuación obtenida.
+ * 			un mensaje de despedida con la puntuación obtenida.
  * 	COMPLEJIDAD: O(1)
  */
 void terminarJuego();
