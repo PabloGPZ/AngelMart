@@ -83,20 +83,24 @@ void manejadorJuego() {
 			case TEnter:
 				switch(seleccionadas){
 				case 0:
-					if(!celdaEstaVacia(t, pos_x, pos_y)){
+					if(!celdaEstaVacia(t, pos_x, pos_y)){ //Se comprueba que la celda no esté vacia
 						juegoFichaVoltear(t, pos_x, pos_y);
+
 						sel_x1 = pos_x;
 						sel_y1 = pos_y;
+
 						seleccionadas++;
 						haySeleccion = true;
 					}
 					break;
 				case 1:
-					if(!celdaEstaVacia(t, pos_x, pos_y)){
+					if(!celdaEstaVacia(t, pos_x, pos_y)){ //Se comprueba que la celda no esté vacia
 						if(sel_x1 != pos_x || sel_y1 != pos_y){ //Se comprueba que no se seleccione dos veces la misma ficha
 							juegoFichaVoltear(t, pos_x, pos_y);
+
 							sel_x2 = pos_x;
 							sel_y2 = pos_y;
+
 							seleccionadas++;
 						}
 					}
