@@ -111,26 +111,34 @@ void manejadorJuego() {
 				break;
 			case TDerecha:
 				entornoDesactivarCelda(pos_y, pos_x);
-				if (pos_x < tamanoTablero - 1)
+				if (pos_x < tamanoTablero-1)
 					pos_x++;
+				else
+					pos_x = 0;
 				entornoActivarCelda(pos_y, pos_x);
 				break;
 			case TIzquierda:
 				entornoDesactivarCelda(pos_y, pos_x);
 				if (pos_x > 0)
 					pos_x--;
+				else
+					pos_x = tamanoTablero-1;
 				entornoActivarCelda(pos_y, pos_x);
 				break;
 			case TArriba:
 				entornoDesactivarCelda(pos_y, pos_x);
 				if (pos_y > 0)
 					pos_y--;
+				else
+					pos_y = tamanoTablero-1;
 				entornoActivarCelda(pos_y, pos_x);
 				break;
 			case TAbajo:
 				entornoDesactivarCelda(pos_y, pos_x);
-				if (pos_y < tamanoTablero - 1)
+				if (pos_y < tamanoTablero-1)
 					pos_y++;
+				else
+					pos_y = 0;
 				entornoActivarCelda(pos_y, pos_x);
 				break;
 			case TX:
