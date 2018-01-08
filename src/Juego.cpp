@@ -189,7 +189,7 @@ void terminarJuego() {
 	mensaje = "             Puntuación final : " + toString(puntuacion) + " ptos";
 	entornoMostrarMensajeFin(mensaje);
 
-	entornoPausa(1);
+	entornoPausa(TIEMPO_PAUSA_FINAL);
 	entornoTerminar();
 }
 
