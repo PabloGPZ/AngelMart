@@ -19,7 +19,7 @@ void pruebaIniciarTablero();
 
 /*
  * Verifica que al insertarse una ficha caiga hasta la siguiente ficha en su columna
- * o el fondo del tablero
+ * 		o el fondo del tablero
  *
  * 1. Se inserta una ficha sin obstáculos para comprobar que se coloqué en el fondo
  * 2. Se coloca un obstáculo para comprobar que pare
@@ -38,6 +38,7 @@ void pruebaEliminarFicha();
 
 /*
  * Verifica que cambia el estado de la ficha de la posición [pos_y][pos_x]
+ *
  * fichaVoltear()	->	fichaVoltear()
  * 		Reverso		->		TRUE
  * 		Anverso		->		FALSE
@@ -56,7 +57,7 @@ void pruebaCabeFila();
 
 /*
  * Verifica que se inserte una fila de fichas en la parte superior del tablero y sus
- * fichas caigan por columnas hasta la ficha siguiente o el fondo
+ * 		fichas caigan por columnas hasta la ficha siguiente o el fondo
  *
  * #. Se inserta una fila en la parte superior y se comprueba que caigan las fichas
  */
@@ -74,7 +75,7 @@ void pruebaTableroEstaVacio();
 
 /*
  * Verifica que el algoritmo de generación de números aleatorios únicos dentro de un rango
- * funcione correctamente.
+ * 		funcione correctamente.
  *
  * tamano	rang	->	vector
  * 	 5		  5		->	[5 VALORES ALEATORIOS NO REPETIDOS]

@@ -129,7 +129,9 @@ void pruebaTableroEstaVacio() {
 }
 
 void pruebaGenerarVectorUnico() {
-	//La comprobación es visual para evitar repetir el mismo algoritmo de busqueda de repeticiones dentro del vector
+	/*
+	 * Se comprueba visualmente para evitar repetir el mismo algoritmo de busqueda de repeticiones dentro del vector
+	 */
 	vValores v;
 
 	generarVectorUnico(v, 5, 5);
