@@ -15,7 +15,7 @@ const int MAX_TAMANO = 10;
 const int MAX_VALOR_FICHA = 9;
 
 typedef Celda vCeldas[MAX_TAMANO][MAX_TAMANO];
-typedef int vValores[MAX_TAMANO];
+typedef int vValores[MAX_TAMANO]; //Estructura de datos auxiliar para almacenar varios valores de tipo entero
 
 struct Tablero{
 	vCeldas v;
@@ -110,6 +110,7 @@ int celdaObtenerValor(Tablero t, int pos_x, int pos_y);
  * COMPLEJIDAD: 0(1)
  */
 bool celdaObtenerMostrandoAnverso(Tablero t, int pos_x, int pos_y);
+
 
 /*
  * PRE: 4 <= 'tamano' <= 'rang' <= 10
