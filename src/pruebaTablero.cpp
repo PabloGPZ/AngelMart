@@ -45,8 +45,8 @@ void pruebaInsertarFicha() {
 		cout << "ERROR: La ficha no cae correctamente cuando no hay obstáculo" << endl;
 
 	//2. Se coloca un obstáculo para comprobar que pare
-	insertarFicha(t1, 1, 0, 0); //colocamos una ficha en la segunda columna
-	insertarFicha(t1, 1, 0, 1); //dejamos caer una encima
+	insertarFicha(t1, 1, 0, 0); //Colocamos una ficha en la segunda columna
+	insertarFicha(t1, 1, 0, 1); //Dejamos caer una encima
 
 	if(celdaEstaVacia(t1, 1, obtenerTamanoTablero(t1)-2) != false)
 		cout << "ERROR: La segunda ficha no se para en el obstáculo" << endl;
@@ -71,9 +71,9 @@ void pruebaFichaVoltear() {
 	//Comprobamos que exista la ficha y que muestre el reverso
 	if(!celdaEstaVacia(t1, 1, obtenerTamanoTablero(t1)-1)){
 		if(!celdaObtenerMostrandoAnverso(t1, 1, obtenerTamanoTablero(t1)-1)){
-			if(fichaVoltear(t1, 1, obtenerTamanoTablero(t1)-1) != true){ //pasa de REVERSO a ANVERSO
+			if(fichaVoltear(t1, 1, obtenerTamanoTablero(t1)-1) != true){ //Pasa de REVERSO a ANVERSO
 				cout << "ERROR: La ficha no ha cambiado de REVERSO a ANVERSO" << endl;
-				if(fichaVoltear(t1, 1, obtenerTamanoTablero(t1)-1) != false) //pasa de ANVERSO a REVERSO
+				if(fichaVoltear(t1, 1, obtenerTamanoTablero(t1)-1) != false) //Pasa de ANVERSO a REVERSO
 					cout << "ERROR: La ficha no ha cambiado de ANVERSO a REVERSO" << endl;
 			}
 		}else{

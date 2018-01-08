@@ -78,17 +78,17 @@ bool cabeFila(Tablero t) {
 
 void insertarFila(Tablero &t) {
 	vValores valores; //Vector de valores
-	vValores posiciones; //Vector de posiciones de parejas
+	vValores posiciones; //Vector de posiciones de cada valor
 
 	generarVectorUnico(valores, obtenerTamanoTablero(t)/2, MAX_VALOR_FICHA+1); //Vector de valores únicos que representan una fila nueva. Solo se rellena hasta la mitad
-	generarVectorUnico(posiciones, obtenerTamanoTablero(t)/2, obtenerTamanoTablero(t)/2); //Vector de posiciones que deben ocupar cada pareja de valores generados
+	generarVectorUnico(posiciones, obtenerTamanoTablero(t), obtenerTamanoTablero(t)); //Vector de posiciones que deben ocupar cada ficha
 
-	for(int i=obtenerTamanoTablero(t)/2; i<obtenerTamanoTablero(t); i++){ //Relleno la otra mitad del vector con las parejas de los valores presentes en base al vector de posiciones
-		valores[i] = valores[posiciones[i-obtenerTamanoTablero(t)/2]];
+	for(int i=obtenerTamanoTablero(t)/2; i<obtenerTamanoTablero(t); i++){ //Replico la mitad del vector valores sobre sí mismo
+		valores[i] = valores[i-obtenerTamanoTablero(t)/2];
 	}
 
 	for(int i=0; i<obtenerTamanoTablero(t); i++){ //Inserción de fichas
-		insertarFicha(t, i, 0, valores[i]);
+		insertarFicha(t, i, 0, valores[posiciones[i]]);
 	}
 }
 
