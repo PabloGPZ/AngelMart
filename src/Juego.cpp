@@ -234,8 +234,8 @@ void juegoEliminarFicha(Tablero &t, int pos_x, int pos_y){
 }
 
 void juegoFichaVoltear(Tablero &t, int pos_x, int pos_y){
-	if(!celdaEstaVacia(t, pos_x, pos_y)){ //si la celda esta vacia no hace nada
-		if(fichaVoltear(t, pos_x, pos_y)){
+	if(!celdaEstaVacia(t, pos_x, pos_y)){ //Si la celda esta vacia no hace nada
+		if(fichaVoltear(t, pos_x, pos_y)){ //Animación de volteado de la ficha
 			entornoFichaCanto(pos_y, pos_x);
 			entornoPausa(TIEMPO_TRANSICION_ESTADOS);
 			entornoFichaAnverso(pos_y, pos_x, celdaObtenerValor(t, pos_x, pos_y));
