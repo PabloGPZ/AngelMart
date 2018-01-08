@@ -80,12 +80,4 @@ void juegoEliminarFicha(Tablero &t, int pos_x, int pos_y);
 
 void juegoFichaVoltear(Tablero &t, int pos_x, int pos_y);
 
-
-/*
- * PRE: 'pos_x1', 'pos_y1', 'pos_x2' y 'pos_y2' dentro de los límites del Tablero 't'
- * POST: Módulo que compara dos fichas del tablero y devuelve si son iguales o no
- * COMPLEJIDAD: O(1)
- */
-bool juegoCompararFichas(Tablero t, int pos_x1, int pos_y1, int pos_x2, int pos_y2);
-
 #endif /* JUEGO_H_ */

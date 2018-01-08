@@ -102,6 +102,14 @@ bool tableroEstaVacio(Tablero t) {
 	return estaVacio;
 }
 
+bool compararFichas(Tablero t, int pos_x1, int pos_y1, int pos_x2, int pos_y2){
+	bool iguales = false;
+
+	if(!celdaEstaVacia(t, pos_x1, pos_y1) && !celdaEstaVacia(t, pos_x2, pos_y2)) //Si las celdas están vacias devuelve false
+		iguales = sonIguales(t.v[pos_y1][pos_x1], t.v[pos_y2][pos_x2]);
+	return iguales;
+}
+
 int obtenerTamanoTablero(Tablero t) {
 	return t.tamanoTablero;
 }

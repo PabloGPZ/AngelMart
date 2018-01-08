@@ -144,7 +144,7 @@ void manejadorJuego() {
 		 */
 		if(seleccionadas == 2){
 			entornoPausa(TIEMPO_RETRASO_SELECCION); //Pausa para que el jugador vea la comparación
-			if(juegoCompararFichas(t, sel_x1, sel_y1, sel_x2, sel_y2)){ //Son iguales
+			if(compararFichas(t, sel_x1, sel_y1, sel_x2, sel_y2)){ //Son iguales
 				if(sel_y1 < sel_y2){ //Si se elimina primero la ficha inferior la superior cae y se desplaza, por lo que su posicion varia
 					juegoEliminarFicha(t, sel_x1, sel_y1);
 					juegoEliminarFicha(t, sel_x2, sel_y2);
@@ -229,12 +229,4 @@ void juegoFichaVoltear(Tablero &t, int pos_x, int pos_y){
 			entornoFichaReves(pos_y, pos_x);
 		}
 	}
-}
-
-//v1.1
-bool juegoCompararFichas(Tablero t, int pos_x1, int pos_y1, int pos_x2, int pos_y2){
-	bool iguales = false;
-	if(!celdaEstaVacia(t, pos_x, pos_y)) //si la celda esta vacia devuelve false
-		iguales = sonIguales(t.v[pos_y1][pos_x1], t.v[pos_y2][pos_x2]);
-	return iguales;
 }

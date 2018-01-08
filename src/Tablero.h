@@ -80,6 +80,14 @@ bool tableroEstaVacio(Tablero t);
 
 
 /*
+ * PRE: 'pos_x1', 'pos_y1', 'pos_x2' y 'pos_y2' dentro de los límites del Tablero 't'
+ * POST: Módulo que compara dos fichas del tablero y devuelve si son iguales o no
+ * COMPLEJIDAD: O(1)
+ */
+bool compararFichas(Tablero t, int pos_x1, int pos_y1, int pos_x2, int pos_y2);
+
+
+/*
  * PRE:
  * POST: Devuelve el tamaño real indicado por el fichero de configuracion del Tablero 't'
  * COMPLEJIDAD: 0(1)
