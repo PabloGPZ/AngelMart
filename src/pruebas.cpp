@@ -1,10 +1,8 @@
-//============================================================================
-// Name        : pruebas.cpp
-// Author      : jgarciapft (Juan Pablo Garcia Plaza Perez)
-// Version     :
-// Copyright   :
-// Description : Pruebas de los TAD entorno, Celda y Tablero
-//============================================================================
+/*
+ * pruebas.cpp
+ * Autor: Juan Pablo García Plaza Pérez (jgarciapft)
+ *
+ */
 
 #include "entorno.h"
 #include "pruebaCelda.h"

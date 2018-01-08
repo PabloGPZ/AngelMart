@@ -1,8 +1,6 @@
 /*
  * pruebaTablero.cpp
- * Autor: jgarciapft
- *
- * Descripción: Clase que maneja las pruebas sobre el TAD Tablero
+ * Autor: Juan Pablo García Plaza Pérez (jgarciapft)
  *
  */
 

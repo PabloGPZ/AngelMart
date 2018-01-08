@@ -1,6 +1,6 @@
 /*
  * Juego.h
- * Autor: jgarciapft
+ * Autor: Juan Pablo García Plaz Pérez (jgarciapft)
  *
  * Descripción: TAD que maneja el la lógica del juego, la puntuación
  * 					y el entorno gráfico

@@ -1,6 +1,6 @@
 /*
  * Tablero.h
- * Autor: jgarciapft
+ * Autor: Juan Pablo García Plaz Pérez (jgarciapft)
  *
  * Descripción: TAD que maneja el tablero de juego en memoria
  *

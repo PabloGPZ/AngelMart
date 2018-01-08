@@ -1,8 +1,6 @@
 /*
  * pruebaCelda.cpp
- * Autor: jgarciapft
- *
- * Descripción: Clase que maneja las pruebas sobre el TAD Celda
+ * Autor: Juan Pablo García Plaza Pérez (jgarciapft)
  *
  */
 

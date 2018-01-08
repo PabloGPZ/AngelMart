@@ -1,6 +1,6 @@
 /*
  * Juego.cpp
- * Autor: jgarciapft
+ * Autor: Juan Pablo García Plaza Pérez (jgarciapft)
  *
  */
 

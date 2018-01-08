@@ -1,6 +1,6 @@
 /*
  * pruebaCelda.h
- * Autor: jgarciapft
+ * Autor: Juan Pablo García Plaz Pérez (jgarciapft)
  *
  * Descripción: Clase que maneja las pruebas sobre el TAD Celda
  *

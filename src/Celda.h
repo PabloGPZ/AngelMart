@@ -1,6 +1,6 @@
 /*
  * Celda.h
- * Autor: jgarciapft
+ * Autor: Juan Pablo García Plaz Pérez (jgarciapft)
  *
  * Descripción: TAD que maneja las celdas del tablero
  *

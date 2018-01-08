@@ -1,5 +1,6 @@
 /*
  * pruebas.h
+ * Autor: Juan Pablo García Plaz Pérez (jgarciapft)
  *
  * Definición: Archivo de cabeceras para incluir un módulo que realice todas las pruebas
  */
