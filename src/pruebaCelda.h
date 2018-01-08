@@ -12,9 +12,9 @@
 /*
  * Verifica que las celdas se inicializan correctamente
  *
- * 	Se llama al método iniciar() en una celda y se comprueba que su valor sera VALOR_PREDEFINIDO = -1
- * 	, que esté vacia (obtenerEstaVacia() = true) y que esté mostrando el reverso
- * 	(obtenerMostrandoAnverso() = false)
+ * 	Se llama al método iniciar() en una celda y se comprueba que su valor sera VALOR_PREDEFINIDO = -1,
+ * 		que esté vacia (obtenerEstaVacia() = true) y que esté mostrando el reverso
+ * 		(obtenerMostrandoAnverso() = false)
  */
 void pruebaIniciarCelda();
 

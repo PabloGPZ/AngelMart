@@ -10,22 +10,22 @@
 
 using namespace std;
 
-Celda celda, c1, c2;
+Celda c1, c2;
 
 void pruebaIniciarCelda(){
-	iniciarCelda(celda);
-	if(obtenerValor(celda) != VALOR_PREDEFINIDO ||
-			obtenerEstaVacia(celda) != true ||
-			obtenerMostrandoAnverso(celda) != false)
+	iniciarCelda(c1);
+	if(obtenerValor(c1) != VALOR_PREDEFINIDO ||
+			obtenerEstaVacia(c1) != true ||
+			obtenerMostrandoAnverso(c1) != false)
 		cout << "ERROR: La celda no está correctamente inicializada" << endl;
 }
 
 void pruebaValorCelda(){
-	ponerValor(celda, 7);
-	if(obtenerValor(celda) != 7)
+	ponerValor(c1, 7);
+	if(obtenerValor(c1) != 7)
 		cout << "ERROR: La celda no tiene el valor deseado" << endl;
-	vaciarCelda(celda);
-	if(obtenerEstaVacia(celda) != true)
+	vaciarCelda(c1);
+	if(obtenerEstaVacia(c1) != true)
 		cout << "ERROR: La celda no está vacía despues de haberla vaciado" << endl;
 }
 

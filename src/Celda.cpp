@@ -12,11 +12,9 @@ void iniciarCelda(Celda &c){
 	c.mostrandoAnverso = false;
 }
 
-
 void vaciarCelda(Celda &c){
 	c.estaVacia = true;
 }
-
 
 void ponerValor(Celda &c, int valor){
 	c.valor = valor;
@@ -24,26 +22,21 @@ void ponerValor(Celda &c, int valor){
 	c.mostrandoAnverso = false;
 }
 
-
 void ponerMostrandoAnverso(Celda &c, bool estado){
 	c.mostrandoAnverso = estado;
 }
-
 
 int obtenerValor(Celda c){
 	return c.valor;
 }
 
-
 bool obtenerEstaVacia(Celda c){
 	return c.estaVacia;
 }
 
-
 bool obtenerMostrandoAnverso(Celda c){
 	return c.mostrandoAnverso;
 }
-
 
 bool sonIguales(Celda c1, Celda c2){
 	return c1.valor == c2.valor;
