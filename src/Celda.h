@@ -34,16 +34,16 @@ void vaciarCelda(Celda &c);
 
 
 /*
- * PRE: 0 <= valor <= 10
- * POST: Pone el valor de la celda c a "valor"
+ * PRE: 0 <= valor <= 9
+ * POST: Pone el valor de la celda c a 'valor'
  * COMPLEJIDAD: O(1)
  */
 void ponerValor(Celda &c, int valor);
 
 
 /*
- * PRE: "estado" es {true, false}
- * POST: Cambia el estado de la celda c (si muestra el anverso o no) de la celda c a "estado"
+ * PRE: 'estado' es {true, false}
+ * POST: Cambia el estado de la celda c (si muestra el anverso o no) de la celda c a 'estado'
  * COMPLEJIDAD: O(1)
  */
 void ponerMostrandoAnverso(Celda &c, bool estado);
@@ -74,8 +74,8 @@ bool obtenerMostrandoAnverso(Celda c);
 
 
 /*
- * PRE: "c1" y "c2" son objetos tipo Celda correctamente inicializados
- * POST: Devuelve si las celdas "c1" y "c2" son de igual valor
+ * PRE: 'c1' y 'c2' son objetos tipo Celda correctamente inicializados
+ * POST: Devuelve si las celdas 'c1' y 'c2' son de igual valor o no
  * COMPLEJIDAD: O(1)
  */
 bool sonIguales(Celda c1, Celda c2);
