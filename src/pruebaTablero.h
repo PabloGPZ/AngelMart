@@ -19,10 +19,10 @@ void pruebaIniciarTablero();
 
 /*
  * Verifica que al insertarse una ficha caiga hasta la siguiente ficha en su columna
- * 		o el fondo del tablero
+ * 		o hasta el fondo del tablero
  *
- * 1. Se inserta una ficha sin obstáculos para comprobar que se coloqué en el fondo
- * 2. Se coloca un obstáculo para comprobar que pare
+ * 1. Se inserta una ficha sin obstáculos para comprobar que se coloque en el fondo
+ * 2. Se coloca un obstáculo para comprobar que se para
  */
 void pruebaInsertarFicha();
 
@@ -31,13 +31,13 @@ void pruebaInsertarFicha();
  * Verifica que al eliminarse una ficha las que haya encima caigan
  *
  * 1. Se elimina una ficha que no tiene ninguna ficha encima
- * 2. Se elimina una ficha que tenga más fichas encima
+ * 2. Se elimina una ficha que tenga más fichas encima y se comprueba que éstas caigan
  */
 void pruebaEliminarFicha();
 
 
 /*
- * Verifica que cambia el estado de la ficha de la posición [pos_y][pos_x]
+ * Verifica que cambia el estado de la ficha de la posición (pos_x, pos_y)
  *
  * fichaVoltear()	->	fichaVoltear()
  * 		Reverso		->		TRUE
@@ -57,7 +57,7 @@ void pruebaCabeFila();
 
 /*
  * Verifica que se inserte una fila de fichas en la parte superior del tablero y sus
- * 		fichas caigan por columnas hasta la ficha siguiente o el fondo
+ * 		fichas caigan por columnas hasta la ficha siguiente o hasta el fondo
  *
  * #. Se inserta una fila en la parte superior y se comprueba que caigan las fichas
  */

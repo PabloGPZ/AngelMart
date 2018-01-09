@@ -121,7 +121,7 @@ void pruebaTableroEstaVacio() {
 	if(tableroEstaVacio(t1) != false)
 		cout << "ERROR: El tablero no está vacio" << endl;
 
-	//2. El tablero está vacío					->	rtableroEstaVacio() = TRUE
+	//2. El tablero está vacío					->	tableroEstaVacio() = TRUE
 	iniciarTablero(t3, 4);
 
 	if(tableroEstaVacio(t3) != true)
@@ -157,15 +157,6 @@ void pruebaGenerarVectorUnico() {
 		cout << "[" << v[i] << "]";
 	}
 	cout << endl;
-}
-
-void mostrarTablero(Tablero t){
-	for(int i=0; i<obtenerTamanoTablero(t); i++){
-		for(int j=0; j<obtenerTamanoTablero(t); j++){
-			cout << "[" << celdaObtenerValor(t, j, i) << "/" << celdaEstaVacia(t, j, i)<< "]";
-		}
-		cout << endl;
-	}
 }
 
 void pruebasTADTablero(){
