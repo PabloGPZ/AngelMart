@@ -145,7 +145,7 @@ void generarVectorUnico(vValores &vector, int tamano, int rang){
 		if(!enc)
 			vector[i] = valor;
 		else
-			i--; //Si el valor esta repetido no cuenta la iteración
+			i--; //Si el valor está repetido no cuenta la iteración
 		enc = false;
 	}
 }
