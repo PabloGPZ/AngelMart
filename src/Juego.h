@@ -24,7 +24,7 @@ const float TIEMPO_PAUSA_FINAL = 2; 			//Tiempo que se le deja al jugador ver el
  * POST: Punto de entrada del programa. Llama a todas las pruebas y carga la configuración
  * 			inicial para iniciar el entorno gráfico. Si se realiza correctamente llama al
  * 			siguiente módulo 'manejadorJuego()'.
- * 	COMPLEJIDAD: O(1) //Sin contar las pruebas.
+ * 	COMPLEJIDAD: O(1) .Sin contar las pruebas
  */
 int main();
 
@@ -33,9 +33,8 @@ int main();
  * PRE:
  * POST: Módulo que maneja toda la lógica del juego: entrada del usuario, manejo del tablero,
  *  		manejo del cronómetro, de la puntuación y de la finalización de la partida.
- * 			Una vez la partida acabe se llama al módulo 'terminarJuego()' para terminar
- * 			el entorno gráfico y liberar los recursos asociados.
- * 	COMPLEJIDAD:
+ * 			Una vez la partida acabe se llama al módulo 'terminarJuego()'.
+ * 	COMPLEJIDAD: 0(n)
  */
 void manejadorJuego();
 
@@ -52,7 +51,7 @@ void terminarJuego();
 /*
  * PRE:
  * POST: Módulo para actualizar el entorno gráfico del tablero
- * COMPLEJIDAD: n²
+ * COMPLEJIDAD: 0(n²)
  */
 void actualizarEntorno(Tablero &t);
 
@@ -60,23 +59,23 @@ void actualizarEntorno(Tablero &t);
 /*
  * PRE: Cabe una fila más en el Tablero 't'
  * POST: Módulo que insertar una fila en el tablero y actualiza el entorno grafico
- * COMPLEJIDAD: O(n*n²) //por actualizarEntorno()
+ * COMPLEJIDAD: O(n*n²) .Por actualizarEntorno()
  */
 void juegoInsertarFila(Tablero &t);
 
 
 /*
- * PRE: 'pos_x' y 'pos_y' dentro de los límites del Tablero 't'
- * POST: Módulo que elimina una ficha y actualiza el entorno gráfico
- * COMPLEJIDAD: O(n*n²) //por actualizarEntorno()
+ * PRE: 'pos_x' y 'pos_y' dentro de los límites del Tablero t
+ * POST: Módulo que elimina la ficha de la posición ('pos_x', 'pos_y') y actualiza el entorno gráfico
+ * COMPLEJIDAD: O(n*n²) .Por actualizarEntorno()
  */
 void juegoEliminarFicha(Tablero &t, int pos_x, int pos_y);
 
 
 /*
- * PRE: pos_x' y 'pos_y' dentro de los límites del Tablero 't'
- * POST: Módulo que voltea una ficha y actualiza el entorno gráfico
- * COMPLEJIDAD: O(1*n²) //por actualizarEntorno()
+ * PRE: pos_x' y 'pos_y' dentro de los límites del Tablero t
+ * POST: Módulo que voltea la ficha de la posición ('pos_x', 'pos_y') y actualiza el entorno gráfico
+ * COMPLEJIDAD: O(1*n²) .Por actualizarEntorno()
  */
 
 void juegoFichaVoltear(Tablero &t, int pos_x, int pos_y);
