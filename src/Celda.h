@@ -19,7 +19,7 @@ struct Celda{
 
 /*
  * PRE:
- * POST: Inicia la celda al valor por defecto, la designa vacia y mostrando el reverso
+ * POST: Inicia la celda al valor por defecto, la designa vacia y mostrando el REVERSO
  * COMPLEJIDAD: O(1)
  */
 void iniciarCelda(Celda &c);
@@ -27,7 +27,7 @@ void iniciarCelda(Celda &c);
 
 /*
  * PRE:
- * POST: Designa una celda vacia
+ * POST: Designa una celda vacia y cambia su estado a ANVERSO
  * COMPLEJIDAD: O(1)
  */
 void vaciarCelda(Celda &c);
@@ -43,7 +43,7 @@ void ponerValor(Celda &c, int valor);
 
 /*
  * PRE:
- * POST: Cambia el estado de la celda c (si muestra el anverso o no)a 'estado'
+ * POST: Cambia el estado de la celda c (si muestra el anverso o no) a 'estado'
  * COMPLEJIDAD: O(1)
  */
 void ponerMostrandoAnverso(Celda &c, bool estado);

@@ -141,10 +141,11 @@ void manejadorJuego() {
 				break;
 			case TX: //Pista 1
 				estado = true; //Inicialización de la bandera
-				puntuacion = puntuacion-puntosPista; //Se actualiza la puntuación
-				entornoPonerPuntuacion(puntuacion);
 
 				if(puntuacion-puntosPista >= 0){ //Bucle para voltear la ficha de REVERSO a ANVERSO y a REVERSO
+					puntuacion = puntuacion-puntosPista; //Se actualiza la puntuación
+					entornoPonerPuntuacion(puntuacion);
+
 					for(int c=0; c<2; c++){
 						for(int i=0; i<tamanoTablero; i++){ //Bucles for anidados para iterar cada celda del tablero
 							for(int j=0; j<tamanoTablero; j++){
@@ -161,10 +162,10 @@ void manejadorJuego() {
 				}
 				break;
 			case TY: //Pista 2
-				puntuacion = puntuacion-puntosPista/2; //Se actualiza la puntuación
-				entornoPonerPuntuacion(puntuacion);
-
 				if(puntuacion-puntosPista/2 >= 0){ //Bucle para voltear la ficha de REVERSO a ANVERSO y a REVERSO
+					puntuacion = puntuacion-puntosPista/2; //Se actualiza la puntuación
+					entornoPonerPuntuacion(puntuacion);
+
 					for(int i=0; i<tamanoTablero; i++){ //Bucles for anidados para iterar cada celda del tablero
 						for(int j=0; j<tamanoTablero; j++){
 							if(!celdaObtenerEstaVacia(t, j, i)){
@@ -251,6 +252,13 @@ void actualizarEntorno(Tablero &t){
 
 void juegoInsertarFila(Tablero &t){
 	insertarFila(t);
+
+	 //Al insertar una nueva fila por debajo la seleccion también debe subir
+	entornoDesactivarCelda(pos_y, pos_x);
+	pos_y--;
+	sel_y1--;
+	entornoActivarCelda(pos_y, pos_x);
+
 	actualizarEntorno(t);
 }
 

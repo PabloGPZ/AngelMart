@@ -14,12 +14,12 @@ void iniciarCelda(Celda &c){
 
 void vaciarCelda(Celda &c){
 	c.estaVacia = true;
+	c.mostrandoAnverso = false;
 }
 
 void ponerValor(Celda &c, int valor){
 	c.valor = valor;
 	c.estaVacia = false;
-	c.mostrandoAnverso = false;
 }
 
 void ponerMostrandoAnverso(Celda &c, bool estado){

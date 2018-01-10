@@ -22,24 +22,22 @@ void iniciarTablero(Tablero &t, int tamano) {
 }
 
 void insertarFicha(Tablero &t, int pos_x, int pos_y, int valor) {
-	bool obs = false; //bandera
-
-	celdaPonerValor(t, pos_x, pos_y, valor);
-
-	for(int i=0; i<obtenerTamanoTablero(t)-1 && !obs; i++){ //Deja caer la ficha
-		if(celdaObtenerEstaVacia(t, pos_x, pos_y+i+1)){
-			celdaPonerValor(t, pos_x, pos_y+i+1, celdaObtenerValor(t, pos_x, pos_y+i));
-			celdaVaciarCelda(t, pos_x, pos_y+i);
-		}else{
-			obs = true;
+	for(int i=0; i<obtenerTamanoTablero(t); i++){ //Deja caer la ficha
+		if(!celdaObtenerEstaVacia(t, pos_x, i)){
+			celdaPonerValor(t, pos_x, i-1, celdaObtenerValor(t, pos_x, i));
+			celdaPonerMostrandoAnverso(t, pos_x, i-1, celdaObtenerMostrandoAnverso(t, pos_x, i));
+			celdaPonerMostrandoAnverso(t, pos_x, i, false);
 		}
 	}
+
+	celdaPonerValor(t, pos_x, pos_y, valor); //Inserta la ficha
 }
 
 void eliminarFicha(Tablero &t, int pos_x, int pos_y) {
 	bool vacio = false; //bandera
 
 	celdaVaciarCelda(t, pos_x, pos_y);
+
 	for(int i=0; i<obtenerTamanoTablero(t)-1 && !vacio; i++){ //Deja caer las fichas superiores
 		if(!celdaObtenerEstaVacia(t, pos_x, pos_y-i-1)){
 			celdaPonerValor(t, pos_x, pos_y-i, celdaObtenerValor(t, pos_x, pos_y-i-1));
@@ -88,7 +86,7 @@ void insertarFila(Tablero &t) {
 	}
 
 	for(int i=0; i<obtenerTamanoTablero(t); i++){ //Inserción de fichas
-		insertarFicha(t, i, 0, valores[posiciones[i]]);
+		insertarFicha(t, i, obtenerTamanoTablero(t)-1, valores[posiciones[i]]);
 	}
 }
 
