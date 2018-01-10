@@ -57,7 +57,6 @@ void manejadorJuego() {
 		entornoPausa(1); //Se necesita una pequeña pausa para que se generen dos filas distintas
 	}
 
-
 	/*
 	 * Bucle que mantiene el procesamiento de la lógica del juego
 	 */
@@ -150,7 +149,7 @@ void manejadorJuego() {
 						for(int i=0; i<tamanoTablero; i++){ //Bucles for anidados para iterar cada celda del tablero
 							for(int j=0; j<tamanoTablero; j++){
 								if(!celdaObtenerEstaVacia(t, j, i))
-									celdaPonerMostrandoAnverso(t, j, i, estado);
+									celdaPonerMostrandoAnverso(t, j, i, estado); //Todas las fichas muestran el anverso
 							}
 						}
 						actualizarEntorno(t);

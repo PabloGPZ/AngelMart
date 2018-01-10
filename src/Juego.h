@@ -2,8 +2,7 @@
  * Juego.h
  * Autor: Juan Pablo García Plaz Pérez (jgarciapft)
  *
- * Descripción: TAD que maneja el la lógica del juego, la puntuación
- * 					y el entorno gráfico
+ * Descripción: TAD que maneja el la lógica del juego y el entorno gráfico
  *
  */
 
@@ -36,7 +35,7 @@ int main();
  * POST: Módulo que maneja toda la lógica del juego: entrada del usuario, manejo del tablero,
  *  		manejo del cronómetro, de la puntuación y de la finalización de la partida.
  * 			Una vez la partida acabe se llama al módulo 'terminarJuego()'.
- * 	COMPLEJIDAD: 0(n)
+ * 	COMPLEJIDAD: 0(n(*n*n²)) .Por ser una composición de módulos de complejidad (n*n²)
  */
 void manejadorJuego();
 
@@ -79,7 +78,6 @@ void juegoEliminarFicha(Tablero &t, int pos_x, int pos_y);
  * POST: Módulo que voltea la ficha de la posición ('pos_x', 'pos_y') y actualiza el entorno gráfico
  * COMPLEJIDAD: O(1*n²) .Por actualizarEntorno()
  */
-
 void juegoFichaVoltear(Tablero &t, int pos_x, int pos_y);
 
 #endif /* JUEGO_H_ */

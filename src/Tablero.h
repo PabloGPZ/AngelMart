@@ -65,7 +65,7 @@ bool cabeFila(Tablero t);
 /*
  * PRE: cabe una nueva fila en el Tablero t
  * POST: Modifica el Tablero t para insertar una nueva fila de fichas
- * 			en la parte superior y que bajen hasta ocupar los huecos libres del tablero
+ * 			en la parte inferior y que el resto de fichas superiores suban
  * COMPLEJIDAD: O(n*n²)
  */
 void insertarFila(Tablero &t);
@@ -89,7 +89,7 @@ bool compararFichas(Tablero t, int pos_x1, int pos_y1, int pos_x2, int pos_y2);
 
 /*
  * PRE:
- * POST: Devuelve el tamaño real indicado por el fichero de configuracion del Tablero t
+ * POST: Devuelve el tamaño real con el que se ha iniciado el Tablero t
  * COMPLEJIDAD: 0(1)
  */
 int obtenerTamanoTablero(Tablero t);
@@ -104,7 +104,7 @@ void celdaVaciarCelda(Tablero &t, int pos_x, int pos_y);
 
 
 /*
- * PRE: 0 <= 'valor' <= 9. 'pos_x' y 'pos_y' dentro de los límites del Tablero t
+ * PRE: 0 <= 'valor' <= 9 y 'pos_x' y 'pos_y' dentro de los límites del Tablero t
  * POST: Pone el valor la celda de la posicion ('pos_x','pos_y') a 'valor'
  * COMPLEJIDAD: 0(1)
  */
@@ -112,7 +112,7 @@ void celdaPonerValor(Tablero &t, int pos_x, int pos_y, int valor);
 
 
 /*
- * PRE: 'pos_x' y 'pos_y' dentro de los límites del Tablero t.
+ * PRE: 'pos_x' y 'pos_y' dentro de los límites del Tablero t
  * POST: Pone el estado de la celda de la posicion ('pos_x','pos_y') a 'estado'
  * COMPLEJIDAD: 0(1)
  */

@@ -23,10 +23,10 @@ void iniciarTablero(Tablero &t, int tamano) {
 
 void insertarFicha(Tablero &t, int pos_x, int pos_y, int valor) {
 	for(int i=0; i<obtenerTamanoTablero(t); i++){ //Deja caer la ficha
-		if(!celdaObtenerEstaVacia(t, pos_x, i)){
-			celdaPonerValor(t, pos_x, i-1, celdaObtenerValor(t, pos_x, i));
-			celdaPonerMostrandoAnverso(t, pos_x, i-1, celdaObtenerMostrandoAnverso(t, pos_x, i));
-			celdaPonerMostrandoAnverso(t, pos_x, i, false);
+		if(!celdaObtenerEstaVacia(t, pos_x, i)){ //Empieza a comprobar la columna desde arriba
+			celdaPonerValor(t, pos_x, i-1, celdaObtenerValor(t, pos_x, i));  //Copia el valor a la celda superior
+			celdaPonerMostrandoAnverso(t, pos_x, i-1, celdaObtenerMostrandoAnverso(t, pos_x, i)); //Copia la estado a la celda superior
+			celdaPonerMostrandoAnverso(t, pos_x, i, false); //Reinicia el estado de la ficha actual
 		}
 	}
 
@@ -93,7 +93,7 @@ void insertarFila(Tablero &t) {
 bool tableroEstaVacio(Tablero t) {
 	bool estaVacio = true; //bandera
 
-	for(int i=0; i<obtenerTamanoTablero(t) && estaVacio; i++){ //Si no hay nada en la ultima fila significa que el tablero está vacio. Solo comprobamos la última fila
+	for(int i=0; i<obtenerTamanoTablero(t) && estaVacio; i++){ //Si no hay nada en la ultima fila significa que el tablero está vacio
 		if(!celdaObtenerEstaVacia(t, i, obtenerTamanoTablero(t)-1))
 			estaVacio = false;
 	}
