@@ -96,6 +96,14 @@ int obtenerTamanoTablero(Tablero t);
 
 
 /*
+ * PRE: 'pos_x' y 'pos_y' dentro de los límites del Tablero t
+ * POST: Designa la celda de la posicion ('pos_x','pos_y') vacia
+ * COMPLEJIDAD: 0(1)
+ */
+void celdaVaciarCelda(Tablero &t, int pos_x, int pos_y);
+
+
+/*
  * PRE: 0 <= 'valor' <= 9. 'pos_x' y 'pos_y' dentro de los límites del Tablero t
  * POST: Pone el valor la celda de la posicion ('pos_x','pos_y') a 'valor'
  * COMPLEJIDAD: 0(1)
