@@ -141,6 +141,8 @@ void manejadorJuego() {
 				break;
 			case TX:
 				estado = true; //Inicialización de la bandera
+				puntuacion = puntuacion-puntosPista; //Se actualiza la puntuación
+				entornoPonerPuntuacion(puntuacion);
 
 				if(puntuacion-puntosPista >= 0){ //Bucle para voltear la ficha de REVERSO a ANVERSO y a REVERSO
 					for(int c=0; c<2; c++){
@@ -156,11 +158,23 @@ void manejadorJuego() {
 					}
 
 					actualizarEntorno(t);
-					puntuacion = puntuacion-puntosPista; //Se actualiza la puntuación
-					entornoPonerPuntuacion(puntuacion);
 				}
 				break;
 			case TY:
+				puntuacion = puntuacion-puntosPista/2; //Se actualiza la puntuación
+				entornoPonerPuntuacion(puntuacion);
+
+				if(puntuacion-puntosPista/2 >= 0){ //Bucle para voltear la ficha de REVERSO a ANVERSO y a REVERSO
+					for(int i=0; i<tamanoTablero; i++){ //Bucles for anidados para iterar cada celda del tablero
+						for(int j=0; j<tamanoTablero; j++){
+							if(!celdaObtenerEstaVacia(t, j, i)){
+								juegoFichaVoltear(t, j, i);
+								entornoPausa(TIEMPO_PISTA_2);
+								juegoFichaVoltear(t, j, i);
+							}
+						}
+					}
+				}
 				break;
 			case TZ:
 				break;
