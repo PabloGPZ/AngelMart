@@ -43,7 +43,7 @@ void manejadorJuego() {
 	pos_y = tamanoTablero-1;
 	entornoActivarCelda(pos_y, pos_x);
 
-	puntuacion = 0;
+	puntuacion = 100;
 	entornoPonerPuntuacion(puntuacion);
 
 	salir = false;
@@ -139,6 +139,19 @@ void manejadorJuego() {
 				entornoActivarCelda(pos_y, pos_x);
 				break;
 			case TX:
+				if(puntuacion-puntosPista >= 0){ //Bucle para voltear la ficha de REVERSO a ANVERSO y a REVERSO
+					for(int c=0; c<2; c++){
+						for(int i=0; i<tamanoTablero; i++){ //Bucles for anidados para iterar cada celda del tablero
+							for(int j=0; j<tamanoTablero; j++){
+								//fichaVoltear(t, j, i);
+							}
+						}
+						entornoPausa(TIEMPO_PISTA_1); //Tiempo de retraso entre ambos volteos
+					}
+
+					puntuacion = puntuacion-puntosPista; //Se actualiza la puntuación
+					entornoPonerPuntuacion(puntuacion);
+				}
 				break;
 			case TY:
 				break;

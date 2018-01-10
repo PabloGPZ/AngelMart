@@ -18,6 +18,7 @@ const int PTOS_FINAL_TABLERO_VACIO = 50; 		//Ptos de bonificación por vaciar el
 const float TIEMPO_TRANSICION_ESTADOS = 0.25; 	//Retraso entre estados de la animación de voltear fichas
 const float TIEMPO_RETRASO_SELECCION = 0.5; 	//Tiempo que se le deja al jugador ver el anverso de ambas fichas
 const float TIEMPO_PAUSA_FINAL = 2; 			//Tiempo que se le deja al jugador ver el mensaje final
+const float TIEMPO_PISTA_1 = 1;					//Tiempo que muestran el reverso todas las fichas al activarse la pista 1
 
 /*
  * PRE:
