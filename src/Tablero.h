@@ -108,7 +108,15 @@ void celdaVaciarCelda(Tablero &t, int pos_x, int pos_y);
  * POST: Pone el valor la celda de la posicion ('pos_x','pos_y') a 'valor'
  * COMPLEJIDAD: 0(1)
  */
-void celdaPonerValor(Tablero &t, int valor, int pos_x, int pos_y);
+void celdaPonerValor(Tablero &t, int pos_x, int pos_y, int valor);
+
+
+/*
+ * PRE: 'pos_x' y 'pos_y' dentro de los límites del Tablero t.
+ * POST: Pone el estado de la celda de la posicion ('pos_x','pos_y') a 'estado'
+ * COMPLEJIDAD: 0(1)
+ */
+void celdaPonerMostrandoAnverso(Tablero &t, int pos_x, int pos_y, bool estado);
 
 
 /*

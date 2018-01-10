@@ -42,8 +42,8 @@ void ponerValor(Celda &c, int valor);
 
 
 /*
- * PRE: 'estado' es {true, false}
- * POST: Cambia el estado de la celda c (si muestra el anverso o no) de la celda c a 'estado'
+ * PRE:
+ * POST: Cambia el estado de la celda c (si muestra el anverso o no)a 'estado'
  * COMPLEJIDAD: O(1)
  */
 void ponerMostrandoAnverso(Celda &c, bool estado);

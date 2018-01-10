@@ -24,11 +24,11 @@ void iniciarTablero(Tablero &t, int tamano) {
 void insertarFicha(Tablero &t, int pos_x, int pos_y, int valor) {
 	bool obs = false; //bandera
 
-	celdaPonerValor(t, valor, pos_x, pos_y);
+	celdaPonerValor(t, pos_x, pos_y, valor);
 
 	for(int i=0; i<obtenerTamanoTablero(t)-1 && !obs; i++){ //Deja caer la ficha
 		if(celdaObtenerEstaVacia(t, pos_x, pos_y+i+1)){
-			celdaPonerValor(t, celdaObtenerValor(t, pos_x, pos_y+i), pos_x, pos_y+i+1);
+			celdaPonerValor(t, pos_x, pos_y+i+1, celdaObtenerValor(t, pos_x, pos_y+i));
 			celdaVaciarCelda(t, pos_x, pos_y+i);
 		}else{
 			obs = true;
@@ -42,7 +42,7 @@ void eliminarFicha(Tablero &t, int pos_x, int pos_y) {
 	celdaVaciarCelda(t, pos_x, pos_y);
 	for(int i=0; i<obtenerTamanoTablero(t)-1 && !vacio; i++){ //Deja caer las fichas superiores
 		if(!celdaObtenerEstaVacia(t, pos_x, pos_y-i-1)){
-			celdaPonerValor(t, celdaObtenerValor(t, pos_x, pos_y-i-1), pos_x, pos_y-i);
+			celdaPonerValor(t, pos_x, pos_y-i, celdaObtenerValor(t, pos_x, pos_y-i-1));
 			celdaVaciarCelda(t, pos_x, pos_y-i-1);
 		}
 		else{
@@ -55,10 +55,10 @@ bool fichaVoltear(Tablero &t, int pos_x, int pos_y) {
 	bool mostrandoAnverso;
 
 	if(!celdaObtenerMostrandoAnverso(t, pos_x, pos_y)){ //Estado presente: ANVERSO
-		ponerMostrandoAnverso(t.v[pos_y][pos_x], true);
+		celdaPonerMostrandoAnverso(t, pos_x , pos_y, true);
 		mostrandoAnverso = true; //Estado siguiente: REVERSO
 	}else{ //Estado presente: REVERSO
-		ponerMostrandoAnverso(t.v[pos_y][pos_x], false);
+		celdaPonerMostrandoAnverso(t, pos_x, pos_y, false);
 		mostrandoAnverso = false; //Estado siguiente: ANVERSO
 	}
 	return mostrandoAnverso;
@@ -118,8 +118,12 @@ void celdaVaciarCelda(Tablero &t, int pos_x, int pos_y){
 	vaciarCelda(t.v[pos_y][pos_x]);
 }
 
-void celdaPonerValor(Tablero &t, int valor, int pos_x, int pos_y){
+void celdaPonerValor(Tablero &t, int pos_x, int pos_y, int valor){
 	ponerValor(t.v[pos_y][pos_x], valor);
+}
+
+void celdaPonerMostrandoAnverso(Tablero &t, int pos_x, int pos_y, bool estado){
+	ponerMostrandoAnverso(t.v[pos_y][pos_x], estado);
 }
 
 bool celdaObtenerEstaVacia(Tablero t, int pos_x, int pos_y) {
