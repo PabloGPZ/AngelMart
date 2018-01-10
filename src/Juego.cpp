@@ -20,7 +20,6 @@ TipoTecla tecla;					//Almacena las teclas pulsadas, rol: mas reciente
 int pos_x, pos_y;					//Almacena la posición de la celda seleccionada, rol: transformación
 int sel_x1, sel_y1, sel_x2, sel_y2; //Almacenan las posiciones de las dos fichas seleccionadas, rol: transformación
 int seleccionadas;					//Almacena el numero de fichas seleccionadas, rol: contador
-bool estado; 						//Bandera de la pista 1, rol: bandera
 Tablero t;							//Almacena el tablero en memoria, rol: transformación
 
 int main() { //cargarJuego()
@@ -138,43 +137,9 @@ void manejadorJuego() {
 					pos_y = 0;
 				entornoActivarCelda(pos_y, pos_x);
 				break;
-			case TX: //Pista 1
-				estado = true; //Inicialización de la bandera
-
-				if(puntuacion-puntosPista >= 0){ //Bucle para voltear la ficha de REVERSO a ANVERSO y a REVERSO
-					puntuacion = puntuacion-puntosPista; //Se actualiza la puntuación
-					entornoPonerPuntuacion(puntuacion);
-
-					for(int c=0; c<2; c++){
-						for(int i=0; i<tamanoTablero; i++){ //Bucles for anidados para iterar cada celda del tablero
-							for(int j=0; j<tamanoTablero; j++){
-								if(!celdaObtenerEstaVacia(t, j, i))
-									celdaPonerMostrandoAnverso(t, j, i, estado); //Todas las fichas muestran el anverso
-							}
-						}
-						actualizarEntorno(t);
-						entornoPausa(TIEMPO_PISTA_1); //Tiempo de retraso entre ambos volteos
-						estado = false; //Actualización de la bandera para pasar de ANVERSO a REVERSO
-					}
-
-					actualizarEntorno(t);
-				}
+			case TX:
 				break;
-			case TY: //Pista 2
-				if(puntuacion-puntosPista/2 >= 0){ //Bucle para voltear la ficha de REVERSO a ANVERSO y a REVERSO
-					puntuacion = puntuacion-puntosPista/2; //Se actualiza la puntuación
-					entornoPonerPuntuacion(puntuacion);
-
-					for(int i=0; i<tamanoTablero; i++){ //Bucles for anidados para iterar cada celda del tablero
-						for(int j=0; j<tamanoTablero; j++){
-							if(!celdaObtenerEstaVacia(t, j, i)){
-								juegoFichaVoltear(t, j, i);
-								entornoPausa(TIEMPO_PISTA_2);
-								juegoFichaVoltear(t, j, i);
-							}
-						}
-					}
-				}
+			case TY:
 				break;
 			case TZ:
 				break;
@@ -251,13 +216,6 @@ void actualizarEntorno(Tablero &t){
 
 void juegoInsertarFila(Tablero &t){
 	insertarFila(t);
-
-	 //Al insertar una nueva fila por debajo la seleccion también debe subir
-	entornoDesactivarCelda(pos_y, pos_x);
-	pos_y--;
-	sel_y1--;
-	entornoActivarCelda(pos_y, pos_x);
-
 	actualizarEntorno(t);
 }
 

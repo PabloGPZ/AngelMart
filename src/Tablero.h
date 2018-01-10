@@ -65,7 +65,7 @@ bool cabeFila(Tablero t);
 /*
  * PRE: cabe una nueva fila en el Tablero t
  * POST: Modifica el Tablero t para insertar una nueva fila de fichas
- * 			en la parte inferior y que el resto de fichas superiores suban
+ * 			en la parte superior y que caigan por columnas
  * COMPLEJIDAD: O(n*n²)
  */
 void insertarFila(Tablero &t);

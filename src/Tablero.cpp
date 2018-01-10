@@ -22,15 +22,18 @@ void iniciarTablero(Tablero &t, int tamano) {
 }
 
 void insertarFicha(Tablero &t, int pos_x, int pos_y, int valor) {
-	for(int i=0; i<obtenerTamanoTablero(t); i++){ //Deja caer la ficha
-		if(!celdaObtenerEstaVacia(t, pos_x, i)){ //Empieza a comprobar la columna desde arriba
-			celdaPonerValor(t, pos_x, i-1, celdaObtenerValor(t, pos_x, i));  //Copia el valor a la celda superior
-			celdaPonerMostrandoAnverso(t, pos_x, i-1, celdaObtenerMostrandoAnverso(t, pos_x, i)); //Copia la estado a la celda superior
-			celdaPonerMostrandoAnverso(t, pos_x, i, false); //Reinicia el estado de la ficha actual
-		}
-	}
+	bool obs = false; //bandera
 
-	celdaPonerValor(t, pos_x, pos_y, valor); //Inserta la ficha
+		celdaPonerValor(t, pos_x, pos_y, valor);
+
+		for(int i=0; i<obtenerTamanoTablero(t)-1 && !obs; i++){ //Deja caer la ficha
+			if(celdaObtenerEstaVacia(t, pos_x, pos_y+i+1)){
+				celdaPonerValor(t, pos_x, pos_y+i+1, celdaObtenerValor(t, pos_x, pos_y+i));
+				celdaVaciarCelda(t, pos_x, pos_y+i);
+			}else{
+				obs = true;
+			}
+		}
 }
 
 void eliminarFicha(Tablero &t, int pos_x, int pos_y) {
