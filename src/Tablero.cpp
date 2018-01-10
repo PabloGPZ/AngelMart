@@ -24,11 +24,11 @@ void iniciarTablero(Tablero &t, int tamano) {
 void insertarFicha(Tablero &t, int pos_x, int pos_y, int valor) {
 	bool obs = false; //bandera
 
-	ponerValor(t.v[pos_y][pos_x], valor);
+	celdaPonerValor(t, valor, pos_x, pos_y);
 
 	for(int i=0; i<obtenerTamanoTablero(t)-1 && !obs; i++){ //Deja caer la ficha
 		if(celdaObtenerEstaVacia(t, pos_x, pos_y+i+1)){
-			ponerValor(t.v[pos_y+i+1][pos_x],  celdaObtenerValor(t, pos_x, pos_y+i));
+			celdaPonerValor(t, celdaObtenerValor(t, pos_x, pos_y+i), pos_x, pos_y+i+1);
 			vaciarCelda(t.v[pos_y+i][pos_x]);
 		}else{
 			obs = true;
@@ -42,7 +42,7 @@ void eliminarFicha(Tablero &t, int pos_x, int pos_y) {
 	vaciarCelda(t.v[pos_y][pos_x]);
 	for(int i=0; i<obtenerTamanoTablero(t)-1 && !vacio; i++){ //Deja caer las fichas superiores
 		if(!celdaObtenerEstaVacia(t, pos_x, pos_y-i-1)){
-			ponerValor(t.v[pos_y-i][pos_x],  celdaObtenerValor(t, pos_x, pos_y-i-1));
+			celdaPonerValor(t, celdaObtenerValor(t, pos_x, pos_y-i-1), pos_x, pos_y-i);
 			vaciarCelda(t.v[pos_y-i-1][pos_x]);
 		}
 		else{
@@ -112,6 +112,10 @@ bool compararFichas(Tablero t, int pos_x1, int pos_y1, int pos_x2, int pos_y2){
 
 int obtenerTamanoTablero(Tablero t) {
 	return t.tamanoTablero;
+}
+
+void celdaPonerValor(Tablero &t, int valor, int pos_x, int pos_y){
+	ponerValor(t.v[pos_y][pos_x], valor);
 }
 
 bool celdaObtenerEstaVacia(Tablero t, int pos_x, int pos_y) {

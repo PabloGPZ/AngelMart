@@ -96,6 +96,14 @@ int obtenerTamanoTablero(Tablero t);
 
 
 /*
+ * PRE: 0 <= 'valor' <= 9. 'pos_x' y 'pos_y' dentro de los límites del Tablero t
+ * POST: Pone el valor la celda de la posicion ('pos_x','pos_y') a 'valor'
+ * COMPLEJIDAD: 0(1)
+ */
+void celdaPonerValor(Tablero &t, int valor, int pos_x, int pos_y);
+
+
+/*
  * PRE: 'pos_x' y 'pos_y' dentro de los límites del Tablero t
  * POST: Devuelve si la celda de la posicion ('pos_x','pos_y') contiene o no una ficha
  * COMPLEJIDAD: 0(1)
