@@ -94,7 +94,7 @@ void pruebaCabeFila() {
 
 	for(int i=0; i<obtenerTamanoTablero(t2); i++){ //Relleno el tablero completamente
 		for(int j=0; j<obtenerTamanoTablero(t2); j++){
-			ponerValor(t2.v[i][j], 0);
+			celdaPonerValor(t2, j, i, 0);
 		}
 	}
 
