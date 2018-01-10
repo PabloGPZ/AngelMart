@@ -44,7 +44,7 @@ void manejadorJuego() {
 	pos_y = tamanoTablero-1;
 	entornoActivarCelda(pos_y, pos_x);
 
-	puntuacion = 100;
+	puntuacion = 0;
 	entornoPonerPuntuacion(puntuacion);
 
 	salir = false;
@@ -139,7 +139,7 @@ void manejadorJuego() {
 					pos_y = 0;
 				entornoActivarCelda(pos_y, pos_x);
 				break;
-			case TX:
+			case TX: //Pista 1
 				estado = true; //Inicialización de la bandera
 				puntuacion = puntuacion-puntosPista; //Se actualiza la puntuación
 				entornoPonerPuntuacion(puntuacion);
@@ -160,7 +160,7 @@ void manejadorJuego() {
 					actualizarEntorno(t);
 				}
 				break;
-			case TY:
+			case TY: //Pista 2
 				puntuacion = puntuacion-puntosPista/2; //Se actualiza la puntuación
 				entornoPonerPuntuacion(puntuacion);
 
