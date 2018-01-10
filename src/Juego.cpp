@@ -20,6 +20,7 @@ TipoTecla tecla;					//Almacena las teclas pulsadas, rol: mas reciente
 int pos_x, pos_y;					//Almacena la posición de la celda seleccionada, rol: transformación
 int sel_x1, sel_y1, sel_x2, sel_y2; //Almacenan las posiciones de las dos fichas seleccionadas, rol: transformación
 int seleccionadas;					//Almacena el numero de fichas seleccionadas, rol: contador
+bool estado; 						//Bandera de la pista 1, rol: bandera
 Tablero t;							//Almacena el tablero en memoria, rol: transformación
 
 int main() { //cargarJuego()
@@ -139,16 +140,22 @@ void manejadorJuego() {
 				entornoActivarCelda(pos_y, pos_x);
 				break;
 			case TX:
+				estado = true; //Inicialización de la bandera
+
 				if(puntuacion-puntosPista >= 0){ //Bucle para voltear la ficha de REVERSO a ANVERSO y a REVERSO
 					for(int c=0; c<2; c++){
 						for(int i=0; i<tamanoTablero; i++){ //Bucles for anidados para iterar cada celda del tablero
 							for(int j=0; j<tamanoTablero; j++){
-								//fichaVoltear(t, j, i);
+								if(!celdaObtenerEstaVacia(t, j, i))
+									celdaPonerMostrandoAnverso(t, j, i, estado);
 							}
 						}
+						actualizarEntorno(t);
 						entornoPausa(TIEMPO_PISTA_1); //Tiempo de retraso entre ambos volteos
+						estado = false; //Actualización de la bandera para pasar de ANVERSO a REVERSO
 					}
 
+					actualizarEntorno(t);
 					puntuacion = puntuacion-puntosPista; //Se actualiza la puntuación
 					entornoPonerPuntuacion(puntuacion);
 				}
@@ -218,7 +225,7 @@ void actualizarEntorno(Tablero &t){
 		for(int j=0; j<obtenerTamanoTablero(t); j++){
 			if(!celdaObtenerEstaVacia(t, j, i)){ //Actualiza el estado de la ficha en función de su miembro 'mostrandoAnverso'
 				if(celdaObtenerMostrandoAnverso(t, j, i))
-					entornoFichaAnverso(sel_y1, sel_x1, celdaObtenerValor(t, sel_x1, sel_y1));
+					entornoFichaAnverso(i, j, celdaObtenerValor(t, j, i));
 				else
 					entornoFichaReves(i, j);
 			}else if(celdaObtenerValor(t, j, i) != VALOR_PREDEFINIDO){ //Elimina las fichas que fueron borradas de la memoria del tablero
