@@ -27,7 +27,7 @@ void insertarFicha(Tablero &t, int pos_x, int pos_y, int valor) {
 	ponerValor(t.v[pos_y][pos_x], valor);
 
 	for(int i=0; i<obtenerTamanoTablero(t)-1 && !obs; i++){ //Deja caer la ficha
-		if(celdaEstaVacia(t, pos_x, pos_y+i+1)){
+		if(celdaObtenerEstaVacia(t, pos_x, pos_y+i+1)){
 			ponerValor(t.v[pos_y+i+1][pos_x],  celdaObtenerValor(t, pos_x, pos_y+i));
 			vaciarCelda(t.v[pos_y+i][pos_x]);
 		}else{
@@ -41,7 +41,7 @@ void eliminarFicha(Tablero &t, int pos_x, int pos_y) {
 
 	vaciarCelda(t.v[pos_y][pos_x]);
 	for(int i=0; i<obtenerTamanoTablero(t)-1 && !vacio; i++){ //Deja caer las fichas superiores
-		if(!celdaEstaVacia(t, pos_x, pos_y-i-1)){
+		if(!celdaObtenerEstaVacia(t, pos_x, pos_y-i-1)){
 			ponerValor(t.v[pos_y-i][pos_x],  celdaObtenerValor(t, pos_x, pos_y-i-1));
 			vaciarCelda(t.v[pos_y-i-1][pos_x]);
 		}
@@ -69,7 +69,7 @@ bool cabeFila(Tablero t) {
 
 	if(!tableroEstaVacio(t)){
 		for(int i=0; i<obtenerTamanoTablero(t) && cabeFila; i++){ //Si hay alguna ficha en la fila superior no caben más filas. Comprueba solo la fila superior
-			if(!celdaEstaVacia(t, i, 0))
+			if(!celdaObtenerEstaVacia(t, i, 0))
 				cabeFila = false;
 		}
 	}
@@ -96,7 +96,7 @@ bool tableroEstaVacio(Tablero t) {
 	bool estaVacio = true; //bandera
 
 	for(int i=0; i<obtenerTamanoTablero(t) && estaVacio; i++){ //Si no hay nada en la ultima fila significa que el tablero está vacio. Solo comprobamos la última fila
-		if(!celdaEstaVacia(t, i, obtenerTamanoTablero(t)-1))
+		if(!celdaObtenerEstaVacia(t, i, obtenerTamanoTablero(t)-1))
 			estaVacio = false;
 	}
 	return estaVacio;
@@ -105,7 +105,7 @@ bool tableroEstaVacio(Tablero t) {
 bool compararFichas(Tablero t, int pos_x1, int pos_y1, int pos_x2, int pos_y2){
 	bool iguales = false;
 
-	if(!celdaEstaVacia(t, pos_x1, pos_y1) && !celdaEstaVacia(t, pos_x2, pos_y2)) //Si las celdas están vacias devuelve false
+	if(!celdaObtenerEstaVacia(t, pos_x1, pos_y1) && !celdaObtenerEstaVacia(t, pos_x2, pos_y2)) //Si las celdas están vacias devuelve false
 		iguales = sonIguales(t.v[pos_y1][pos_x1], t.v[pos_y2][pos_x2]);
 	return iguales;
 }
@@ -114,7 +114,7 @@ int obtenerTamanoTablero(Tablero t) {
 	return t.tamanoTablero;
 }
 
-bool celdaEstaVacia(Tablero t, int pos_x, int pos_y) {
+bool celdaObtenerEstaVacia(Tablero t, int pos_x, int pos_y) {
 	return obtenerEstaVacia(t.v[pos_y][pos_x]);
 }
 

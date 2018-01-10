@@ -81,7 +81,7 @@ void manejadorJuego() {
 			case TEnter:
 				switch(seleccionadas){
 				case 0:
-					if(!celdaEstaVacia(t, pos_x, pos_y)){ //Se comprueba que la celda no esté vacia
+					if(!celdaObtenerEstaVacia(t, pos_x, pos_y)){ //Se comprueba que la celda no esté vacia
 						juegoFichaVoltear(t, pos_x, pos_y);
 
 						sel_x1 = pos_x;
@@ -91,7 +91,7 @@ void manejadorJuego() {
 					}
 					break;
 				case 1:
-					if(!celdaEstaVacia(t, pos_x, pos_y)){ //Se comprueba que la celda no esté vacia
+					if(!celdaObtenerEstaVacia(t, pos_x, pos_y)){ //Se comprueba que la celda no esté vacia
 						if(sel_x1 != pos_x || sel_y1 != pos_y){ //Se comprueba que no se seleccione dos veces la misma ficha
 							juegoFichaVoltear(t, pos_x, pos_y);
 
@@ -203,7 +203,7 @@ void terminarJuego() {
 void actualizarEntorno(Tablero &t){
 	for(int i=0; i<obtenerTamanoTablero(t); i++){
 		for(int j=0; j<obtenerTamanoTablero(t); j++){
-			if(!celdaEstaVacia(t, j, i)){ //Actualiza el estado de la ficha en función de su miembro 'mostrandoAnverso'
+			if(!celdaObtenerEstaVacia(t, j, i)){ //Actualiza el estado de la ficha en función de su miembro 'mostrandoAnverso'
 				if(celdaObtenerMostrandoAnverso(t, j, i))
 					entornoFichaAnverso(sel_y1, sel_x1, celdaObtenerValor(t, sel_x1, sel_y1));
 				else
@@ -221,14 +221,14 @@ void juegoInsertarFila(Tablero &t){
 }
 
 void juegoEliminarFicha(Tablero &t, int pos_x, int pos_y){
-	if(!celdaEstaVacia(t, pos_x, pos_y)){ //Si la celda esta vacia no hace nada
+	if(!celdaObtenerEstaVacia(t, pos_x, pos_y)){ //Si la celda esta vacia no hace nada
 		eliminarFicha(t, pos_x, pos_y);
 		actualizarEntorno(t);
 	}
 }
 
 void juegoFichaVoltear(Tablero &t, int pos_x, int pos_y){
-	if(!celdaEstaVacia(t, pos_x, pos_y)){ //Si la celda esta vacia no hace nada
+	if(!celdaObtenerEstaVacia(t, pos_x, pos_y)){ //Si la celda esta vacia no hace nada
 		if(fichaVoltear(t, pos_x, pos_y)){ //Animación de volteado de la ficha
 			entornoFichaCanto(pos_y, pos_x);
 			entornoPausa(TIEMPO_TRANSICION_ESTADOS);

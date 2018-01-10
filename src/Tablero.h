@@ -100,7 +100,7 @@ int obtenerTamanoTablero(Tablero t);
  * POST: Devuelve si la celda de la posicion ('pos_x','pos_y') contiene o no una ficha
  * COMPLEJIDAD: 0(1)
  */
-bool celdaEstaVacia(Tablero t, int pos_x, int pos_y);
+bool celdaObtenerEstaVacia(Tablero t, int pos_x, int pos_y);
 
 
 /*
