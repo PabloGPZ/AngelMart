@@ -42,12 +42,12 @@ void pruebaSonIguales(){
 	ponerValor(c2, 5);
 
 	if(sonIguales(c1, c2) != true)
-		cout << "ERROR: el método sonIguales() funciona correctamente" << endl;
+		cout << "ERROR: el módulo sonIguales() funciona correctamente" << endl;
 
 	ponerValor(c1, 7);
 
 	if(sonIguales(c1, c2) != false)
-		cout << "ERROR: el método sonIguales() funciona correctamente" << endl;
+		cout << "ERROR: el módulo sonIguales() funciona correctamente" << endl;
 }
 
 void pruebasTADCelda(){
