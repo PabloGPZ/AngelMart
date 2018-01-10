@@ -20,7 +20,6 @@ TipoTecla tecla;					//Almacena las teclas pulsadas, rol: mas reciente
 int pos_x, pos_y;					//Almacena la posición de la celda seleccionada, rol: transformación
 int sel_x1, sel_y1, sel_x2, sel_y2; //Almacenan las posiciones de las dos fichas seleccionadas, rol: transformación
 int seleccionadas;					//Almacena el numero de fichas seleccionadas, rol: contador
-bool haySeleccion;					//Almacena si hay alguna ficha seleccionada, rol:bandera
 Tablero t;							//Almacena el tablero en memoria, rol: transformación
 
 int main() { //cargarJuego()
@@ -50,7 +49,6 @@ void manejadorJuego() {
 	salir = false;
 
 	seleccionadas = 0;
-	haySeleccion = false;
 	seg = 0;
 
 	for(int i=0; i<FILAS_INICIALES; i++){ //Inserta un número de filas iniciales en tablero
@@ -90,7 +88,6 @@ void manejadorJuego() {
 						sel_y1 = pos_y;
 
 						seleccionadas++;
-						haySeleccion = true;
 					}
 					break;
 				case 1:
@@ -174,8 +171,6 @@ void manejadorJuego() {
 			}else{ //Son distintas
 				juegoFichaVoltear(t, sel_x1, sel_y1); //Se vuelven a voltear las fichas
 				juegoFichaVoltear(t, sel_x2, sel_y2);
-
-				haySeleccion = false; //Se reinicia la bandera
 			}
 			seleccionadas = 0; //Se reinicia el contador
 		}
@@ -208,12 +203,12 @@ void terminarJuego() {
 void actualizarEntorno(Tablero &t){
 	for(int i=0; i<obtenerTamanoTablero(t); i++){
 		for(int j=0; j<obtenerTamanoTablero(t); j++){
-			if(!celdaEstaVacia(t, j, i)){ //Muestra las fichas que deben estar del reves
-				if(haySeleccion && sel_x1 == j && sel_y1 == i) //Si hay una selección activa se mantiene el anverso de la ficha seleccionada
+			if(!celdaEstaVacia(t, j, i)){ //Actualiza el estado de la ficha en función de su miembro 'mostrandoAnverso'
+				if(celdaObtenerMostrandoAnverso(t, j, i))
 					entornoFichaAnverso(sel_y1, sel_x1, celdaObtenerValor(t, sel_x1, sel_y1));
 				else
 					entornoFichaReves(i, j);
-			}else if(celdaEstaVacia(t, j, i) && celdaObtenerValor(t, j, i) != VALOR_PREDEFINIDO){ //Elimina las fichas que fueron borradas de la memoria del tablero
+			}else if(celdaObtenerValor(t, j, i) != VALOR_PREDEFINIDO){ //Elimina las fichas que fueron borradas de la memoria del tablero
 				entornoBorrarCelda(i, j);
 			}
 		}
@@ -228,7 +223,6 @@ void juegoInsertarFila(Tablero &t){
 void juegoEliminarFicha(Tablero &t, int pos_x, int pos_y){
 	if(!celdaEstaVacia(t, pos_x, pos_y)){ //Si la celda esta vacia no hace nada
 		eliminarFicha(t, pos_x, pos_y);
-		haySeleccion = false; //No puede haber selección, por lo que se reinicia la bandera antes de actualizar el entorno
 		actualizarEntorno(t);
 	}
 }
