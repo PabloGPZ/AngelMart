@@ -21,7 +21,7 @@ void pruebaIniciarCelda(){
 		cout << "ERROR: La celda no está correctamente inicializada" << endl;
 }
 
-void pruebaValorCelda(){
+void pruebaPonerValor(){
 	ponerValor(c1, 7);
 
 	if(obtenerValor(c1) != 7)
@@ -54,7 +54,7 @@ void pruebasTADCelda(){
 	cout << "INICIO: pruebas del TAD Celda" << endl;
 
 	pruebaIniciarCelda();
-	pruebaValorCelda();
+	pruebaPonerValor();
 	pruebaSonIguales();
 
 	cout << "FIN: pruebas del TAD Celda" << endl << endl;

@@ -26,7 +26,7 @@ void pruebaIniciarCelda();
  *  vaciarCelda(celda) -> debe designar la celda vacia. Se comprueba con obtenerEstaVacia()
  *  	obtenerEstaVacia(celda) = true
  */
-void pruebaValorCelda();
+void pruebaPonerValor();
 
 /*
  * Verifica que funcione correctamente el método sonIguales()
