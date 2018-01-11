@@ -14,6 +14,7 @@
 const int FILAS_INICIALES = 2;
 const int PTOS_PAREJA = 10; 					//Ptos obtenidos al hacer pareja
 const int PTOS_FINAL_TABLERO_VACIO = 50; 		//Ptos de bonificación por vaciar el tablero
+const float TIEMPO_INSERCION_FILA = 0.5;		//Tiempo de retraso para mostrar una nueva fila en la parte superior del tablero
 const float TIEMPO_TRANSICION_ESTADOS = 0.25; 	//Retraso entre estados de la animación de voltear fichas
 const float TIEMPO_RETRASO_SELECCION = 0.5; 	//Tiempo que se le deja al jugador ver el anverso de ambas fichas
 const float TIEMPO_PAUSA_FINAL = 2; 			//Tiempo que se le deja al jugador ver el mensaje final

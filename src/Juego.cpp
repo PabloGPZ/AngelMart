@@ -51,10 +51,12 @@ void manejadorJuego() {
 	seleccionadas = 0;
 	seg = 0;
 
-	for(int i=0; i<FILAS_INICIALES; i++){ //Inserta un número de filas iniciales en tablero
-		juegoInsertarFila(t);
+	//Insserción de filas iniciales
+	for(int i=0; i<FILAS_INICIALES; i++){
+		insertarFila(t);
 		entornoPausa(1); //Se necesita una pequeña pausa para que se generen dos filas distintas
 	}
+	actualizarEntorno(t);
 
 	/*
 	 * Bucle que mantiene el procesamiento de la lógica del juego
@@ -216,6 +218,19 @@ void actualizarEntorno(Tablero &t){
 
 void juegoInsertarFila(Tablero &t){
 	insertarFila(t);
+
+	/*
+	 * Hace que aparezca una fila de fichas mostrando el reverso en la parte superior del tablero
+	 * 		y después de un pequeño retraso desaparece para hacer la ilusión de que cae hacia abajo
+	 */
+	for(int i=0; i<tamanoTablero; i++){
+		entornoFichaReves(0, i);
+	}
+	entornoPausa(TIEMPO_INSERCION_FILA); //Retraso antes del borrado de la fila
+	for(int i=0; i<tamanoTablero; i++){
+		entornoBorrarCelda(0, i);
+	}
+
 	actualizarEntorno(t);
 }
 
@@ -234,7 +249,7 @@ void juegoFichaVoltear(Tablero &t, int pos_x, int pos_y){
 			entornoFichaAnverso(pos_y, pos_x, celdaObtenerValor(t, pos_x, pos_y));
 		}else{
 			entornoFichaCanto(pos_y, pos_x);
-			entornoPausa(TIEMPO_TRANSICION_ESTADOS);
+			entornoPausa(TIEMPO_TRANSICION_ESTADOS-0.15); //La animación de ANVERSO a REVERSO es más corta
 			entornoFichaReves(pos_y, pos_x);
 		}
 	}
