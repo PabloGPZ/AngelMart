@@ -12,11 +12,11 @@
 /*
  * Verifica que las celdas se inicializan correctamente
  *
- * 	Se llama al módulo iniciar() en una celda y se comprueba que su valor sea VALOR_PREDEFINIDO = -1,
- * 		que esté vacia (obtenerEstaVacia() -> true) y que esté mostrando el reverso
- * 		(obtenerMostrandoAnverso() -> false)
+ * 	Se llama al módulo iniciarCelda() en una celda y se comprueba que su valor sea VALOR_PREDEFINIDO = -1,
+ * 		que esté vacia (obtenerEstaVacia() -> true) y que esté mostrando el reverso (obtenerMostrandoAnverso() -> false)
  */
 void pruebaIniciarCelda();
+
 
 /*
  * Verifica que funcionen correctamente los metodos ponerValor(), obtenerValor(), vaciarCelda() y obtenerEstaVacia()
