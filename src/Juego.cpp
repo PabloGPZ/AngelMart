@@ -23,10 +23,7 @@ int sel_x1, sel_y1, sel_x2, sel_y2; //Almacenan las posiciones de las dos fichas
 int seleccionadas;					//Almacena el numero de fichas seleccionadas, rol: contador
 Tablero t;							//Almacena el tablero en memoria, rol: transformación
 
-int main(){ //cargarJuego()
-	//Llamada a todas las pruebas
-	//pruebas();
-
+void cargarJuego(){
 	//Carga la configuración e inicia el tablero
 	if(entornoCargarConfiguracion(tamanoTablero, tiempoJugada, puntosPista)){
 		if(entornoIniciar(tamanoTablero)){
@@ -253,4 +250,10 @@ void juegoFichaVoltear(Tablero &t, int pos_x, int pos_y){
 			entornoFichaReves(pos_y, pos_x);
 		}
 	}
+}
+
+int main(){
+	//Llamada a todas las pruebas
+	//pruebas();
+	cargarJuego();
 }

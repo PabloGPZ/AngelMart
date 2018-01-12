@@ -21,12 +21,11 @@ const float TIEMPO_PAUSA_FINAL = 2; 			//Tiempo que se le deja al jugador ver el
 
 /*
  * PRE:
- * POST: Punto de entrada del programa. Llama a todas las pruebas y carga la configuración
- * 			inicial para iniciar el entorno gráfico. Si se realiza correctamente llama al
- * 			siguiente módulo 'manejadorJuego()'.
- * 	COMPLEJIDAD: O(1) .Sin contar las pruebas
+ * POST: Punto de entrada del programa. Carga la configuració inicial para iniciar el entorno gráfico.
+ * 			Si se realiza correctamente llama al siguiente módulo 'manejadorJuego()'.
+ * 	COMPLEJIDAD: O(1)
  */
-int main();
+void cargarJuego();
 
 
 /*
