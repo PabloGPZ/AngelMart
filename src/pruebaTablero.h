@@ -86,8 +86,8 @@ void pruebaCompararFichas();
  * Verifica que el algoritmo de generación de números aleatorios únicos dentro de un rango
  * 		funcione correctamente.
  *
- * tamano	rang	->	vector
- * 	 5		  5		->	[5 VALORES ALEATORIOS NO REPETIDOS]
+ * tamano	rang	semilla		->	vector
+ * 	 5		  5		time(NULL)	->	[5 VALORES ALEATORIOS NO REPETIDOS]
  */
 void pruebaGenerarVectorUnico();
 

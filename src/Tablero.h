@@ -64,11 +64,12 @@ bool cabeFila(Tablero t);
 
 /*
  * PRE: cabe una nueva fila en el Tablero t
- * POST: Modifica el Tablero t para insertar una nueva fila de fichas
- * 			en la parte superior y que caigan por columnas
+ * POST: Modifica el Tablero t para insertar una nueva fila de fichas ('semilla' sirve de semilla
+ * 			para el algoritmo de generación de valores aletorios únicos que llevará cada ficha)
+ * 			en la parte inferior y que el resto de fichas superiores suban
  * COMPLEJIDAD: O(n*n²)
  */
-void insertarFila(Tablero &t);
+void insertarFila(Tablero &t, int semilla);
 
 
 /*
@@ -147,10 +148,10 @@ bool celdaObtenerMostrandoAnverso(Tablero t, int pos_x, int pos_y);
 /*
  * PRE: 4 <= 'tamano' <= 10
  * 		'rang' <= 'tamano'
- * POST: Modifica un vector 'vector' del tipo vValores de valores aleatorios únicos del tamaño 'tamano'
- * 			y de valores dentro del rango de 0 hasta 'rang'. Si 'tamano' > 'rang' se repetirán valores
+ * POST: Modifica un vector 'vector' del tipo vValores de valores aleatorios únicos (según la semilla 'semilla')
+ *  		del tamaño 'tamano' y de valores dentro del rango de 0 hasta 'rang'. Si 'tamano' > 'rang' se repetirán valores
  * COMPLEJIDAD: 0(n²)
  */
-void generarVectorUnico(vValores &vector, int tamano, int rang);
+void generarVectorUnico(vValores &vector, int tamano, int rang, int semilla);
 
 #endif /* TABLERO_H_ */

@@ -7,7 +7,6 @@
 #include "Tablero.h"
 #include "Celda.h"
 #include <stdlib.h>
-#include <time.h>
 
 using namespace std;
 
@@ -77,12 +76,12 @@ bool cabeFila(Tablero t) {
 	return cabeFila;
 }
 
-void insertarFila(Tablero &t) {
+void insertarFila(Tablero &t, int semilla) {
 	vValores valores; //Vector de valores
 	vValores posiciones; //Vector de posiciones de cada valor
 
-	generarVectorUnico(valores, obtenerTamanoTablero(t)/2, MAX_VALOR_FICHA+1); //Vector de valores únicos que representan una fila nueva. Solo se rellena hasta la mitad
-	generarVectorUnico(posiciones, obtenerTamanoTablero(t), obtenerTamanoTablero(t)); //Vector de posiciones que deben ocupar cada ficha
+	generarVectorUnico(valores, obtenerTamanoTablero(t)/2, MAX_VALOR_FICHA+1, semilla); //Vector de valores únicos que representan una fila nueva. Solo se rellena hasta la mitad
+	generarVectorUnico(posiciones, obtenerTamanoTablero(t), obtenerTamanoTablero(t), semilla); //Vector de posiciones que deben ocupar cada ficha
 
 	for(int i=obtenerTamanoTablero(t)/2; i<obtenerTamanoTablero(t); i++){ //Replico la mitad del vector valores sobre sí mismo
 		valores[i] = valores[i-obtenerTamanoTablero(t)/2];
@@ -139,11 +138,11 @@ bool celdaObtenerMostrandoAnverso(Tablero t, int pos_x, int pos_y) {
 	return obtenerMostrandoAnverso(t.v[pos_y][pos_x]);
 }
 
-void generarVectorUnico(vValores &vector, int tamano, int rang){
+void generarVectorUnico(vValores &vector, int tamano, int rang, int semilla){
 	/*
 	 *Algoritmo de generación de vectores de valores únicos para la generación de filas de valores emparejados
 	 */
-	srand(time(NULL)); //Semilla que se actualiza con el tiempo del sistema
+	srand(semilla); //Semilla que se actualiza con el tiempo del sistema
 
 	bool enc = false; //bandera
 	int valor; //valor generado

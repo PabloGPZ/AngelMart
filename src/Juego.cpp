@@ -8,6 +8,7 @@
 #include "Tablero.h"
 #include "entorno.h"
 #include "pruebas.h"
+#include <time.h>
 
 int tamanoTablero;  				//Guardará el número de filas y columnas del tablero, rol: valor fijo
 int tiempoJugada;   				//Guardará el tiempo de una jugada, rol: valor fijo
@@ -22,7 +23,7 @@ int sel_x1, sel_y1, sel_x2, sel_y2; //Almacenan las posiciones de las dos fichas
 int seleccionadas;					//Almacena el numero de fichas seleccionadas, rol: contador
 Tablero t;							//Almacena el tablero en memoria, rol: transformación
 
-int main() { //cargarJuego()
+int main(){ //cargarJuego()
 	//Llamada a todas las pruebas
 	//pruebas();
 
@@ -35,7 +36,7 @@ int main() { //cargarJuego()
 	}
 }
 
-void manejadorJuego() {
+void manejadorJuego(){
 	/*
 	 * INICIALIZACIÓN
 	 */
@@ -51,10 +52,9 @@ void manejadorJuego() {
 	seleccionadas = 0;
 	seg = 0;
 
-	//Insserción de filas iniciales
+	//Inserción de filas iniciales
 	for(int i=0; i<FILAS_INICIALES; i++){
-		insertarFila(t);
-		entornoPausa(1); //Se necesita una pequeña pausa para que se generen dos filas distintas
+		insertarFila(t, time(NULL)+i); //El tiempo + i como semilla para que se generen 2 filas distintas en un mismo segundo
 	}
 	actualizarEntorno(t);
 
@@ -217,7 +217,7 @@ void actualizarEntorno(Tablero &t){
 }
 
 void juegoInsertarFila(Tablero &t){
-	insertarFila(t);
+	insertarFila(t, time(NULL)); //El timepo como semilla
 
 	/*
 	 * Hace que aparezca una fila de fichas mostrando el reverso en la parte superior del tablero

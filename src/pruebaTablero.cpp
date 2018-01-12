@@ -6,6 +6,7 @@
 
 #include "pruebaTablero.h"
 #include "Tablero.h"
+#include <time.h>
 #include <iostream>
 
 using namespace std;
@@ -103,7 +104,7 @@ void pruebaCabeFila() {
 }
 
 void pruebaInsertarFila() {
-	insertarFila(t1);
+	insertarFila(t1, time(NULL)); //El tiempo como semilla
 
 	for(int i=0; i<obtenerTamanoTablero(t1); i++){
 		if(i == 1){ //En la segunda columna hay ya una ficha sobre la que debe caer la nueva
@@ -150,7 +151,7 @@ void pruebaGenerarVectorUnico() {
 	 */
 	vValores v;
 
-	generarVectorUnico(v, 5, 5);
+	generarVectorUnico(v, 5, 5, time(NULL)); //El tiempo como semilla
 
 	cout << "v -> ";
 	for(int i=0; i<5; i++){
