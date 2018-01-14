@@ -166,18 +166,18 @@ void manejadorJuego(){
 
 				puntuacion = puntuacion + PTOS_PAREJA; //Se suman los puntos
 				entornoPonerPuntuacion(puntuacion);
+
+				/*
+				 * Manejador de final por vaciar tablero
+				 */
+				if(tableroEstaVacio(t))
+					salir = true;
 			}else{ //Son distintas
 				juegoFichaVoltear(t, sel_x1, sel_y1); //Se vuelven a voltear las fichas
 				juegoFichaVoltear(t, sel_x2, sel_y2);
 			}
 			seleccionadas = 0; //Se reinicia el contador
 		}
-
-		/*
-		 * Manejador de final por vaciar tablero
-		 */
-		if(tableroEstaVacio(t))
-			salir = true;
 	}
 
 	/*
