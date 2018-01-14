@@ -9,7 +9,7 @@
 #ifndef TABLERO_H_
 #define TABLERO_H_
 
-#include "Celda.h"
+#include "Celda.h" //Si no lo incluyo aquí me da error
 
 const int MAX_TAMANO = 10;
 const int MAX_VALOR_FICHA = 9;

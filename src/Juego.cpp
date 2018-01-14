@@ -28,7 +28,7 @@ void cargarJuego(){
 	if(entornoCargarConfiguracion(tamanoTablero, tiempoJugada, puntosPista)){
 		if(entornoIniciar(tamanoTablero)){
 			iniciarTablero(t, tamanoTablero);
-			manejadorJuego();
+			manejadorJuego(); //Inicia la partida
 		}
 	}
 }
@@ -184,7 +184,7 @@ void manejadorJuego(){
 	 * Manejador de final de juego
 	 */
 	if(salir)
-		terminarJuego();
+		terminarJuego(); //Finaliza la partida
 }
 
 void terminarJuego() {
