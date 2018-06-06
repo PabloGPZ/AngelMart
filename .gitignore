@@ -1,5 +1,8 @@
+cmake-build-debug/
 Debug/
+.idea/
 .settings/
+CMakeLists.txt
 *.ttf
 .cproject
 .project
