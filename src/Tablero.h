@@ -9,13 +9,13 @@
 #ifndef TABLERO_H_
 #define TABLERO_H_
 
-#include "Celda.h" //Si no lo incluyo aquí me da error
+#include "Celda.h"
 
 const int MAX_TAMANO = 10;
 const int MAX_VALOR_FICHA = 9;
 
 typedef Celda vCeldas[MAX_TAMANO][MAX_TAMANO];
-typedef int vValores[MAX_TAMANO]; //Estructura de datos auxiliar para almacenar varios valores de tipo entero
+typedef int vValores[MAX_TAMANO]; 					//Estructura de datos auxiliar para almacenar varios valores de tipo entero
 
 struct Tablero{
 	vCeldas v;
