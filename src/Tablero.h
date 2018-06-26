@@ -10,6 +10,8 @@
 #define TABLERO_H_
 
 #include "Celda.h"
+#include <stdlib.h>
+
 
 const int MAX_TAMANO = 10;
 const int MAX_VALOR_FICHA = 9;
