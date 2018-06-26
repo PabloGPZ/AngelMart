@@ -9,7 +9,7 @@
 #ifndef JUEGO_H_
 #define JUEGO_H_
 
-#include "Tablero.h" //Si no lo incluyo aquí me da error
+#include "Tablero.h"
 
 const int FILAS_INICIALES = 2;
 const int PTOS_PAREJA = 10; 					//Puntos obtenidos al hacer pareja
