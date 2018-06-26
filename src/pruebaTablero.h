@@ -9,6 +9,10 @@
 #ifndef PRUEBATABLERO_H_
 #define PRUEBATABLERO_H_
 
+#include "Tablero.h"
+#include <time.h>
+#include <iostream>
+
 /*
  * Verifica que se inicie la porción correcta del tablero
  *

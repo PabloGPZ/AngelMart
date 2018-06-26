@@ -5,9 +5,6 @@
  */
 
 #include "pruebaTablero.h"
-#include "Tablero.h"
-#include <time.h>
-#include <iostream>
 
 using namespace std;
 
