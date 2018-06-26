@@ -9,6 +9,9 @@
 #ifndef PRUEBACELDA_H_
 #define PRUEBACELDA_H_
 
+#include "Celda.h"
+#include <iostream>
+
 /*
  * Verifica que las celdas se inicializan correctamente
  *

@@ -5,8 +5,6 @@
  */
 
 #include "pruebaCelda.h"
-#include "Celda.h"
-#include <iostream>
 
 using namespace std;
 
