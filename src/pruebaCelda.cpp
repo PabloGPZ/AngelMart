@@ -8,9 +8,9 @@
 
 using namespace std;
 
-Celda c1, c2;
-
 void pruebaIniciarCelda(){
+	Celda c1;
+
 	iniciarCelda(c1);
 
 	if(obtenerValor(c1) != VALOR_PREDEFINIDO ||
@@ -20,6 +20,8 @@ void pruebaIniciarCelda(){
 }
 
 void pruebaPonerValor(){
+	Celda c1;
+
 	ponerValor(c1, 7);
 
 	if(obtenerValor(c1) != 7)
@@ -32,6 +34,8 @@ void pruebaPonerValor(){
 }
 
 void pruebaSonIguales(){
+	Celda c1, c2;
+
 	//Inicialización y asignación de valores a las celdas de prueba "c1" y "c2"
 	iniciarCelda(c1);
 	iniciarCelda(c2);
