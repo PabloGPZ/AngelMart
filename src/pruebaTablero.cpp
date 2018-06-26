@@ -14,7 +14,7 @@ using namespace std;
 Tablero t1, t2, t3;
 
 void pruebaIniciarTablero() {
-	bool correcto = true; //bandera
+	bool correcto = true; 													//bandera
 
 	iniciarTablero(t1, 6);
 
@@ -46,8 +46,8 @@ void pruebaInsertarFicha() {
 		cout << "ERROR: La ficha no cae correctamente cuando no hay obstáculo" << endl;
 
 	//2. Se coloca un obstáculo para comprobar que pare
-	insertarFicha(t1, 1, 0, 0); //Colocamos una ficha en la segunda columna
-	insertarFicha(t1, 1, 0, 1); //Dejamos caer una encima
+	insertarFicha(t1, 1, 0, 0); 											//Colocamos una ficha en la segunda columna
+	insertarFicha(t1, 1, 0, 1); 											//Dejamos caer una encima
 
 	if(celdaObtenerEstaVacia(t1, 1, obtenerTamanoTablero(t1)-2) != false)
 		cout << "ERROR: La segunda ficha no se para en el obstáculo" << endl;
@@ -64,7 +64,7 @@ void pruebaEliminarFicha() {
 	eliminarFicha(t1, 1, obtenerTamanoTablero(t1)-1);
 
 	if(celdaObtenerEstaVacia(t1, 1, obtenerTamanoTablero(t1)-2) != true
-			&& celdaObtenerValor(t1, 1, obtenerTamanoTablero(t1)-1) != 1) //1 es el valor de la ficha superior
+			&& celdaObtenerValor(t1, 1, obtenerTamanoTablero(t1)-1) != 1) 	//1 es el valor de la ficha superior
 		cout << "ERROR: No ha caido la ficha superior" << endl;
 }
 
@@ -72,9 +72,9 @@ void pruebaFichaVoltear() {
 	//Comprobamos que exista la ficha y que muestre el reverso
 	if(!celdaObtenerEstaVacia(t1, 1, obtenerTamanoTablero(t1)-1)){
 		if(!celdaObtenerMostrandoAnverso(t1, 1, obtenerTamanoTablero(t1)-1)){
-			if(fichaVoltear(t1, 1, obtenerTamanoTablero(t1)-1) != true){ //Pasa de REVERSO a ANVERSO
+			if(fichaVoltear(t1, 1, obtenerTamanoTablero(t1)-1) != true){ 	//Pasa de REVERSO a ANVERSO
 				cout << "ERROR: La ficha no ha cambiado de REVERSO a ANVERSO" << endl;
-				if(fichaVoltear(t1, 1, obtenerTamanoTablero(t1)-1) != false) //Pasa de ANVERSO a REVERSO
+				if(fichaVoltear(t1, 1, obtenerTamanoTablero(t1)-1) != false)//Pasa de ANVERSO a REVERSO
 					cout << "ERROR: La ficha no ha cambiado de ANVERSO a REVERSO" << endl;
 			}
 		}else{
@@ -91,9 +91,9 @@ void pruebaCabeFila() {
 		cout << "ERROR: Se pueden insertar más filas en el tablero" << endl;
 
 	//2. Hay alguna ficha en la fila superior y por tanto no se puede introducir ninguna fila más
-	iniciarTablero(t2, 4); //Inicio un segundo tablero
+	iniciarTablero(t2, 4); 													//Inicio un segundo tablero
 
-	for(int i=0; i<obtenerTamanoTablero(t2); i++){ //Relleno el tablero completamente
+	for(int i=0; i<obtenerTamanoTablero(t2); i++){ 							//Relleno el tablero completamente
 		for(int j=0; j<obtenerTamanoTablero(t2); j++){
 			celdaPonerValor(t2, j, i, 0);
 		}
@@ -104,10 +104,10 @@ void pruebaCabeFila() {
 }
 
 void pruebaInsertarFila() {
-	insertarFila(t1, time(NULL)); //El tiempo como semilla
+	insertarFila(t1, time(NULL)); 											//El tiempo como semilla
 
 	for(int i=0; i<obtenerTamanoTablero(t1); i++){
-		if(i == 1){ //En la segunda columna hay ya una ficha sobre la que debe caer la nueva
+		if(i == 1){ 														//En la segunda columna hay ya una ficha sobre la que debe caer la nueva
 			if(celdaObtenerEstaVacia(t1, i, obtenerTamanoTablero(t1)-2) != false)
 				cout << "ERROR: La ficha de la columna " << i << " no está bien posicionada" << endl;
 		}else{
@@ -131,15 +131,15 @@ void pruebaTableroEstaVacio() {
 
 void pruebaCompararFichas(){
 	//1. Las dos fichas tienen el mismo valor (0,0)	->	compararFichas() = TRUE
-	insertarFicha(t3, 0, 0, 0); //Ficha 1 con valor 0
-	insertarFicha(t3, 1, 0, 0); //Ficha 2 con valor 0
+	insertarFicha(t3, 0, 0, 0);												//Ficha 1 con valor 0
+	insertarFicha(t3, 1, 0, 0); 											//Ficha 2 con valor 0
 
 	if(compararFichas(t3, 0, obtenerTamanoTablero(t3)-1, 1, obtenerTamanoTablero(t3)-1) != true)
 		cout << "ERROR: Las fichas tienen el mismo valor" << endl;
 
 	//2. Las dos fichas tienen distinto valor (0,1)	->	compararFichas() = FALSE
-	insertarFicha(t3, 2, 0, 0); //Ficha 1 con valor 0
-	insertarFicha(t3, 3, 0, 1); //Ficha 2 con valor 1
+	insertarFicha(t3, 2, 0, 0); 											//Ficha 1 con valor 0
+	insertarFicha(t3, 3, 0, 1); 											//Ficha 2 con valor 1
 
 	if(compararFichas(t3, 2, obtenerTamanoTablero(t3)-1, 3, obtenerTamanoTablero(t3)-1) != false)
 		cout << "ERROR: Las fichas no tienen el mismo valor" << endl;
@@ -151,7 +151,7 @@ void pruebaGenerarVectorUnico() {
 	 */
 	vValores v;
 
-	generarVectorUnico(v, 5, 5, time(NULL)); //El tiempo como semilla
+	generarVectorUnico(v, 5, 5, time(NULL)); 								//El tiempo como semilla
 
 	cout << "v -> ";
 	for(int i=0; i<5; i++){
