@@ -5,10 +5,6 @@
  */
 
 #include "Juego.h"
-#include "Tablero.h"
-#include "entorno.h"
-#include "pruebas.h"
-#include <time.h>
 
 int tamanoTablero;  												//Guardará el número de filas y columnas del tablero, rol: valor fijo
 int tiempoJugada;   												//Guardará el tiempo de una jugada, rol: valor fijo

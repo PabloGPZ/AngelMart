@@ -10,6 +10,9 @@
 #define JUEGO_H_
 
 #include "Tablero.h"
+#include "entorno.h"
+#include "pruebas.h"
+#include <time.h>
 
 const int FILAS_INICIALES = 2;
 const int PTOS_PAREJA = 10; 					//Puntos obtenidos al hacer pareja
