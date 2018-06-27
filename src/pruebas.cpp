@@ -4,10 +4,7 @@
  *
  */
 
-#include "entorno.h"
-#include "pruebaCelda.h"
-#include "pruebaTablero.h"
-#include <iostream>
+#include "pruebas.h"
 
 using namespace std;
 
