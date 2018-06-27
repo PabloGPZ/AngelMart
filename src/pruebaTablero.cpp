@@ -26,12 +26,12 @@ void pruebaIniciarTablero() {
 	if(!correcto)
 		cout << "ERROR: La porción del tablero designada por el tamaño no está inicializada" << endl;
 
-	if(celdaObtenerEstaVacia(t, 0, obtenerTamanoTablero(t)+1) != false
-			|| celdaObtenerValor(t, 0, obtenerTamanoTablero(t)+1) == VALOR_PREDEFINIDO)
+	if(celdaObtenerEstaVacia(t, 0, obtenerTamanoTablero(t)) != false
+			&& celdaObtenerValor(t, 0, obtenerTamanoTablero(t)+1) == VALOR_PREDEFINIDO)
 		cout << "ERROR: Se inician más filas inferiores de las que indica el tamaño" << endl;
 
-	if(celdaObtenerEstaVacia(t, obtenerTamanoTablero(t)+1, 0) != false
-			|| celdaObtenerValor(t, obtenerTamanoTablero(t)+1, 0) == VALOR_PREDEFINIDO)
+	if(celdaObtenerEstaVacia(t, obtenerTamanoTablero(t), 0) != false
+			&& celdaObtenerValor(t, obtenerTamanoTablero(t)+1, 0) == VALOR_PREDEFINIDO)
 		cout << "ERROR: Se inician más columnas de las que indica el tamaño" << endl;
 }
 
