@@ -6,6 +6,8 @@
 
 #include "Juego.h"
 
+using namespace std;
+
 int tamanoTablero;  												//Guardará el número de filas y columnas del tablero, rol: valor fijo
 int tiempoJugada;   												//Guardará el tiempo de una jugada, rol: valor fijo
 int puntosPista; 													//Guardara el número de puntos que se restan en algunas ampliaciones, rol: valor fijo
