@@ -280,10 +280,10 @@ void juegoFichaVoltear(Juego &j, int pos_x, int pos_y){
 	}
 }
 
-int main(){
-	Juego j;
+int main(){															//PROGRAMA PRINCIPAL
+	Juego j;														//Instancia principal del juego
 
 	//Llamada a todas las pruebas
 	//pruebas();
-	cargarJuego(j);
+	cargarJuego(j);													//Llamada a comenzar de la partida
 }
