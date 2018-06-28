@@ -15,17 +15,30 @@ void cargarJuego(Juego &j){
 
 	//Carga la configuración e inicia el tablero
 	if(entornoCargarConfiguracion(tamanoTablero, tiempoJugada, puntosPista)){
-		if(entornoIniciar(tamanoTablero)){
-			/*
-			 * INICIALIZACIÓN DEL TABLERO DE JUEGO Y PUNTUACIÓN
-			 */
-			iniciarTablero(j.t, tamanoTablero);
-			j.puntuacion = PTOS_INICALES;
-			entornoPonerPuntuacion(PTOS_INICALES);
-			j.tiempoJugada = tiempoJugada;
-			j.puntosPista = puntosPista;
-			
-			manejadorJuego(j);										//Inicia la partida
+		//Comprobaciones de los parámetros de configuración
+		if(tamanoTablero % 2 == 0 && tamanoTablero >= 4 && tamanoTablero <= 10){
+			if(tiempoJugada > 0){
+				if(puntosPista > 0){
+					if(entornoIniciar(tamanoTablero)){
+						/*
+						 * INICIALIZACIÓN DEL TABLERO DE JUEGO Y PUNTUACIÓN
+						 */
+						iniciarTablero(j.t, tamanoTablero);
+						j.puntuacion = PTOS_INICALES;
+						entornoPonerPuntuacion(PTOS_INICALES);
+						j.tiempoJugada = tiempoJugada;
+						j.puntosPista = puntosPista;
+
+						manejadorJuego(j);							//Inicia la partida
+					}
+				}else{
+					cout << "ERROR: El coste de puntos por pista debe ser un entero positivo. En su lugar (" << puntosPista << ")" << endl;
+				}
+			}else{
+				cout << "ERROR: El tiempo por jugada debe ser un entero positivo. En su lugar (" << tiempoJugada << ")" << endl;
+			}
+		}else{
+			cout << "ERROR: El tamaño del tablero debe ser un entero positivo par entre 4 y 10. En su lugar (" << tamanoTablero << ")" << endl;
 		}
 	}
 }
