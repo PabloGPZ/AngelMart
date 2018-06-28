@@ -38,13 +38,17 @@ void eliminarFicha(Tablero &t, int pos_x, int pos_y) {
 
 	celdaVaciarCelda(t, pos_x, pos_y);
 
-	for(int i=0; i<obtenerTamanoTablero(t)-1 && !vacio; i++){ 		//Deja caer las fichas superiores
-		if(!celdaObtenerEstaVacia(t, pos_x, pos_y-i-1)){
-			celdaPonerValor(t, pos_x, pos_y-i, celdaObtenerValor(t, pos_x, pos_y-i-1));
-			celdaVaciarCelda(t, pos_x, pos_y-i-1);
-		}
-		else{
-			vacio = true;
+	for(int i=pos_y; i>=0 && !vacio; i--){					 		//Deja caer las fichas superiores
+		if(i != 0){													//Si la posición es la superior, no puede haber ninguna ficha por encima. Se maneja a parte
+			if(!celdaObtenerEstaVacia(t, pos_x, i-1)){
+				celdaPonerValor(t, pos_x, i, celdaObtenerValor(t, pos_x, i-1));
+				celdaVaciarCelda(t, pos_x, i-1);
+			}
+			else{
+				vacio = true;
+			}
+		}else{
+			celdaVaciarCelda(t, pos_x, i);
 		}
 	}
 }
