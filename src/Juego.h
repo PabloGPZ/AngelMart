@@ -22,6 +22,8 @@ const float TIEMPO_INSERCION_FILA = 0.5;		//Tiempo de retraso para mostrar una n
 const float TIEMPO_TRANSICION_ESTADOS = 0.25; 	//Retraso entre estados de la animación de voltear fichas
 const float TIEMPO_RETRASO_SELECCION = 0.5; 	//Tiempo que se le deja al jugador ver el anverso de ambas fichas
 const float TIEMPO_PAUSA_FINAL = 2; 			//Tiempo que se le deja al jugador ver el mensaje final
+const float TIEMPO_PISTA_1 = 0.75;				//Tiempo que muestran el reverso todas las fichas al activarse la pista 1
+const float TIEMPO_PISTA_2 = 0.25;				//Tiempo que dura la animación de cada volteado de ficha para la pista 2
 
 struct Juego{
 	Tablero t;

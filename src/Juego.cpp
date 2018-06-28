@@ -50,6 +50,7 @@ void manejadorJuego(Juego &j){
 	int pos_x, pos_y;												//Almacena la posición de la celda seleccionada, rol: transformación
 	int sel_x1, sel_y1, sel_x2, sel_y2; 							//Almacenan las posiciones de las dos fichas seleccionadas, rol: transformación
 	int seleccionadas = 0;											//Almacena el numero de fichas seleccionadas, rol: contador
+	bool estado;                                           			//Bandera de la pista 1, rol: bandera
 
 	/*
 	 * INICIALIZACIÓN DEL ENTORNO
@@ -145,7 +146,28 @@ void manejadorJuego(Juego &j){
 					pos_y = 0;
 				entornoActivarCelda(pos_y, pos_x);
 				break;
-			case TX:
+			case TX: //Pista 1
+				estado = true; //Inicialización de la bandera
+
+				if(obtenerPuntuacion(j)-obtenerPuntosPista(j) >= 0){ //Bucle para voltear la ficha de REVERSO a ANVERSO y a REVERSO
+					obtenerPuntuacion(j) = obtenerPuntuacion(j)-obtenerPuntosPista(j); //Se actualiza la puntuación
+					entornoPonerPuntuacion(obtenerPuntuacion(j));
+
+					for(int c=0; c<2; c++){
+						for(int i=0; i<obtenerTamanoTablero(obtenerTablero(j)); i++){ //Bucles for anidados para iterar cada celda del tablero
+							for(int z=0; z<obtenerTamanoTablero(obtenerTablero(j)); z++){
+																	//Si hay alguna ficha seleccionada se mantiene su anverso
+								if(!celdaObtenerEstaVacia(obtenerTablero(j), z, i) && ( i != sel_y1 || z != sel_x1)) //Con que una coordenada sea distinta no será la misma posición
+									celdaPonerMostrandoAnverso(obtenerTablero(j), z, i, estado);
+							}
+						}
+						actualizarEntorno(j);
+						entornoPausa(TIEMPO_PISTA_1); 				//Tiempo de retraso entre ambos volteos
+						estado = false; 							//Actualización de la bandera para pasar de ANVERSO a REVERSO
+					}
+
+					actualizarEntorno(j);
+				}
 				break;
 			case TY:
 				break;
@@ -226,7 +248,7 @@ void actualizarEntorno(Juego &j){
 }
 
 void juegoInsertarFila(Juego &j){
-	insertarFila(obtenerTablero(j), time(NULL)); 					//El timepo como semilla
+	insertarFila(obtenerTablero(j), time(NULL)); 					//El timepo del sistema como semilla
 
 	/*
 	 * Hace que aparezca una fila de fichas mostrando el reverso en la parte superior del tablero
