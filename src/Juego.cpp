@@ -75,10 +75,16 @@ void manejadorJuego(Juego &j){
 		entornoTiempo(seg, obtenerTiempoJugada(j));					//Se actualizan y muestran los segundos del cronómetro
 		if(seg == obtenerTiempoJugada(j)){							//Al llegar a 'tiempoJugada' segundos, el cronómetro se vuelve a iniciar
 			seg = 0;
-			if(cabeFila(obtenerTablero(j))) 						//Comprueba si cabe una fila adicional en el tablero
+			if(cabeFila(obtenerTablero(j))) {                        //Comprueba si cabe una fila adicional en el tablero
 				juegoInsertarFila(j);
-			else
+				//Al insertar una nueva fila por debajo la seleccion también debe subir
+				entornoDesactivarCelda(pos_y, pos_x);
+				pos_y--;
+				sel_y1--;
+				entornoActivarCelda(pos_y, pos_x);
+			}else {
 				salir = true;
+			}
 		}
 
 		/*
@@ -263,19 +269,6 @@ void actualizarEntorno(Juego &j){
 
 void juegoInsertarFila(Juego &j){
 	insertarFila(obtenerTablero(j), time(NULL)); 					//El timepo del sistema como semilla
-
-	/*
-	 * Hace que aparezca una fila de fichas mostrando el reverso en la parte superior del tablero
-	 * 		y después de un pequeño retraso desaparece para hacer la ilusión de que cae hacia abajo
-	 */
-	for(int i=0; i<obtenerTamanoTablero(obtenerTablero(j)); i++){
-		entornoFichaReves(0, i);
-	}
-	entornoPausa(TIEMPO_INSERCION_FILA); 							//Retraso antes del borrado de la fila
-	for(int i=0; i<obtenerTamanoTablero(obtenerTablero(j)); i++){
-		entornoBorrarCelda(0, i);
-	}
-
 	actualizarEntorno(j);
 }
 
