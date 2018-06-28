@@ -146,10 +146,10 @@ void manejadorJuego(Juego &j){
 					pos_y = 0;
 				entornoActivarCelda(pos_y, pos_x);
 				break;
-			case TX: //Pista 1
-				estado = true; //Inicialización de la bandera
+			case TX: 												//Pista 1
+				estado = true; 										//Inicialización de la bandera
 
-				if(obtenerPuntuacion(j)-obtenerPuntosPista(j) >= 0){ //Bucle para voltear la ficha de REVERSO a ANVERSO y a REVERSO
+				if(obtenerPuntuacion(j)-obtenerPuntosPista(j) >= 0){//Bucle para voltear la ficha de REVERSO a ANVERSO y a REVERSO
 					obtenerPuntuacion(j) = obtenerPuntuacion(j)-obtenerPuntosPista(j); //Se actualiza la puntuación
 					entornoPonerPuntuacion(obtenerPuntuacion(j));
 
@@ -169,7 +169,21 @@ void manejadorJuego(Juego &j){
 					actualizarEntorno(j);
 				}
 				break;
-			case TY:
+			case TY: 												//Pista 2
+				if(obtenerPuntuacion(j)-obtenerPuntosPista(j)/2 >= 0){ //Bucle para voltear la ficha de REVERSO a ANVERSO y a REVERSO
+					obtenerPuntuacion(j) = obtenerPuntuacion(j)-obtenerPuntosPista(j)/2; //Se actualiza la puntuación
+					entornoPonerPuntuacion(obtenerPuntuacion(j));
+
+					for(int i=0; i<obtenerTamanoTablero(obtenerTablero(j)); i++){ //Bucles for anidados para iterar cada celda del tablero
+						for(int z=0; z<obtenerTamanoTablero(obtenerTablero(j)); z++){
+							if(!celdaObtenerEstaVacia(obtenerTablero(j), z, i) && ( i != sel_y1 || z != sel_x1)){ //Con que una coordenada sea distinta no será la misma posición){
+								juegoFichaVoltear(j, z, i);
+								entornoPausa(TIEMPO_PISTA_2);
+								juegoFichaVoltear(j, z, i);
+							}
+						}
+					}
+				}
 				break;
 			case TZ:
 				break;
